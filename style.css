@@ -1,0 +1,38 @@
+html, body {
+    background-color: #fffcf0;
+    display: flex;
+    align-items: left;
+    justify-content: center;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+
+    font-family: 'Open Sans', sans-serif;
+  }
+  
+  .wrapper {
+    /*background-color: lightpink;*/
+    max-width: 1200px;
+    display: flex;
+    flex-direction: row;
+    height: 80%;
+  }
+  
+  .left, .right {
+    /*background-color: lightblue;*/
+    margin: 5px;
+    max-width: 1200px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .left {
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .profile-picture {
+    border-radius: 50%;
+  }
