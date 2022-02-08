@@ -178,7 +178,7 @@ class VectorTextDisplay extends Component {
         return (
             this.formatDataRow(
                 <div style={{width: this.labelWidth}}>
-                    {vec.label}
+                    <b>{vec.label}</b>
                 </div>,
                 <div style={{width: this.vectorIndexWidth}}>
                     {x}
