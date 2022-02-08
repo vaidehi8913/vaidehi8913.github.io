@@ -3,38 +3,51 @@
   <head>
     <meta charset="utf-8">
     <title>Single Page Apps for GitHub Pages</title>
-    <script type="text/javascript">
-      // Single Page Apps for GitHub Pages
-      // MIT License
-      // https://github.com/rafgraph/spa-github-pages
-      // This script takes the current url and converts the path and query
-      // string into just a query string, and then redirects the browser
-      // to the new url with only a query string and hash fragment,
-      // e.g. https://www.foo.tld/one/two?a=b&c=d#qwe, becomes
-      // https://www.foo.tld/?/one/two&a=b~and~c=d#qwe
-      // Note: this 404.html file must be at least 512 bytes for it to work
-      // with Internet Explorer (it is currently > 512 bytes)
-
-      // If you're creating a Project Pages site and NOT using a custom domain,
-      // then set pathSegmentsToKeep to 1 (enterprise users may need to set it to > 1).
-      // This way the code will only replace the route part of the path, and not
-      // the real directory in which the app resides, for example:
-      // https://username.github.io/repo-name/one/two?a=b&c=d#qwe becomes
-      // https://username.github.io/repo-name/?/one/two&a=b~and~c=d#qwe
-      // Otherwise, leave pathSegmentsToKeep as 0.
-      var pathSegmentsToKeep = 1;
-
-      var l = window.location;
-      l.replace(
-        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-        l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
-        l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
-        (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
-        l.hash
-      );
-
+    <script>
+        sessionStorage.redirect = location.href;
     </script>
+    <meta http-equiv="refresh" content="0;URL='/REPO_NAME_HERE'">
   </head>
   <body>
+
+    <!--
+        The blog says this file needs to be long-ish.
+        https://www.smashingmagazine.com/2016/08/sghpa-single-page-app-hack-github-pages/
+
+        Random wikipedia article: 
+
+        Sentence boundary disambiguation (SBD), also known as sentence breaking, sentence 
+        boundary detection, and sentence segmentation, is the problem in natural language 
+        processing of deciding where sentences begin and end. Natural language processing 
+        tools often require their input to be divided into sentences; however, sentence 
+        boundary identification can be challenging due to the potential ambiguity of 
+        punctuation marks. In written English, a period may indicate the end of a sentence, 
+        or may denote an abbreviation, a decimal point, an ellipsis, or an email address, 
+        among other possibilities. About 47% of the periods in the Wall Street Journal 
+        corpus denote abbreviations.[1] Question marks and exclamation marks can be 
+        similarly ambiguous due to use in emoticons, computer code, and slang.
+
+        Some languages including Japanese and Chinese have unambiguous sentence-ending 
+        markers.
+
+        STRATEGIES
+        The standard 'vanilla' approach to locate the end of a sentence:
+            (a) If it's a period, it ends a sentence.
+            (b) If the preceding token is in the hand-compiled list of 
+                abbreviations, then it doesn't end a sentence.
+            (c) If the next token is capitalized, then it ends a sentence.
+        This strategy gets about 95% of sentences correct.[2] Things such as shortened 
+        names, e.g. "D. H. Lawrence" (with whitespaces between the individual words that 
+        form the full name), idiosyncratic orthographical spellings used for stylistic 
+        purposes (often referring to a single concept, e.g. an entertainment product 
+        title like ".hack//SIGN") and usage of non-standard punctuation (or non-standard 
+        usage of punctuation) in a text often fall under the remaining 5%.
+
+        Another approach is to automatically learn a set of rules from a set of documents 
+        where the sentence breaks are pre-marked. Solutions have been based on a maximum 
+        entropy model. The SATZ architecture uses a neural network to disambiguate 
+        sentence boundaries and achieves 98.5% accuracy.
+    -->
+
   </body>
 </html>
