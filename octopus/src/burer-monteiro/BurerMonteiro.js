@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 
 import TwoDVectorDisplay from "./TwoDVectorDisplay";
-import ThreeDVectorDisplay from "./ThreeDVectorDisplay";
 import VectorTextDisplay from "./VectorTextDisplay";
 import GraphTextDisplay from "./GraphTextDisplay";
 
@@ -19,9 +18,12 @@ class BurerMonteiro extends Component {
             // {row:[]}
             currentVectors: [],
             isRunning: false,
-            stepSize: 0.5 
+            stepSize: 0.5,
+            tickTime: 1000 
         };
 
+        // this.resetInterval = this.resetInterval.bind(this);
+        this.updateTickTime = this.updateTickTime.bind(this)
         this.updateVectorDimension = this.updateVectorDimension.bind(this);
         this.updateDimension = this.updateDimension.bind(this);
         this.updateStepSize = this.updateStepSize.bind(this);
@@ -36,6 +38,25 @@ class BurerMonteiro extends Component {
         this.passUpVectors = this.passUpVectors.bind(this);
         this.addNewVectorToGraph = this.addNewVectorToGraph.bind(this);
         this.updateGraph = this.updateGraph.bind(this);
+    }
+
+
+    // resetInterval () {
+    //     clearInterval(this.interval);
+    //     this.interval = setInterval(() => this.tick(), this.state.tickTime);
+    // }
+
+
+    updateTickTime (newTickTime) {
+
+        this.setState({
+            tickTime: newTickTime
+        });
+
+        clearInterval(this.interval);
+        this.interval = setInterval(() => this.tick(), this.state.tickTime);
+
+        //this.resetInterval();
     }
 
 
@@ -61,9 +82,6 @@ class BurerMonteiro extends Component {
             dimension: newDimension,
             isRunning: false
         });
-
-        // this should also update the vectors to be
-        // consistent with the new length
     }
 
 
@@ -132,18 +150,6 @@ class BurerMonteiro extends Component {
                     }
                 );
 
-                // var xGrads = this.state.currentVectors.map((dotWith, dotWithIndex) =>
-                //     (this.state.graph[vecIndex].row[dotWithIndex] * dotWith.vec[0])
-                // );
-
-                // var yGrads = this.state.currentVectors.map((dotWith, dotWithIndex) =>
-                //     (this.state.graph[vecIndex].row[dotWithIndex] * dotWith.vec[1])
-                // );
-
-                // var xGrad = xGrads.reduce((a, b) => a + b, 0);
-                // var yGrad = yGrads.reduce((a, b) => a + b, 0);
-
-                // return ({grad: [xGrad, yGrad]});
                 return ({grad: byCoordGrads});
             }
         );
@@ -166,17 +172,6 @@ class BurerMonteiro extends Component {
                 );
 
                 return ({label: vec.label, vec: newIndices});
-
-                // var oldX = vec.vec[0];
-                // var oldY = vec.vec[1];
-
-                // var xGrad = grad[vecIndex].grad[0];
-                // var yGrad = grad[vecIndex].grad[1];
-
-                // var newX = Number(oldX) + (xGrad * this.state.stepSize * -1);
-                // var newY = Number(oldY) + (yGrad * this.state.stepSize * -1);
-
-                // return ({label: vec.label, vec: [newX, newY]});
             }
         );
 
@@ -192,15 +187,6 @@ class BurerMonteiro extends Component {
         var newEntries = vec.vec.map((a) => a / oldNorm);
 
         return ({label: vec.label, vec: newEntries});
-
-        // var oldX = vec.vec[0];
-        // var oldY = vec.vec[1];
-        // var oldNorm = Math.sqrt((oldX * oldX) + (oldY * oldY));
-
-        // var newX = oldX / oldNorm;
-        // var newY = oldY / oldNorm;
-
-        // return ({label: vec.label, vec: [newX, newY]});
     }
 
     stepBurerMonteiro () {
@@ -233,7 +219,7 @@ class BurerMonteiro extends Component {
     }
 
     componentDidMount () {
-        this.interval = setInterval(() => this.tick(), 1000);
+        this.interval = setInterval(() => this.tick(), this.state.tickTime);
     }
 
     componentWillUnmount () {
@@ -351,7 +337,9 @@ class BurerMonteiro extends Component {
                                    updateDimension={this.updateDimension}
                                    dimension={this.state.dimension}
                                    initVectors={this.state.initialVectors}
-                                   currentVectors={this.state.currentVectors}/>
+                                   currentVectors={this.state.currentVectors}
+                                   tickTime={this.state.tickTime}
+                                   updateTickTime={this.updateTickTime}/>
                 <GraphTextDisplay graph={this.state.graph}
                                   vecs={this.state.initialVectors}
                                   updateGraph={this.updateGraph}/>

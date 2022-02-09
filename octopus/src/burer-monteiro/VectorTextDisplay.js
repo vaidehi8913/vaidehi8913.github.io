@@ -11,6 +11,8 @@ import React, { Component } from "react";
     stepSize
     initVectors
     currentVectors
+    tickTime
+    updateTickTime
 */
 class VectorTextDisplay extends Component {
 
@@ -26,6 +28,7 @@ class VectorTextDisplay extends Component {
         this.labelWidth = "50px";
         this.vectorIndexWidth = "50px";
 
+        this.buildTickTimeEntry = this.buildTickTimeEntry.bind(this);
         this.buildDimensionEntry = this.buildDimensionEntry.bind(this)
         this.buildStepSizeEntry = this.buildStepSizeEntry.bind(this)
         this.formatDataRow = this.formatDataRow.bind(this)
@@ -34,6 +37,31 @@ class VectorTextDisplay extends Component {
         this.updateVectorLabel = this.updateVectorLabel.bind(this)
         this.displayVectorInputs = this.displayVectorInputs.bind(this)
         this.displayVectorValues = this.displayVectorValues.bind(this)
+    }
+
+
+    buildTickTimeEntry () {
+
+        var stepSizeWrapperStyle = {
+            display: "flex",
+            flexDirection: "row",
+            gap: "15px"
+        }
+
+        return(
+            <div style={stepSizeWrapperStyle}>
+                (Step every 
+
+                <input type="text"
+                    value={this.props.tickTime}
+                    onChange={(event) => this.props.updateTickTime(Math.floor(event.target.value))}
+                    style={{width: this.labelWidth}}/>
+
+                msec)
+            </div>
+        );
+
+
     }
 
 
@@ -94,12 +122,6 @@ class VectorTextDisplay extends Component {
                 <div style={{width: this.labelWidth}} >
                     {label}
                 </div>
-                {/*<div style={{width: this.vectorIndexWidth}}>
-                    {x}
-                </div>
-                <div style={{width: this.vectorIndexWidth}}>
-                    {y}
-                </div>*/}
                 {formattedData}
             </div>
         );
@@ -184,36 +206,12 @@ class VectorTextDisplay extends Component {
                        onChange={(event) => this.updateVectorLabel(vectorNumber, event.target.value)}
                        style={{width: this.labelWidth}}/>,
                 vectorInputs
-                // <input type="text"
-                //        value={vec.vec[0]}
-                //        onChange={(event) => this.updateVectorIndex(vectorNumber, 0, event.target.value)}
-                //        style={{width: this.vectorIndexWidth}}/>,
-                // <input type="text"
-                //        value={vec.vec[1]}
-                //        onChange={(event) => this.updateVectorIndex(vectorNumber, 1, event.target.value)}
-                //        style={{width: this.vectorIndexWidth}}/>
             )
         );
     }
 
 
     displayVectorValues (vec) {
-
-        // var label = "";
-        // var x = "";
-        // var y = "";
-
-        // if (vec.label != null) {
-        //     label = vec.label;
-        // } 
-
-        // if (vec.vec[0] != null) {
-        //     x = Number(vec.vec[0]).toFixed(4);
-        // }
-
-        // if (vec.vec[1] != null) {
-        //     y = Number(vec.vec[1]).toFixed(4);
-        // }
 
         var fixVectorStrings = vec.vec.map((coordVal) =>
             {
@@ -235,12 +233,6 @@ class VectorTextDisplay extends Component {
                     <b>{vec.label}</b>
                 </div>,
                 formatVectorStrings
-                // <div style={{width: this.vectorIndexWidth}}>
-                //     {x}
-                // </div>,
-                // <div style={{width: this.vectorIndexWidth}}>
-                //     {y}
-                // </div>
             )
         );
     }
@@ -269,6 +261,8 @@ class VectorTextDisplay extends Component {
                 </div>
             );
         }
+
+        var tickTimeEntry = this.buildTickTimeEntry();
 
         var addVectorButtonStyle = {
             width: "100px"
@@ -306,12 +300,6 @@ class VectorTextDisplay extends Component {
                         Label
                     </div>,
                     formattedIndexNames
-                    // <div style={{width: this.vectorIndexWidth}}>
-                    //     x
-                    // </div>,
-                    // <div style={{width: this.vectorIndexWidth}}>
-                    //     y
-                    // </div>
                 );
 
         var vectorInputDisplays = this.props.initVectors.map(this.displayVectorInputs);
@@ -343,6 +331,8 @@ class VectorTextDisplay extends Component {
                 <b> Where are they now?</b>
 
                 {stepSizeEntry}
+
+                {tickTimeEntry}
 
                 <button onClick={this.props.controlRun}
                         style={controlRunButtonStyle}>

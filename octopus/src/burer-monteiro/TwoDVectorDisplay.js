@@ -114,9 +114,7 @@ class TwoDVectorDisplay extends Component {
                         var endY = (endYRaw * this.circRadius * -1) + this.midY;
 
                         var points = [startX, startY, endX, endY];
-
-                        // should add color gradient here
-
+                        
                         var edgeColor = this.findGradientColor(weight);
 
                         var key = "edge:" + rowIndex + "," + colIndex;
