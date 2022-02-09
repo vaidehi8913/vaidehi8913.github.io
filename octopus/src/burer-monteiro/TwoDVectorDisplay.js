@@ -3,6 +3,7 @@ import { Stage,
     Layer, 
     Line, 
     Circle,
+    Ellipse,
     Text } from "react-konva";
 
 /*
@@ -10,6 +11,7 @@ import { Stage,
     vectorList
     graph
     displayGraph (boolean)
+    threeD (boolean)
 */
 class TwoDVectorDisplay extends Component {
 
@@ -22,10 +24,21 @@ class TwoDVectorDisplay extends Component {
         this.midY = this.stageWidth / 2;
         this.circMargin = 50;
         this.circRadius = (this.stageWidth)/2 - this.circMargin;
+        this.zaxisX = -0.25;
+        this.zaxisY = -0.25; // how we are going to project the z direction
 
+        this.project3dto2d = this.project3dto2d.bind(this);
         this.findGradientColor = this.findGradientColor.bind(this);
         this.generatePointDrawing = this.generatePointDrawing.bind(this);
         this.generateGraphDrawing = this.generateGraphDrawing.bind(this);
+    }
+
+
+    project3dto2d (vec) {
+        var newX = Number(vec.vec[0]) + vec.vec[2] * this.zaxisX;
+        var newY = Number(vec.vec[1]) + vec.vec[2] * this.zaxisY;
+
+        return {label: vec.label, vec: [newX, newY]};
     }
 
 
@@ -78,16 +91,22 @@ class TwoDVectorDisplay extends Component {
     generateGraphDrawing () {
         if (this.props.graph.length == 0) return null;
 
+        var vectorList = this.props.vectorList;
+
+        if (this.props.threeD) {
+            vectorList = vectorList.map(this.project3dto2d);
+        }
+
         var lines = this.props.graph.map((row, rowIndex) =>
             {
                 var rowLines = row.row.map((weight, colIndex) =>
                     {
                         if (rowIndex >= colIndex || weight == 0) return null;
 
-                        var startXRaw = this.props.vectorList[rowIndex].vec[0];
-                        var startYRaw = this.props.vectorList[rowIndex].vec[1];
-                        var endXRaw = this.props.vectorList[colIndex].vec[0];
-                        var endYRaw = this.props.vectorList[colIndex].vec[1];
+                        var startXRaw = vectorList[rowIndex].vec[0];
+                        var startYRaw = vectorList[rowIndex].vec[1];
+                        var endXRaw = vectorList[colIndex].vec[0];
+                        var endYRaw = vectorList[colIndex].vec[1];
 
                         var startX = (startXRaw * this.circRadius) + this.midX;
                         var startY = (startYRaw * this.circRadius * -1) + this.midY;
@@ -130,6 +149,16 @@ class TwoDVectorDisplay extends Component {
             return null;
         }
 
+        var isOnBack = false;
+
+        if (this.props.threeD) {
+            if (vec.vec[2] == null) return null;
+
+            if (vec.vec[2] < 0) isOnBack = true;
+
+            vec = this.project3dto2d(vec);
+        }
+
         // because stupid canvas drawings are upside down
         var x = vec.vec[0];
         var y = -1 * vec.vec[1];
@@ -139,24 +168,26 @@ class TwoDVectorDisplay extends Component {
 
         var pointRadius = 5;
         var myRed = "#e30013";
+        var myPink = "#ff7581";
+        var pointColor = isOnBack ? myPink : myRed;
 
         var labelWidth = 10;
         var labelHeight = 10;
 
-        var labelRadius = this.circRadius + this.circMargin/3
+        var projectedPointDistance = Math.sqrt((x * x) + (y * y));
+        var labelRadius = this.circRadius + this.circMargin/(3 * projectedPointDistance);
         var labelCenterX = labelRadius * x + this.midX;
         var labelCenterY = labelRadius * y + this.midY;
         var labelX = labelCenterX - labelWidth/2;
         var labelY = labelCenterY - labelHeight/2;
 
         return (
-            <Layer>
-
+            { point:
                 <Circle radius={pointRadius} 
                         x={pointX}
                         y={pointY} 
-                        fill={myRed}/>
-
+                        fill={pointColor}/>,
+             label:
                 <Text text={vec.label} 
                       x={labelX} 
                       y={labelY} 
@@ -165,11 +196,12 @@ class TwoDVectorDisplay extends Component {
                       align="center"
                       verticalAlign="middle"
                       fontSize={16}
-                      fill={myRed}/>
-
-            </Layer>
+                      fill={pointColor}/>,
+             isOnBack: isOnBack
+            }
         );
     }
+
 
     render() {
 
@@ -183,33 +215,97 @@ class TwoDVectorDisplay extends Component {
         };
 
         var vectorDrawings = this.props.vectorList.map(this.generatePointDrawing);
+        var frontVectorDrawings = vectorDrawings.map((vecDrawing) =>
+            {
+                if (vecDrawing == null || vecDrawing.isOnBack) {
+                    return [];
+                }
+
+                return [vecDrawing.point, vecDrawing.label];
+            }
+        ).reduce((a, b) => a.concat(b), []);
+
+        var backVectorDrawings = vectorDrawings.map((vecDrawing) =>
+            {
+                if (vecDrawing == null || !vecDrawing.isOnBack) {
+                    return [];
+                }
+
+                return [vecDrawing.point, vecDrawing.label];
+            }
+        ).reduce((a, b) => a.concat(b), []);
+
         var graphDrawing = this.generateGraphDrawing();
+
+        var graphDrawing = this.generateGraphDrawing();
+        
 
         var xaxisLinePoints = [this.midX - this.circRadius, this.midY, this.midX + this.circRadius, this.midY];
         var yaxisLinePoints = [this.midX, this.midY - this.circRadius, this.midX, this.midY + this.circRadius];
 
+        var axisDrawings = [<Circle radius={this.circRadius} 
+                                    x={this.midX} 
+                                    y={this.midY} 
+                                    stroke="gray"/>,
+                            <Line points={xaxisLinePoints} 
+                                  stroke="gray"
+                                  dash={[5, 5]}/>,
+                            <Line points={yaxisLinePoints} 
+                                  stroke="gray"
+                                  dash={[5, 5]}/>];
+        
+        var title = "2D Vector Display:";
+
+        // extra z direction stuff 
+        if (this.props.threeD) {
+            var zaxisLinePoints = [this.zaxisX * this.circRadius + this.midX, 
+                                   -1 * this.zaxisY * this.circRadius + this.midY,
+                                   -1 * this.zaxisX * this.circRadius + this.midX, 
+                                   this.zaxisY * this.circRadius + this.midY];
+
+            var yZeroEllipseWidth = this.circRadius;
+            var yZeroEllipseHeight = this.circRadius / Math.sqrt(15);
+            var yZeroEllipseRadius = {x: yZeroEllipseWidth, y: yZeroEllipseHeight};
+            var xZeroEllipseRadius = {x: yZeroEllipseHeight, y: yZeroEllipseWidth};
+
+            axisDrawings = axisDrawings.concat([
+                <Line points={zaxisLinePoints} 
+                              stroke="gray"
+                              dash={[5, 5]}/>,
+                <Ellipse radius={yZeroEllipseRadius} 
+                                 x={this.midX}
+                                 y={this.midY}
+                                 stroke="gray"
+                                 dash={[5, 5]}/>,
+                <Ellipse radius={xZeroEllipseRadius} 
+                                 x={this.midX}
+                                 y={this.midY}
+                                 stroke="gray"
+                                 dash={[5, 5]}/>]);
+
+            title = "3D Vector Display:"
+        }
+
+
         return (
             <div style={vectorDisplayWrapperStyle}>
 
-                <b>2D Vector Display:</b>
+                <b>{title}</b>
 
                 <Stage width={this.stageWidth} height={this.stageHeight}>
                     <Layer>
-                        <Circle radius={this.circRadius} 
-                                x={this.midX} 
-                                y={this.midY} 
-                                stroke="gray"/>
-                        <Line points={xaxisLinePoints} 
-                              stroke="gray"
-                              dash={[5, 5]}/>
-                        <Line points={yaxisLinePoints} 
-                              stroke="gray"
-                              dash={[5, 5]}/>
+                        {axisDrawings}
                     </Layer> 
+
+                    <Layer>
+                        {backVectorDrawings}
+                    </Layer>
 
                     {graphDrawing}
 
-                    {vectorDrawings}
+                    <Layer>
+                        {frontVectorDrawings}
+                    </Layer>
 
                 </Stage>
             </div>

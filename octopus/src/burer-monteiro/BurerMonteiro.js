@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import TwoDVectorDisplay from "./TwoDVectorDisplay";
+import ThreeDVectorDisplay from "./ThreeDVectorDisplay";
 import VectorTextDisplay from "./VectorTextDisplay";
 import GraphTextDisplay from "./GraphTextDisplay";
 
@@ -10,6 +11,7 @@ class BurerMonteiro extends Component {
         super(props);
 
         this.state = {
+            dimension: 2,
             initialVectors: [],
             // vectors are stored as {label: ..., vec: [..., ...]}
             graph: [],
@@ -20,6 +22,8 @@ class BurerMonteiro extends Component {
             stepSize: 0.5 
         };
 
+        this.updateVectorDimension = this.updateVectorDimension.bind(this);
+        this.updateDimension = this.updateDimension.bind(this);
         this.updateStepSize = this.updateStepSize.bind(this);
         this.logVectors = this.logVectors.bind(this);
         this.logGrad = this.logGrad.bind(this);
@@ -32,6 +36,34 @@ class BurerMonteiro extends Component {
         this.passUpVectors = this.passUpVectors.bind(this);
         this.addNewVectorToGraph = this.addNewVectorToGraph.bind(this);
         this.updateGraph = this.updateGraph.bind(this);
+    }
+
+
+    updateVectorDimension (vec, newDimension) {
+
+        var newValues = vec.vec.concat(Array(newDimension).fill(0)).slice(0,newDimension);
+        var newVector = {label: vec.vec, vec: newValues};
+        var normedNewVector = this.normalizeVector(newVector);
+
+        return normedNewVector;
+    }
+
+
+    updateDimension (newDimension) {
+
+        var newInitVectors = this.state.initialVectors.map((vec) =>
+            this.updateVectorDimension(vec, newDimension)
+        );
+
+        this.setState({
+            initialVectors: newInitVectors,
+            currentVectors: newInitVectors,
+            dimension: newDimension,
+            isRunning: false
+        });
+
+        // this should also update the vectors to be
+        // consistent with the new length
     }
 
 
@@ -48,9 +80,14 @@ class BurerMonteiro extends Component {
 
         var garbage = vecs.map((vec, index) =>
             {
+                var coordStrings = vec.vec.map((val) => val + ", ");
+                var coordSingleString = coordStrings.reduce((a, b) => a + b, "");
+                
                 console.log("label: " + vec.label 
                             + ", index: " + index 
-                            + ", coords: (" + vec.vec[0] + ", " + vec.vec[1] + ")");
+                            + ", coords: (" + coordSingleString + ")");
+
+                
             }
         );
 
@@ -63,7 +100,10 @@ class BurerMonteiro extends Component {
 
         var garbage = grad.map((indivgrad, index) =>
             {
-                console.log("index: " + index + ", grads: (" + indivgrad.grad[0] + ", " + indivgrad.grad[1] + ")");
+                var coordStrings = indivgrad.grad.map((val) => val + ", ");
+                var coordSingleString = coordStrings.reduce((a, b) => a + b, "");
+                
+                console.log("index: " + index + ", grads: (" + coordSingleString + ")");
             }
         );
 
@@ -79,18 +119,32 @@ class BurerMonteiro extends Component {
 
         var grad = this.state.currentVectors.map((vec, vecIndex) =>
             {
-                var xGrads = this.state.currentVectors.map((dotWith, dotWithIndex) =>
-                    (this.state.graph[vecIndex].row[dotWithIndex] * dotWith.vec[0])
+
+                var byCoordGrads = vec.vec.map ((irrelevantValue, coord) =>
+                    {
+                        var coordGrads = this.state.currentVectors.map((dotWith, dotWithIndex) =>
+                            (this.state.graph[vecIndex].row[dotWithIndex] * dotWith.vec[coord])
+                        );
+
+                        var coordGrad = coordGrads.reduce((a, b) => a + b, 0);
+
+                        return coordGrad;
+                    }
                 );
 
-                var yGrads = this.state.currentVectors.map((dotWith, dotWithIndex) =>
-                    (this.state.graph[vecIndex].row[dotWithIndex] * dotWith.vec[1])
-                );
+                // var xGrads = this.state.currentVectors.map((dotWith, dotWithIndex) =>
+                //     (this.state.graph[vecIndex].row[dotWithIndex] * dotWith.vec[0])
+                // );
 
-                var xGrad = xGrads.reduce((a, b) => a + b, 0);
-                var yGrad = yGrads.reduce((a, b) => a + b, 0);
+                // var yGrads = this.state.currentVectors.map((dotWith, dotWithIndex) =>
+                //     (this.state.graph[vecIndex].row[dotWithIndex] * dotWith.vec[1])
+                // );
 
-                return ({grad: [xGrad, yGrad]});
+                // var xGrad = xGrads.reduce((a, b) => a + b, 0);
+                // var yGrad = yGrads.reduce((a, b) => a + b, 0);
+
+                // return ({grad: [xGrad, yGrad]});
+                return ({grad: byCoordGrads});
             }
         );
 
@@ -102,16 +156,27 @@ class BurerMonteiro extends Component {
 
         var newVectors = vecs.map((vec, vecIndex) =>
             {
-                var oldX = vec.vec[0];
-                var oldY = vec.vec[1];
+                var newIndices = vec.vec.map((oldCoord, coord) =>
+                    {
+                        var coordGrad = grad[vecIndex].grad[coord];
+                        var newCoord = Number(oldCoord) + (coordGrad * this.state.stepSize * -1);
 
-                var xGrad = grad[vecIndex].grad[0];
-                var yGrad = grad[vecIndex].grad[1];
+                        return newCoord;
+                    }
+                );
 
-                var newX = Number(oldX) + (xGrad * this.state.stepSize * -1);
-                var newY = Number(oldY) + (yGrad * this.state.stepSize * -1);
+                return ({label: vec.label, vec: newIndices});
 
-                return ({label: vec.label, vec: [newX, newY]});
+                // var oldX = vec.vec[0];
+                // var oldY = vec.vec[1];
+
+                // var xGrad = grad[vecIndex].grad[0];
+                // var yGrad = grad[vecIndex].grad[1];
+
+                // var newX = Number(oldX) + (xGrad * this.state.stepSize * -1);
+                // var newY = Number(oldY) + (yGrad * this.state.stepSize * -1);
+
+                // return ({label: vec.label, vec: [newX, newY]});
             }
         );
 
@@ -119,23 +184,40 @@ class BurerMonteiro extends Component {
     }
 
     normalizeVector (vec) {
-        var oldX = vec.vec[0];
-        var oldY = vec.vec[1];
-        var oldNorm = Math.sqrt((oldX * oldX) + (oldY * oldY));
 
-        var newX = oldX / oldNorm;
-        var newY = oldY / oldNorm;
+        var squaredEntries = vec.vec.map((a) => a * a);
+        var sumOfSquaredEntries = squaredEntries.reduce((a, b) => a + b, 0);
+        var oldNorm = Math.sqrt(sumOfSquaredEntries);
 
-        return ({label: vec.label, vec: [newX, newY]});
+        var newEntries = vec.vec.map((a) => a / oldNorm);
+
+        return ({label: vec.label, vec: newEntries});
+
+        // var oldX = vec.vec[0];
+        // var oldY = vec.vec[1];
+        // var oldNorm = Math.sqrt((oldX * oldX) + (oldY * oldY));
+
+        // var newX = oldX / oldNorm;
+        // var newY = oldY / oldNorm;
+
+        // return ({label: vec.label, vec: [newX, newY]});
     }
 
     stepBurerMonteiro () {
         // should add a catch here to stop updating once the gradient is basically 0
         var grad = this.calculateGradient();
 
+        // this.logGrad(grad);
+
         var unnormedVecs = this.moveAgainstGradient(this.state.currentVectors, grad);
 
+        // console.log("unnormed:");
+        // this.logVectors(unnormedVecs);
+
         var normedVecs = unnormedVecs.map(this.normalizeVector);
+
+        // console.log("normed");
+        // this.logVectors(normedVecs);
 
         this.setState({
             currentVectors: normedVecs
@@ -242,17 +324,32 @@ class BurerMonteiro extends Component {
             marginTop: "100px"
         };
 
+        var vectorDisplay = null;
+
+        if (this.state.dimension === 2) {
+            vectorDisplay = <TwoDVectorDisplay vectorList={this.state.currentVectors}
+                                               graph={this.state.graph}
+                                               displayGraph={true}/>
+        } 
+
+        if (this.state.dimension === 3) {
+            vectorDisplay = <TwoDVectorDisplay vectorList={this.state.currentVectors}
+                                               graph={this.state.graph}
+                                               displayGraph={true}
+                                               threeD={true}/>
+        }
+
         return (
             <div style={topLevelWrapperStyle}>
-                <TwoDVectorDisplay vectorList={this.state.currentVectors}
-                                   graph={this.state.graph}
-                                   displayGraph={true}/>
+                {vectorDisplay}
                 <VectorTextDisplay passUpVectors={this.passUpVectors}
                                    addNewVectorToGraph={this.addNewVectorToGraph}
                                    isRunning={this.state.isRunning}
                                    controlRun={this.controlRun}
                                    updateStepSize={this.updateStepSize}
                                    stepSize={this.state.stepSize}
+                                   updateDimension={this.updateDimension}
+                                   dimension={this.state.dimension}
                                    initVectors={this.state.initialVectors}
                                    currentVectors={this.state.currentVectors}/>
                 <GraphTextDisplay graph={this.state.graph}

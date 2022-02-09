@@ -26,6 +26,7 @@ class VectorTextDisplay extends Component {
         this.labelWidth = "50px";
         this.vectorIndexWidth = "50px";
 
+        this.buildDimensionEntry = this.buildDimensionEntry.bind(this)
         this.buildStepSizeEntry = this.buildStepSizeEntry.bind(this)
         this.formatDataRow = this.formatDataRow.bind(this)
         this.addEmptyVector = this.addEmptyVector.bind(this)
@@ -35,6 +36,28 @@ class VectorTextDisplay extends Component {
         this.displayVectorValues = this.displayVectorValues.bind(this)
     }
 
+
+    buildDimensionEntry () {
+
+        var stepSizeWrapperStyle = {
+            display: "flex",
+            flexDirection: "row",
+            gap: "15px"
+        }
+
+        return(
+            <div style={stepSizeWrapperStyle}>
+                <b>Dimension:</b>
+
+                <input type="text"
+                    value={this.props.dimension}
+                    onChange={(event) => this.props.updateDimension(Math.floor(event.target.value))}
+                    style={{width: this.labelWidth}}/>
+            </div>
+        );
+
+
+    }
 
     buildStepSizeEntry () {
 
@@ -58,18 +81,26 @@ class VectorTextDisplay extends Component {
     }
 
 
-    formatDataRow (label, x, y) {
+    formatDataRow (label, data) {
+
+        var formattedData = data.map((datum) => 
+            <div style={{width: this.vectorIndexWidth}}>
+                {datum}
+            </div>
+        );
+
         return (
             <div style={this.vectorHeaderWrapperStyle}>
                 <div style={{width: this.labelWidth}} >
                     {label}
                 </div>
-                <div style={{width: this.vectorIndexWidth}}>
+                {/*<div style={{width: this.vectorIndexWidth}}>
                     {x}
                 </div>
                 <div style={{width: this.vectorIndexWidth}}>
                     {y}
-                </div>
+                </div>*/}
+                {formattedData}
             </div>
         );
 
@@ -78,7 +109,8 @@ class VectorTextDisplay extends Component {
 
 
     addEmptyVector () {
-        var newVectors = this.props.initVectors.concat({label: null, vec:[null, null]});
+        var newVectorCoords = Array(this.props.dimension).fill(null);
+        var newVectors = this.props.initVectors.concat({label: null, vec:newVectorCoords});
 
         this.props.passUpVectors(newVectors);
         this.props.addNewVectorToGraph();
@@ -138,20 +170,28 @@ class VectorTextDisplay extends Component {
 
     displayVectorInputs (vec, vectorNumber) {
 
+        var vectorInputs = vec.vec.map((coordVal, coord) =>
+            <input type="text"
+                   value={coordVal}
+                   onChange={(event) => this.updateVectorIndex(vectorNumber, coord, event.target.value)}
+                   style={{width: this.vectorIndexWidth}}/>
+        );
+
         return (
             this.formatDataRow(
                 <input type="text"
                        value={vec.label}
                        onChange={(event) => this.updateVectorLabel(vectorNumber, event.target.value)}
                        style={{width: this.labelWidth}}/>,
-                <input type="text"
-                       value={vec.vec[0]}
-                       onChange={(event) => this.updateVectorIndex(vectorNumber, 0, event.target.value)}
-                       style={{width: this.vectorIndexWidth}}/>,
-                <input type="text"
-                       value={vec.vec[1]}
-                       onChange={(event) => this.updateVectorIndex(vectorNumber, 1, event.target.value)}
-                       style={{width: this.vectorIndexWidth}}/>
+                vectorInputs
+                // <input type="text"
+                //        value={vec.vec[0]}
+                //        onChange={(event) => this.updateVectorIndex(vectorNumber, 0, event.target.value)}
+                //        style={{width: this.vectorIndexWidth}}/>,
+                // <input type="text"
+                //        value={vec.vec[1]}
+                //        onChange={(event) => this.updateVectorIndex(vectorNumber, 1, event.target.value)}
+                //        style={{width: this.vectorIndexWidth}}/>
             )
         );
     }
@@ -160,32 +200,47 @@ class VectorTextDisplay extends Component {
     displayVectorValues (vec) {
 
         // var label = "";
-        var x = "";
-        var y = "";
+        // var x = "";
+        // var y = "";
 
         // if (vec.label != null) {
         //     label = vec.label;
         // } 
 
-        if (vec.vec[0] != null) {
-            x = Number(vec.vec[0]).toFixed(4);
-        }
+        // if (vec.vec[0] != null) {
+        //     x = Number(vec.vec[0]).toFixed(4);
+        // }
 
-        if (vec.vec[1] != null) {
-            y = Number(vec.vec[1]).toFixed(4);
-        }
+        // if (vec.vec[1] != null) {
+        //     y = Number(vec.vec[1]).toFixed(4);
+        // }
+
+        var fixVectorStrings = vec.vec.map((coordVal) =>
+            {
+                if (coordVal == null) return "";
+
+                return Number(coordVal).toFixed(4);
+            }
+        );
+
+        var formatVectorStrings = fixVectorStrings.map((coordVal) => 
+            <div style={{width: this.vectorIndexWidth}}>
+                {coordVal}
+            </div>
+        );
 
         return (
             this.formatDataRow(
                 <div style={{width: this.labelWidth}}>
                     <b>{vec.label}</b>
                 </div>,
-                <div style={{width: this.vectorIndexWidth}}>
-                    {x}
-                </div>,
-                <div style={{width: this.vectorIndexWidth}}>
-                    {y}
-                </div>
+                formatVectorStrings
+                // <div style={{width: this.vectorIndexWidth}}>
+                //     {x}
+                // </div>,
+                // <div style={{width: this.vectorIndexWidth}}>
+                //     {y}
+                // </div>
             )
         );
     }
@@ -197,9 +252,23 @@ class VectorTextDisplay extends Component {
             display: "flex",
             flexDirection: "column",
             gap: "20px",
-            width: "250px",
+            //width: "250px",
             //backgroundColor: "#ffcfff"
         };
+
+        var dimensionEntry = this.buildDimensionEntry();
+
+        if (this.props.dimension <= 1) {
+            return (
+                <div style={vectorDisplayWrapperStyle}>
+
+                    {dimensionEntry}
+
+                    Invalid dimension! Valid dimensions are greater than 1.
+
+                </div>
+            );
+        }
 
         var addVectorButtonStyle = {
             width: "100px"
@@ -215,17 +284,34 @@ class VectorTextDisplay extends Component {
             controlRunButtonText = "Pause Burer-Monteiro";
         }
 
+        var indexNames = [];
+
+        if (this.props.dimension === 2) {
+            indexNames = ["x", "y"];
+        }
+
+        if (this.props.dimension === 3) {
+            indexNames = ["x", "y", "z"];
+        }
+
+        var formattedIndexNames = indexNames.map((name) => 
+            <div style={{width: this.vectorIndexWidth}}>
+                {name}
+            </div>
+        );
+
         var vectorHeader = 
                 this.formatDataRow(
                     <div style={{width: this.labelWidth}}>
                         Label
                     </div>,
-                    <div style={{width: this.vectorIndexWidth}}>
-                        x
-                    </div>,
-                    <div style={{width: this.vectorIndexWidth}}>
-                        y
-                    </div>
+                    formattedIndexNames
+                    // <div style={{width: this.vectorIndexWidth}}>
+                    //     x
+                    // </div>,
+                    // <div style={{width: this.vectorIndexWidth}}>
+                    //     y
+                    // </div>
                 );
 
         var vectorInputDisplays = this.props.initVectors.map(this.displayVectorInputs);
@@ -236,6 +322,11 @@ class VectorTextDisplay extends Component {
 
         return (
             <div style={vectorDisplayWrapperStyle}>
+
+                {dimensionEntry}
+
+                <br/>
+
                 <b>Initialize Vectors:</b>
 
                 {vectorHeader}

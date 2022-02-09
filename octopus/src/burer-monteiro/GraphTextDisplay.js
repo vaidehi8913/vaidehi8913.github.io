@@ -102,7 +102,7 @@ class GraphTextDisplay extends Component {
             display: "flex",
             flexDirection: "column",
             gap: "20px",
-            width: "600px",
+            //width: "600px",
             //backgroundColor: "#d5ffcc"
         };
 
