@@ -19,16 +19,18 @@ class BurerMonteiro extends Component {
             currentVectors: [],
             isRunning: false,
             stepSize: 0.5,
-            tickTime: 1000 
+            tickTime: 1000,
+            perturbWithin: 0.01 
         };
 
-        // this.resetInterval = this.resetInterval.bind(this);
+        this.updatePerturbWithin = this.updatePerturbWithin.bind(this);
         this.updateTickTime = this.updateTickTime.bind(this)
         this.updateVectorDimension = this.updateVectorDimension.bind(this);
         this.updateDimension = this.updateDimension.bind(this);
         this.updateStepSize = this.updateStepSize.bind(this);
         this.logVectors = this.logVectors.bind(this);
         this.logGrad = this.logGrad.bind(this);
+        this.perturbVectors = this.perturbVectors.bind(this);
         this.calculateGradient = this.calculateGradient.bind(this);
         this.moveAgainstGradient = this.moveAgainstGradient.bind(this);
         this.normalizeVector = this.normalizeVector.bind(this);
@@ -41,22 +43,20 @@ class BurerMonteiro extends Component {
     }
 
 
-    // resetInterval () {
-    //     clearInterval(this.interval);
-    //     this.interval = setInterval(() => this.tick(), this.state.tickTime);
-    // }
+    updatePerturbWithin (newPerturbWithin) {
+        this.setState({
+            perturbWithin: newPerturbWithin
+        });
+    }
 
 
     updateTickTime (newTickTime) {
-
         this.setState({
             tickTime: newTickTime
         });
 
         clearInterval(this.interval);
         this.interval = setInterval(() => this.tick(), this.state.tickTime);
-
-        //this.resetInterval();
     }
 
 
@@ -157,6 +157,28 @@ class BurerMonteiro extends Component {
         return grad;
     }
 
+
+    perturbVectors (vecs) {
+
+        // Math.random() returns something in [0, 1)
+
+        var perturbedVecs = vecs.map((vec) =>
+            {
+                var perturbedIndices = vec.vec.map((entry) =>
+                    entry + (Math.random() * this.state.perturbWithin)
+                );
+
+                return ({
+                    label: vec.label,
+                    vec: perturbedIndices
+                });
+            }
+        );
+
+        return perturbedVecs;
+    }
+
+
     moveAgainstGradient (vecs, grad) {
         // move vectors in the direction of the minimum gradient
 
@@ -200,7 +222,9 @@ class BurerMonteiro extends Component {
         // console.log("unnormed:");
         // this.logVectors(unnormedVecs);
 
-        var normedVecs = unnormedVecs.map(this.normalizeVector);
+        var perturbedVecs = this.perturbVectors(unnormedVecs);
+
+        var normedVecs = perturbedVecs.map(this.normalizeVector);
 
         // console.log("normed");
         // this.logVectors(normedVecs);
@@ -339,7 +363,9 @@ class BurerMonteiro extends Component {
                                    initVectors={this.state.initialVectors}
                                    currentVectors={this.state.currentVectors}
                                    tickTime={this.state.tickTime}
-                                   updateTickTime={this.updateTickTime}/>
+                                   updateTickTime={this.updateTickTime}
+                                   perturbWithin={this.state.perturbWithin}
+                                   updatePerturbWithin={this.updatePerturbWithin}/>
                 <GraphTextDisplay graph={this.state.graph}
                                   vecs={this.state.initialVectors}
                                   updateGraph={this.updateGraph}/>

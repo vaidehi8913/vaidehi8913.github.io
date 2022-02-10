@@ -13,6 +13,8 @@ import React, { Component } from "react";
     currentVectors
     tickTime
     updateTickTime
+    perturbWithin
+    updatePerturbWithin
 */
 class VectorTextDisplay extends Component {
 
@@ -28,6 +30,7 @@ class VectorTextDisplay extends Component {
         this.labelWidth = "50px";
         this.vectorIndexWidth = "50px";
 
+        this.buildPerturbWithinEntry = this.buildPerturbWithinEntry.bind(this);
         this.buildTickTimeEntry = this.buildTickTimeEntry.bind(this);
         this.buildDimensionEntry = this.buildDimensionEntry.bind(this)
         this.buildStepSizeEntry = this.buildStepSizeEntry.bind(this)
@@ -40,12 +43,36 @@ class VectorTextDisplay extends Component {
     }
 
 
+    buildPerturbWithinEntry () {
+
+        var stepSizeWrapperStyle = {
+            display: "flex",
+            flexDirection: "row",
+            gap: "5px"
+        }
+
+        return(
+            <div style={stepSizeWrapperStyle}>
+                (Perturb within  
+
+                <input type="text"
+                    value={this.props.perturbWithin}
+                    onChange={(event) => this.props.updatePerturbWithin(event.target.value)}
+                    style={{width: this.labelWidth}}/>
+
+                )
+            </div>
+        );
+
+
+    }
+
     buildTickTimeEntry () {
 
         var stepSizeWrapperStyle = {
             display: "flex",
             flexDirection: "row",
-            gap: "15px"
+            gap: "5px"
         }
 
         return(
@@ -70,7 +97,7 @@ class VectorTextDisplay extends Component {
         var stepSizeWrapperStyle = {
             display: "flex",
             flexDirection: "row",
-            gap: "15px"
+            gap: "5px"
         }
 
         return(
@@ -92,7 +119,7 @@ class VectorTextDisplay extends Component {
         var stepSizeWrapperStyle = {
             display: "flex",
             flexDirection: "row",
-            gap: "15px"
+            gap: "5px"
         }
 
         return(
@@ -262,6 +289,8 @@ class VectorTextDisplay extends Component {
             );
         }
 
+        var perturbWithinEntry = this.buildPerturbWithinEntry();
+
         var tickTimeEntry = this.buildTickTimeEntry();
 
         var addVectorButtonStyle = {
@@ -313,7 +342,7 @@ class VectorTextDisplay extends Component {
 
                 {dimensionEntry}
 
-                <br/>
+                {/* <br/> */}
 
                 <b>Initialize Vectors:</b>
 
@@ -326,13 +355,15 @@ class VectorTextDisplay extends Component {
                     Add vector
                 </button>
 
-                <br/>
+                {/* <br/> */}
 
                 <b> Where are they now?</b>
 
                 {stepSizeEntry}
 
                 {tickTimeEntry}
+
+                {perturbWithinEntry}
 
                 <button onClick={this.props.controlRun}
                         style={controlRunButtonStyle}>
