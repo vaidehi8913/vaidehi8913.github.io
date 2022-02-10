@@ -15,6 +15,7 @@ import React, { Component } from "react";
     updateTickTime
     perturbWithin
     updatePerturbWithin
+    resetVectors
 */
 class VectorTextDisplay extends Component {
 
@@ -294,7 +295,13 @@ class VectorTextDisplay extends Component {
         var tickTimeEntry = this.buildTickTimeEntry();
 
         var addVectorButtonStyle = {
-            width: "100px"
+            width: "80px"
+        };
+
+        var initialVectorButtonWrapperStyle = {
+            display: "flex",
+            flexDirection: "row",
+            gap: "10px"
         };
 
         var controlRunButtonStyle = {
@@ -368,6 +375,11 @@ class VectorTextDisplay extends Component {
                 <button onClick={this.props.controlRun}
                         style={controlRunButtonStyle}>
                     {controlRunButtonText}
+                </button>
+
+                <button onClick={this.props.resetVectors}
+                            style={controlRunButtonStyle}>
+                    Reset to initial positions
                 </button>
 
                 {vectorHeader}

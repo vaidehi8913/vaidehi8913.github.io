@@ -18,11 +18,12 @@ class BurerMonteiro extends Component {
             // {row:[]}
             currentVectors: [],
             isRunning: false,
-            stepSize: 0.5,
-            tickTime: 1000,
+            stepSize: 0.3,
+            tickTime: 500,
             perturbWithin: 0.01 
         };
 
+        this.resetVectors = this.resetVectors.bind(this);
         this.updatePerturbWithin = this.updatePerturbWithin.bind(this);
         this.updateTickTime = this.updateTickTime.bind(this)
         this.updateVectorDimension = this.updateVectorDimension.bind(this);
@@ -40,6 +41,14 @@ class BurerMonteiro extends Component {
         this.passUpVectors = this.passUpVectors.bind(this);
         this.addNewVectorToGraph = this.addNewVectorToGraph.bind(this);
         this.updateGraph = this.updateGraph.bind(this);
+    }
+
+
+    resetVectors () {
+        this.setState({
+            currentVectors: this.state.initialVectors,
+            isRunning: false
+        });
     }
 
 
@@ -165,7 +174,7 @@ class BurerMonteiro extends Component {
         var perturbedVecs = vecs.map((vec) =>
             {
                 var perturbedIndices = vec.vec.map((entry) =>
-                    entry + (Math.random() * this.state.perturbWithin)
+                    entry + (2 * Math.random() * this.state.perturbWithin) - this.state.perturbWithin
                 );
 
                 return ({
@@ -365,7 +374,8 @@ class BurerMonteiro extends Component {
                                    tickTime={this.state.tickTime}
                                    updateTickTime={this.updateTickTime}
                                    perturbWithin={this.state.perturbWithin}
-                                   updatePerturbWithin={this.updatePerturbWithin}/>
+                                   updatePerturbWithin={this.updatePerturbWithin}
+                                   resetVectors={this.resetVectors}/>
                 <GraphTextDisplay graph={this.state.graph}
                                   vecs={this.state.initialVectors}
                                   updateGraph={this.updateGraph}/>
