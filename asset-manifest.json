@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.e6c13ad2.css",
-    "main.js": "/static/js/main.61bc0518.js",
+    "main.js": "/static/js/main.21bd71bf.js",
     "static/media/23.gif": "/static/media/23.8c7cd4bc29934cdf2e8d.gif",
     "static/media/27.png": "/static/media/27.10290bc05453b90e20e5.png",
     "static/media/31.png": "/static/media/31.f296dc08832cbc37991c.png",
@@ -38,10 +38,10 @@
     "static/media/SrinivasCVFall21.pdf": "/static/media/SrinivasCVFall21.cf1bde22224a499e1212.pdf",
     "index.html": "/index.html",
     "main.e6c13ad2.css.map": "/static/css/main.e6c13ad2.css.map",
-    "main.61bc0518.js.map": "/static/js/main.61bc0518.js.map"
+    "main.21bd71bf.js.map": "/static/js/main.21bd71bf.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.61bc0518.js"
+    "static/js/main.21bd71bf.js"
   ]
 }
