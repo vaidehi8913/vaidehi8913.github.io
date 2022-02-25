@@ -168,7 +168,15 @@ class GraphTextDisplay extends Component {
 
         var data = this.props.vecs.map((v, i) => this.calculateMultiplier(i));
 
-        var formattedData = this.generateMultiplierRow(data);
+        var fixDataStrings = data.map((coordVal) =>
+            {
+                if (coordVal == null) return "";
+
+                return Number(coordVal).toFixed(4);
+            }
+        );
+
+        var formattedData = this.generateMultiplierRow(fixDataStrings);
         
 
         return (

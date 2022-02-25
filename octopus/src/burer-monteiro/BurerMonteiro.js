@@ -377,7 +377,7 @@ class BurerMonteiro extends Component {
                                    updatePerturbWithin={this.updatePerturbWithin}
                                    resetVectors={this.resetVectors}/>
                 <GraphTextDisplay graph={this.state.graph}
-                                  vecs={this.state.initialVectors}
+                                  vecs={this.state.currentVectors}
                                   updateGraph={this.updateGraph}/>
             </div>
         );
