@@ -252,7 +252,7 @@ class BurerMonteiro extends Component {
     }
 
     componentDidMount () {
-        this.interval = setInterval(() => this.tick(), this.state.tickTime);
+        this.interval = setInterval(() => this.tick(), 500);
     }
 
     componentWillUnmount () {

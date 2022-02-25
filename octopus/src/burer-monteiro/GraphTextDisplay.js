@@ -21,6 +21,8 @@ class GraphTextDisplay extends Component {
 
         this.generateGraphRow = this.generateGraphRow.bind(this);
         this.generateGraphDisplay = this.generateGraphDisplay.bind(this);
+        this.generateMultiplierRow = this.generateMultiplierRow.bind(this);
+        this.generateMultiplierDisplay = this.generateMultiplierDisplay.bind(this);
     }
 
     generateGraphRow (label, data, row) {
@@ -96,6 +98,88 @@ class GraphTextDisplay extends Component {
     }
 
 
+    generateMultiplierRow (data) {
+
+        var cellStyle = {
+            width: this.graphCellWidth,
+            height: this.graphCellWidth,
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "center",
+            //backgroundColor: "#ffbcb8"
+        }
+
+        var formattedData = data.map((value, col) => 
+            <div style={cellStyle}>
+                {value}
+            </div>
+        );
+
+        return (
+            <div style={this.graphRowStyle}>
+                {formattedData}
+            </div>
+        );
+
+    }
+
+
+    calculateMultiplier (i) {
+
+        var vecs = this.props.vecs;
+
+        var sumComponents = vecs.map((vec, j) =>
+            {
+                var Aij = this.props.graph[i].row[j];
+
+                var YizipYj = vecs[i].vec.map((Yivalue, Yindex) => 
+                    {
+                        var Yjvalue = vecs[j].vec[Yindex];
+
+                        return (Yivalue * Yjvalue);
+                    }
+                );
+
+                var YidotYj = YizipYj.reduce((a, b) => a + b, 0);
+
+                return (Aij * YidotYj);
+            }
+        );
+
+        var lambda_i = sumComponents.reduce((a, b) => a + b, 0);
+
+        return lambda_i;
+
+    }
+
+
+    generateMultiplierDisplay () {
+
+        var graphWrapperStyle = {
+            display: "flex",
+            flexDirection: "column",
+            gap: this.graphCellGap
+        }
+
+        var vectorLabels = this.props.vecs.map((elem) => <b>{elem.label}</b>);
+
+        var headerRow = this.generateMultiplierRow(vectorLabels);
+
+        var data = this.props.vecs.map((v, i) => this.calculateMultiplier(i));
+
+        var formattedData = this.generateMultiplierRow(data);
+        
+
+        return (
+            <div style={graphWrapperStyle}>
+                {headerRow}
+                {formattedData}
+            </div>
+        );
+    }
+
+
     render () {
 
         var vectorDisplayWrapperStyle = {
@@ -110,6 +194,9 @@ class GraphTextDisplay extends Component {
             <div style={vectorDisplayWrapperStyle}>
                 <b>Graph:</b>
                 {this.generateGraphDisplay()}
+
+                <b>Multipliers:</b>
+                {this.generateMultiplierDisplay()}
             </div>
         );
     }

@@ -298,11 +298,12 @@ class VectorTextDisplay extends Component {
             width: "80px"
         };
 
-        var initialVectorButtonWrapperStyle = {
-            display: "flex",
-            flexDirection: "row",
-            gap: "10px"
-        };
+        // delete?
+        // var initialVectorButtonWrapperStyle = {
+        //     display: "flex",
+        //     flexDirection: "row",
+        //     gap: "10px"
+        // };
 
         var controlRunButtonStyle = {
             width: "200px"
