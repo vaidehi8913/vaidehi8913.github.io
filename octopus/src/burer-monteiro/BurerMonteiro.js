@@ -19,9 +19,11 @@ class BurerMonteiro extends Component {
             currentVectors: [],
             isRunning: false,
             stepSize: 0.3,
-            tickTime: 500,
+            tickTime: 1000,
             perturbWithin: 0.01 
         };
+
+        this.interval = setInterval(() => this.tick(), 1000);
 
         this.resetVectors = this.resetVectors.bind(this);
         this.updatePerturbWithin = this.updatePerturbWithin.bind(this);
@@ -251,9 +253,9 @@ class BurerMonteiro extends Component {
         }
     }
 
-    componentDidMount () {
-        this.interval = setInterval(() => this.tick(), 500);
-    }
+    // componentDidMount () {
+    //     this.interval = setInterval(() => this.tick(), 500);
+    // }
 
     componentWillUnmount () {
         clearInterval(this.interval);

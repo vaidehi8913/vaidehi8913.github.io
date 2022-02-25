@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import * as Utils from "./Utils";
 
 /*
     PROPS
@@ -23,6 +24,7 @@ class GraphTextDisplay extends Component {
         this.generateGraphDisplay = this.generateGraphDisplay.bind(this);
         this.generateMultiplierRow = this.generateMultiplierRow.bind(this);
         this.generateMultiplierDisplay = this.generateMultiplierDisplay.bind(this);
+        //this.generateADiagLambdaY = this.generateADiagLambdaY.bind(this);
     }
 
     generateGraphRow (label, data, row) {
@@ -166,9 +168,9 @@ class GraphTextDisplay extends Component {
 
         var headerRow = this.generateMultiplierRow(vectorLabels);
 
-        var data = this.props.vecs.map((v, i) => this.calculateMultiplier(i));
+        var multipliers = this.props.vecs.map((v, i) => this.calculateMultiplier(i));
 
-        var fixDataStrings = data.map((coordVal) =>
+        var fixDataStrings = multipliers.map((coordVal) =>
             {
                 if (coordVal == null) return "";
 
@@ -178,14 +180,64 @@ class GraphTextDisplay extends Component {
 
         var formattedData = this.generateMultiplierRow(fixDataStrings);
         
+        var AminusDiagLambda = this.props.graph.map((graphRow, rowIndex) =>
+            {
+                var graphRowData = graphRow.row;
+
+                var newGraphRowData = graphRowData.map((value, colIndex) =>
+                    {
+                        if (colIndex == rowIndex) {
+                            return (-1 * multipliers[colIndex]);
+                        }
+
+                        return (value);
+                    }
+                );
+
+                return ({row: newGraphRowData});
+            }
+        );
+
+        var Y = this.props.vecs.map ((vec) => ({row: vec.vec}));
+
+        var product = Utils.matrixMultiply(AminusDiagLambda, Y);
+
+        var formattedEntries = product.map((row) =>
+            {
+                var rowData = row.row;
+
+                var fixedDataStrings = rowData.map((coordVal) =>
+                    {
+                        if (coordVal == null) return "";
+        
+                        return Number(coordVal).toFixed(4);
+                    }
+                );
+
+                var formattedData = this.generateMultiplierRow(fixedDataStrings);
+
+                return formattedData;
+            }
+        );
 
         return (
-            <div style={graphWrapperStyle}>
-                {headerRow}
-                {formattedData}
+            <div>
+                <b> Multipliers: </b>
+                <div style={graphWrapperStyle}>
+                    {headerRow}
+                    {formattedData}
+                </div>
+
+                <br/>
+                <b> (A - diag(lambda)) * Y :</b>
+                <div style={graphWrapperStyle}>
+                    {formattedEntries}
+                </div>
             </div>
+            
         );
     }
+
 
 
     render () {
@@ -203,7 +255,7 @@ class GraphTextDisplay extends Component {
                 <b>Graph:</b>
                 {this.generateGraphDisplay()}
 
-                <b>Multipliers:</b>
+                {/* <b>Multipliers:</b> */}
                 {this.generateMultiplierDisplay()}
             </div>
         );
