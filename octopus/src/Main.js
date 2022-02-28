@@ -21,7 +21,7 @@ class Main extends Component {
                 <Routes>
                     <Route exact path="/" element={<Academic/>}/>
                     <Route path="/octopus/*" element={<Octopus/>}/>
-                    <Route path="/burer-monteiro" element={<BurerMonteiro/>}/>
+                    {/*<Route path="/burer-monteiro" element={<BurerMonteiro/>}/>*/}
                 </Routes>
             </BrowserRouter>
 
