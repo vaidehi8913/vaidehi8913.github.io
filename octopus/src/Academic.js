@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import {
-    Link
-} from "react-router-dom";
+// import {
+//     Link
+// } from "react-router-dom";
 
 import CV from "./files/SrinivasCVFall21.pdf";
 import SeniorThesis from "./files/SimplerApproximationsForNetworkSteinerTree.pdf";
@@ -181,7 +181,7 @@ class Academic extends Component {
                             
                             A more complete list of my projects and interests are in my <a href={CV}><b>CV</b></a> (last updated fall 2021).<br/><br/>
 
-                            I also draw <Link to="/octopus">comics</Link>. Some are even CS related! 
+                            {/* I also draw <Link to="/octopus">comics</Link>. Some are even CS related!  */}
                         </div>
                     </div>
                 </div>
