@@ -161,7 +161,7 @@ class Academic extends Component {
 
                             <p>
                                 Before that, I was a <a href="https://us.fulbrightonline.org/countries/europe-and-eurasia/austria/255">Fulbright</a> visting student at the <a href="https://taa.cs.univie.ac.at">University of Vienna</a>, 
-                                and I earned by B.S. in Computer Science at <a href="https://www.cs.cmu.edu//">Carnegie Mellon University</a>.
+                                and I earned my B.S. in Computer Science at <a href="https://www.cs.cmu.edu//">Carnegie Mellon University</a>.
                             </p>
                             
                             <br/>
@@ -169,8 +169,8 @@ class Academic extends Component {
                             <font size="+2">Research Projects</font><br/><br/>
                             
                             <b>Memory Bounds for the Experts Problem</b> <a href="http://arxiv.org/abs/2204.09837">[arXiv]</a> <br/>
-                            <i> with <a href="http://www.cs.cmu.edu/~dwoodruf/">David P. Woodruff</a>, <a href="https://neilzxu.me/">Ziyu Xu</a>, <a href="https://samsonzhou.github.io/">Samson Zhou</a> </i><br/>
-                            <a href="http://acm-stoc.org/stoc2022/">STOC 2022.</a><br/><br/>
+                            <i> with <a href="http://www.cs.cmu.edu/~dwoodruf/">David P. Woodruff</a>, <a href="https://neilzxu.me/">Ziyu Xu</a>, <a href="https://samsonzhou.github.io/">Samson Zhou</a> </i>,<br/>
+                            to appear in <a href="http://acm-stoc.org/stoc2022/">STOC 2022.</a><br/><br/>
                             
                             <b>Simpler Approximations for the Network-Steiner Tree Problem</b> <a href={SeniorThesis}>[pdf]</a><br/> <i>advised by <a href="http://www.cs.cmu.edu/~anupamg/">Anupam Gupta</a>,</i><br/>
                             Senior Thesis, 2020.<br/><br/>
