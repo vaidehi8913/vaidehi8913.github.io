@@ -82,7 +82,7 @@ class Academic extends Component {
         this.innerWrapperStyle = {
             display: "flex",
             flexDirection: "column",
-            justifyContent: "center"
+            justifyContent: "flex-start"
         }
 
         this.leftBoxStyle = {
@@ -91,7 +91,7 @@ class Academic extends Component {
             alignItems: "center",
             flex: "1",
             margin: "5px",
-            maxWidth: "25%",
+            maxWidth: "30%",
             fontFamily: "'Open Sans', sans-serif"
         }
 
@@ -100,7 +100,7 @@ class Academic extends Component {
             flexDirection: "column",
             flex: "1",
             margin: "5px",
-            maxWidth: "65%",
+            maxWidth: "50%",
             scrollBehavior: "smooth"
         }
 
