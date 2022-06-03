@@ -75,7 +75,7 @@ class Academic extends Component {
             flexDirection: "row",
             justifyContent: "center",
             alignItems: "center",
-            height: "700px",
+            //height: "700px",
             //backgroundColor: "#f2c7f2"
         }
 
@@ -205,9 +205,8 @@ class Academic extends Component {
                             <p>
                             The 11/6 and 1.55-approximation algorithms for the Network-Steiner tree problem given by Zelikovsky 
                             (&#39;93) and Robins and Zelikovsky (&#39;05) are classic results in approximation algorithms.  They are 
-                            also notorious for their very technical analyses.  We explore an idea due to Deeparnab Chakrabarty, 
-                            and provide a simple modular analysis by reducing to submodular function optimization under knapsack 
-                            constraints. 
+                            also notorious for their very technical analyses.  We provide a simple modular analysis by reducing to 
+                            submodular function optimization under knapsack constraints (idea due to Deeparnab Chakrabarty). 
                             </p><br/>
 
                             <br/>
