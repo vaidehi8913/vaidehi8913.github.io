@@ -75,7 +75,7 @@ class Academic extends Component {
             display: "flex",
             flexDirection: "row",
             justifyContent: "space-around",
-            alignItems: "center",
+            alignItems: "flex-start",
             //height: "700px",
             //backgroundColor: "#f2c7f2"
         }
@@ -163,9 +163,10 @@ class Academic extends Component {
                     <div className="right-box" style={this.rightBoxStyle}>
                         <div>
                             <p>
-                                I am a first-year Ph.D. student in the Computer Science 
-                                <a href= "https://theory.cs.northwestern.edu/"> Theory group</a> at Northwestern University, advised by 
-                                <a href="http://users.eecs.northwestern.edu/~aravindv/"> Aravindan Vijayaraghavan</a>.    
+                                I am a first-year Ph.D. student in the Computer
+                                Science <a href= "https://theory.cs.northwestern.edu/">Theory group</a> at Northwestern 
+                                University, advised  
+                                by <a href="http://users.eecs.northwestern.edu/~aravindv/">Aravindan Vijayaraghavan</a>.    
                             </p>
 
                             <p>
@@ -174,13 +175,13 @@ class Academic extends Component {
                             </p>
 
                             <p>
-                                Before Northwestern, I was a 
-                                <a href="https://us.fulbrightonline.org/countries/europe-and-eurasia/austria/255"> Fulbright </a> 
-                                visting student at the University of Vienna in the 
-                                <a href="https://taa.cs.univie.ac.at"> Theory and Applications of Algorithms group</a>, 
-                                and I earned my B.S. in Computer Science at 
-                                <a href="https://www.cs.cmu.edu//"> Carnegie Mellon University</a>. <i>Ich spreche auch 
-                                gerne Deutsch!</i>
+                                Before Northwestern, I was 
+                                a <a href="https://us.fulbrightonline.org/countries/europe-and-eurasia/austria/255">Fulbright </a> 
+                                visting student at the University of Vienna in 
+                                the <a href="https://taa.cs.univie.ac.at">Theory and Applications of Algorithms group</a>, 
+                                and I earned my B.S. in Computer Science 
+                                at <a href="https://www.cs.cmu.edu//">Carnegie Mellon University</a>. Ich spreche auch 
+                                gerne Deutsch!
                             </p>
                             
                             <br/>
