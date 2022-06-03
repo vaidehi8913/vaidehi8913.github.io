@@ -107,18 +107,21 @@ class Academic extends Component {
 
         this.nameStyle = {
             fontFamily: "'Open Sans', sans-serif",
-            fontSize: "200%"
+            fontSize: "200%",
+            textAlign: "center"
         }
 
         this.pronounsStyle = {
             fontFamily: "sans-serif",
             fontStyle: "italic",
-            fontSize: "120%"
+            fontSize: "120%",
+            textAlign: "center"
         }
 
         this.emailStyle = {
             fontFamily: "monospace",
-            fontSize: "120%"
+            fontSize: "120%",
+            textAlign: "center"
         }
     }
 
