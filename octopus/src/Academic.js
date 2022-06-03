@@ -71,6 +71,10 @@ class Academic extends Component {
             height: "25px"
         }
 
+        this.longSpacerStyle = {
+            height: "150px"
+        }
+
         this.academicBoxStyle = {
             display: "flex",
             flexDirection: "row",
@@ -139,8 +143,7 @@ class Academic extends Component {
 
                     <div className="left-box" style={this.leftBoxStyle}>
 
-                        <div className="spacer" style={this.spacerStyle}/>
-                        <div className="spacer" style={this.spacerStyle}/>
+                        <div className="longspacer" style={this.longSpacerStyle}/>
                         
                         <ProfilePicture />
                         
@@ -179,8 +182,11 @@ class Academic extends Component {
                                 a <a href="https://us.fulbrightonline.org/countries/europe-and-eurasia/austria/255">Fulbright </a> 
                                 visting student at the University of Vienna in 
                                 the <a href="https://taa.cs.univie.ac.at">Theory and Applications of Algorithms group</a>, 
-                                and I earned my B.S. in Computer Science at Carnegie Mellon University. Ich spreche auch 
-                                gerne Deutsch!
+                                and I earned my B.S. in Computer Science at Carnegie Mellon University. 
+                            </p>
+
+                            <p>
+                                <i>Ich spreche auch gerne Deutsch!</i>
                             </p>
                             
                             <br/>
