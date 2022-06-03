@@ -41,7 +41,7 @@ class ProfilePicture extends Component {
         }
 
         var imageStyle = {
-            width: "150px",
+            width: "80%",//"150px",
             borderRadius: "50%"
         }
 
