@@ -73,7 +73,7 @@ class Academic extends Component {
         this.academicBoxStyle = {
             display: "flex",
             flexDirection: "row",
-            justifyContent: "center",
+            justifyContent: "space-around",
             alignItems: "center",
             //height: "700px",
             //backgroundColor: "#f2c7f2"
