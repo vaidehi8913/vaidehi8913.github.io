@@ -175,7 +175,7 @@ class Academic extends Component {
                             
                             <br/>
 
-                            <font size="+2">Research Projects</font><br/><br/>
+                            <font size="+2">Research</font><br/><br/>
                             
                             <b>The Burer-Monteiro SDP method can fail even above the Barvinok-Pataki bound</b><br/>
                             <i>with Liam O'Carroll, <a href="http://users.eecs.northwestern.edu/~aravindv/">Aravindan Vijayaraghavan</a>, </i><br/>
