@@ -41,7 +41,7 @@ class ProfilePicture extends Component {
         }
 
         var imageStyle = {
-            width: "250px",
+            width: "150px",
             borderRadius: "50%"
         }
 
@@ -91,7 +91,7 @@ class Academic extends Component {
             alignItems: "center",
             flex: "1",
             margin: "5px",
-            maxWidth: "40%",
+            maxWidth: "25%",
             fontFamily: "'Open Sans', sans-serif"
         }
 
@@ -100,7 +100,7 @@ class Academic extends Component {
             flexDirection: "column",
             flex: "1",
             margin: "5px",
-            maxWidth: "40%",
+            maxWidth: "65%",
             scrollBehavior: "smooth"
         }
 
