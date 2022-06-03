@@ -61,6 +61,7 @@ class Academic extends Component {
 
         this.backgroundBoxStyle = {
             backgroundColor: "#fffcf0",
+            overflow: "auto",
             display: "flex",
             flexDirection: "row",
             justifyContent: "center",
