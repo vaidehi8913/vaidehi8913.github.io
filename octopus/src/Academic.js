@@ -156,18 +156,25 @@ class Academic extends Component {
                         <div>
                             <p>
                                 I am a first-year Ph.D. student in the <a href= "https://theory.cs.northwestern.edu/"> 
-                                Computer Science Theory group at Northwestern University</a>.    
+                                Computer Science Theory group at Northwestern University</a>, advised by <a href="http://users.eecs.northwestern.edu/~aravindv/">Aravindan Vijayaraghavan</a>.    
+                                I am interested in designed and analyzing simple algorithms that are practical for real-world input.
                             </p>
 
                             <p>
-                                Before that, I was a <a href="https://us.fulbrightonline.org/countries/europe-and-eurasia/austria/255">Fulbright</a> visting student at the <a href="https://taa.cs.univie.ac.at">University of Vienna</a>, 
+                                Before Northwestern, I was a <a href="https://us.fulbrightonline.org/countries/europe-and-eurasia/austria/255">Fulbright</a> visting student at the University of Vienna 
+                                in the <a href="https://taa.cs.univie.ac.at">Theory and Applications of Algorithms group</a>, 
                                 and I earned my B.S. in Computer Science at <a href="https://www.cs.cmu.edu//">Carnegie Mellon University</a>.
+                                <i>Ich spreche auch gerne Deutsch!</i>
                             </p>
                             
                             <br/>
 
                             <font size="+2">Research Projects</font><br/><br/>
                             
+                            <b>The Burer-Monteiro SDP method can fail even above the Barvinok-Pataki bound</b>
+                            <i>with Liam O'Carroll, <a href="http://users.eecs.northwestern.edu/~aravindv/">Aravindan Vijayaraghavan</a>, </i><br/>
+                            in submission. <br/><br/>
+
                             <b>Memory Bounds for the Experts Problem</b> <a href="http://arxiv.org/abs/2204.09837">[arXiv]</a> <br/>
                             <i> with <a href="http://www.cs.cmu.edu/~dwoodruf/">David P. Woodruff</a>, <a href="https://neilzxu.me/">Ziyu Xu</a>, <a href="https://samsonzhou.github.io/">Samson Zhou</a> </i>,<br/>
                             to appear in <a href="http://acm-stoc.org/stoc2022/">STOC 2022.</a><br/><br/>
