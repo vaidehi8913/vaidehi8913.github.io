@@ -134,6 +134,9 @@ class Academic extends Component {
                     
 
                     <div className="left-box" style={this.leftBoxStyle}>
+
+                        <div className="spacer" style={this.spacerStyle}/>
+                        <div className="spacer" style={this.spacerStyle}/>
                         
                         <ProfilePicture />
                         
