@@ -179,8 +179,7 @@ class Academic extends Component {
                                 a <a href="https://us.fulbrightonline.org/countries/europe-and-eurasia/austria/255">Fulbright </a> 
                                 visting student at the University of Vienna in 
                                 the <a href="https://taa.cs.univie.ac.at">Theory and Applications of Algorithms group</a>, 
-                                and I earned my B.S. in Computer Science 
-                                at <a href="https://www.cs.cmu.edu//">Carnegie Mellon University</a>. Ich spreche auch 
+                                and I earned my B.S. in Computer Science at Carnegie Mellon University. Ich spreche auch 
                                 gerne Deutsch!
                             </p>
                             
