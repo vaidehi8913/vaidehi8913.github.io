@@ -100,7 +100,8 @@ class Academic extends Component {
             flexDirection: "column",
             flex: "1",
             margin: "5px",
-            maxWidth: "40%"
+            maxWidth: "40%",
+            scrollBehavior: "smooth"
         }
 
         this.nameStyle = {
@@ -156,19 +157,19 @@ class Academic extends Component {
                         <div>
                             <p>
                                 I am a first-year Ph.D. student in the Computer Science 
-                                <a href= "https://theory.cs.northwestern.edu/">Theory group</a> at Northwestern University, advised by 
-                                <a href="http://users.eecs.northwestern.edu/~aravindv/">Aravindan Vijayaraghavan</a>.    
+                                <a href= "https://theory.cs.northwestern.edu/"> Theory group</a> at Northwestern University, advised by 
+                                <a href="http://users.eecs.northwestern.edu/~aravindv/"> Aravindan Vijayaraghavan</a>.    
                                 I am interested in designing and analyzing simple algorithms that are practical for 
                                 real-world input.
                             </p>
 
                             <p>
                                 Before Northwestern, I was a 
-                                <a href="https://us.fulbrightonline.org/countries/europe-and-eurasia/austria/255">Fulbright</a> 
+                                <a href="https://us.fulbrightonline.org/countries/europe-and-eurasia/austria/255"> Fulbright </a> 
                                 visting student at the University of Vienna in the 
-                                <a href="https://taa.cs.univie.ac.at">Theory and Applications of Algorithms group</a>, 
+                                <a href="https://taa.cs.univie.ac.at"> Theory and Applications of Algorithms group</a>, 
                                 and I earned my B.S. in Computer Science at 
-                                <a href="https://www.cs.cmu.edu//">Carnegie Mellon University</a>. <i>Ich spreche auch 
+                                <a href="https://www.cs.cmu.edu//"> Carnegie Mellon University</a>. <i>Ich spreche auch 
                                 gerne Deutsch!</i>
                             </p>
                             
@@ -178,20 +179,19 @@ class Academic extends Component {
                             
                             <b>The Burer-Monteiro SDP method can fail even above the Barvinok-Pataki bound</b><br/>
                             <i>with Liam O'Carroll, <a href="http://users.eecs.northwestern.edu/~aravindv/">Aravindan Vijayaraghavan</a>, </i><br/>
-                            in submission. <br/><br/>
+                            in submission. 
 
                             <p>
                             The Burer-Monteiro method is a practical and popular heuristic for solving semidefinite programs 
-                            (SDPs).  Recent results have given smoothed-analysis guarantees for this algorithm, but it remained
-                            open whether there was any instance on which the Burer-Monteiro method would fail.  We provide a 
-                            family of instances that have spurious local minima (so Burer-Monteiro could indeed fail), which 
-                            justifies the use of beyond-worst-case paradigms like smoothed analysis to obtain guarantees.
+                            (SDPs).  We provide a family of instances that have spurious local minima for high rank
+                            (so Burer-Monteiro could indeed fail), which justifies the use of beyond-worst-case paradigms 
+                            like smoothed analysis to obtain guarantees.
                             </p><br/>
 
                             <b>Memory Bounds for the Experts Problem</b> <a href="http://arxiv.org/abs/2204.09837">[arXiv]</a> <br/>
                             <i> with <a href="http://www.cs.cmu.edu/~dwoodruf/">David P. Woodruff</a>, <a href="https://neilzxu.me/">Ziyu Xu</a>, 
                             <a href="https://samsonzhou.github.io/">Samson Zhou</a>, </i><br/>
-                            to appear in <a href="http://acm-stoc.org/stoc2022/">STOC 2022.</a><br/><br/>
+                            to appear in <a href="http://acm-stoc.org/stoc2022/">STOC 2022.</a>
 
                             <p>
                             We initiate the study of the online learning with expert advice problem in the streaming (low-memory) setting.  
@@ -200,7 +200,7 @@ class Academic extends Component {
                             
                             <b>Simpler Approximations for the Network-Steiner Tree Problem</b> <a href={SeniorThesis}>[pdf]</a><br/> 
                             <i>advised by <a href="http://www.cs.cmu.edu/~anupamg/">Anupam Gupta</a>,</i><br/>
-                            Senior Thesis, 2020.<br/><br/>
+                            Senior Thesis, 2020.
                             
                             <p>
                             The 11/6 and 1.55-approximation algorithms for the Network-Steiner tree problem given by Zelikovsky 
