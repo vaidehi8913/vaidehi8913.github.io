@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+//import {TouchableOpacity} from "react-native";
 // import {
 //     Link
 // } from "react-router-dom";
@@ -53,6 +54,96 @@ class ProfilePicture extends Component {
     }
 }
 
+/* PROPS
+mainPaperInfo (formatted)
+paperDescription (dropdown)
+*/
+class PaperWrapper extends Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            dropDown: false,
+            hovering: false
+        }
+
+        this.onClick = this.onClick.bind(this);
+        this.onMouseEnter = this.onMouseEnter.bind(this);
+        this.onMouseLeave = this.onMouseLeave.bind(this);
+    }
+
+    onClick(e) {
+        var isDropped = this.state.dropDown;
+        this.setState({dropDown: !isDropped});
+    }
+
+    onMouseEnter(e) {
+        this.setState({hovering: true});
+    }    
+
+    onMouseLeave(e) {
+        this.setState({hovering: false});
+    }
+
+    render () {
+
+        var permanentBoxStyle = {
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "flex-end"
+        }
+
+        var dropDownBox = null;
+
+        var invertColorScheme = this.state.dropDown || this.state.hovering;
+
+        var mainColor = invertColorScheme ? null : "black";
+        var textColor = invertColorScheme ? "black" : "#fffcf0";
+
+        var feedbackButtonStyle = {
+            width: "15px",
+            height: "15px",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            padding: 10,
+            borderRadius: 100,
+            backgroundColor: mainColor,
+            margin: "15px",
+            color: textColor,
+            fontSize: "65%",
+            borderColor: "black",
+            borderWidth: "3px",
+            borderStyle: "solid"
+        };
+
+        if (this.state.dropDown) {
+            dropDownBox = <div>{this.props.paperDescription}</div>;
+        }
+
+        return(
+            <div>
+                <div style={permanentBoxStyle}>
+                    {this.props.mainPaperInfo}
+
+                    <div style={feedbackButtonStyle}
+			      	  onClick={this.onClick}
+                      onMouseEnter={this.onMouseEnter}
+                      onMouseLeave={this.onMouseLeave}>
+		              {this.state.dropDown ? "less!" : "more!"}
+		            </div>
+                
+                </div>
+
+                {dropDownBox}
+
+            </div>
+        );
+    }
+
+}
+
 
 class Academic extends Component {
 
@@ -73,7 +164,7 @@ class Academic extends Component {
         }
 
         this.longSpacerStyle = {
-            height: "150px"
+            height: "100px"
         }
 
         this.academicBoxStyle = {
@@ -131,6 +222,50 @@ class Academic extends Component {
     }
 
     render () {
+
+        var burerMonteiroPaperMainInfo = 
+            <div> 
+                <b>The Burer-Monteiro SDP method can fail even above the Barvinok-Pataki bound</b><br/>
+                <i>with Liam O'Carroll, <a href="http://users.eecs.northwestern.edu/~aravindv/">Aravindan Vijayaraghavan</a>, </i><br/>
+                in submission. 
+            </div>;
+
+        var burerMonteiroPaperDescription = 
+            <p>
+                The Burer-Monteiro method is a practical and popular heuristic for solving semidefinite programs 
+                (SDPs).  We provide a family of instances that have spurious local minima for high rank
+                (so Burer-Monteiro could indeed fail), which justifies the use of beyond-worst-case paradigms 
+                like smoothed analysis to obtain guarantees.
+            </p>;
+
+        var expertsPaperMainInfo = 
+            <div>
+                <b>Memory Bounds for the Experts Problem</b> <a href="http://arxiv.org/abs/2204.09837">[arXiv]</a> <br/>
+                <i> with <a href="http://www.cs.cmu.edu/~dwoodruf/">David P. Woodruff</a>, <a href="https://neilzxu.me/">Ziyu Xu</a>, 
+                <a href="https://samsonzhou.github.io/">Samson Zhou</a>, </i><br/>
+                to appear in <a href="http://acm-stoc.org/stoc2022/">STOC 2022.</a>
+            </div>;
+
+        var expertsPaperDescription = 
+            <p>
+                We initiate the study of the online learning with expert advice problem in the streaming (low-memory) setting.  
+                Our upper and lower bounds give a smooth tradeoff between memory and regret (accuracy). 
+            </p>;
+
+        var steinerTreePaperMainInfo = 
+            <div>
+                <b>Simpler Approximations for the Network-Steiner Tree Problem</b> <a href={SeniorThesis}>[pdf]</a><br/> 
+                <i>advised by <a href="http://www.cs.cmu.edu/~anupamg/">Anupam Gupta</a>,</i><br/>
+                Senior Thesis, 2020.
+            </div>;
+
+        var steinerTreePaperDescription = 
+            <p>
+                The 11/6 and 1.55-approximation algorithms for the Network-Steiner tree problem given by Zelikovsky 
+                (&#39;93) and Robins and Zelikovsky (&#39;05) are classic results in approximation algorithms.  They are 
+                also notorious for their very technical analyses.  We provide a simple modular analysis by reducing to 
+                submodular function optimization under knapsack constraints (idea due to Deeparnab Chakrabarty). 
+            </p>;
 
         return (
             <div className="background-color" style={this.backgroundBoxStyle}>
@@ -194,38 +329,20 @@ class Academic extends Component {
 
                             <font size="+2">Research</font><br/><br/>
                             
-                            <b>The Burer-Monteiro SDP method can fail even above the Barvinok-Pataki bound</b><br/>
-                            <i>with Liam O'Carroll, <a href="http://users.eecs.northwestern.edu/~aravindv/">Aravindan Vijayaraghavan</a>, </i><br/>
-                            in submission. 
+                            <PaperWrapper mainPaperInfo={burerMonteiroPaperMainInfo}
+                                          paperDescription={burerMonteiroPaperDescription}/>
 
-                            <p>
-                            The Burer-Monteiro method is a practical and popular heuristic for solving semidefinite programs 
-                            (SDPs).  We provide a family of instances that have spurious local minima for high rank
-                            (so Burer-Monteiro could indeed fail), which justifies the use of beyond-worst-case paradigms 
-                            like smoothed analysis to obtain guarantees.
-                            </p><br/>
+                            <br/>
 
-                            <b>Memory Bounds for the Experts Problem</b> <a href="http://arxiv.org/abs/2204.09837">[arXiv]</a> <br/>
-                            <i> with <a href="http://www.cs.cmu.edu/~dwoodruf/">David P. Woodruff</a>, <a href="https://neilzxu.me/">Ziyu Xu</a>, 
-                            <a href="https://samsonzhou.github.io/">Samson Zhou</a>, </i><br/>
-                            to appear in <a href="http://acm-stoc.org/stoc2022/">STOC 2022.</a>
+                            <PaperWrapper mainPaperInfo={expertsPaperMainInfo}
+                                          paperDescription={expertsPaperDescription}/>
 
-                            <p>
-                            We initiate the study of the online learning with expert advice problem in the streaming (low-memory) setting.  
-                            Our upper and lower bounds give a smooth tradeoff between memory and regret (accuracy). 
-                            </p><br/>
+                            <br/>
                             
-                            <b>Simpler Approximations for the Network-Steiner Tree Problem</b> <a href={SeniorThesis}>[pdf]</a><br/> 
-                            <i>advised by <a href="http://www.cs.cmu.edu/~anupamg/">Anupam Gupta</a>,</i><br/>
-                            Senior Thesis, 2020.
-                            
-                            <p>
-                            The 11/6 and 1.55-approximation algorithms for the Network-Steiner tree problem given by Zelikovsky 
-                            (&#39;93) and Robins and Zelikovsky (&#39;05) are classic results in approximation algorithms.  They are 
-                            also notorious for their very technical analyses.  We provide a simple modular analysis by reducing to 
-                            submodular function optimization under knapsack constraints (idea due to Deeparnab Chakrabarty). 
-                            </p><br/>
-
+                            <PaperWrapper mainPaperInfo={steinerTreePaperMainInfo}
+                                          paperDescription={steinerTreePaperDescription}/>
+                    
+                            <br/>
                             <br/>
 
                             <font size="+2">Other</font><br/><br/>
