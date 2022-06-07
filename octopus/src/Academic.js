@@ -91,7 +91,8 @@ class PaperWrapper extends Component {
         var permanentBoxStyle = {
             display: "flex",
             flexDirection: "row",
-            alignItems: "flex-end"
+            alignItems: "flex-end",
+            justifyContent: "space-between"
         }
 
         var dropDownBox = null;
