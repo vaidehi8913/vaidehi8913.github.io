@@ -245,7 +245,7 @@ class Academic extends Component {
                     <a href="https://www.youtube.com/watch?v=kIwS5Z3PF3M">[video]</a><br/>
                 <i> with <a href="http://www.cs.cmu.edu/~dwoodruf/">David P. Woodruff</a>, <a href="https://neilzxu.me/">Ziyu Xu</a>, 
                 <a href="https://samsonzhou.github.io/">Samson Zhou</a>, </i><br/>
-                to appear in <a href="http://acm-stoc.org/stoc2022/">STOC 2022.</a>
+                <a href="http://acm-stoc.org/stoc2022/">STOC 2022.</a>
             </div>;
 
         var expertsPaperDescription = 
