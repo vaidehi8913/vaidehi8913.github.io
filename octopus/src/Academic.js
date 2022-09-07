@@ -304,7 +304,7 @@ class Academic extends Component {
                     <div className="right-box" style={this.rightBoxStyle}>
                         <div>
                             <p>
-                                I am a first-year Ph.D. student in the Computer
+                                I am a second-year Ph.D. student in the Computer
                                 Science <a href= "https://theory.cs.northwestern.edu/">Theory group</a> at Northwestern 
                                 University, advised  
                                 by <a href="http://users.eecs.northwestern.edu/~aravindv/">Aravindan Vijayaraghavan</a>.    
