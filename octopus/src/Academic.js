@@ -226,8 +226,8 @@ class Academic extends Component {
 
         var burerMonteiroPaperMainInfo = 
             <div> 
-                <b>The Burer-Monteiro SDP method can fail even above the Barvinok-Pataki bound</b><br/>
-                <i>with Liam O'Carroll, <a href="http://users.eecs.northwestern.edu/~aravindv/">Aravindan Vijayaraghavan</a>, </i><br/>
+                <b>The Burer-Monteiro SDP method can fail even above the Barvinok-Pataki bound</b> <br/>
+                <i>with <a href="https://liamocarroll.github.io">Liam O'Carroll</a>, <a href="http://users.eecs.northwestern.edu/~aravindv/">Aravindan Vijayaraghavan</a>, </i><br/>
                 in submission. 
             </div>;
 
