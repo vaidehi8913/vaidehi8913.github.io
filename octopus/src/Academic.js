@@ -6,7 +6,6 @@ import React, { Component } from "react";
 
 import CV from "./files/SrinivasCV22.pdf";
 import SeniorThesis from "./files/SimplerApproximationsForNetworkSteinerTree.pdf";
-import BurerMonteiroPDF from "./files/OSV-Oct-22.pdf";
 
 
 class ProfilePicture extends Component {
@@ -227,7 +226,7 @@ class Academic extends Component {
 
         var burerMonteiroPaperMainInfo = 
             <div> 
-                <b>The Burer-Monteiro SDP method can fail even above the Barvinok-Pataki bound</b> <a href={BurerMonteiroPDF}>[pdf]</a> <a href="https://vaidehi8913.github.io/burer-monteiro/">[viz]</a> <br/>
+                <b>The Burer-Monteiro SDP method can fail even above the Barvinok-Pataki bound</b> <a href="https://arxiv.org/abs/2211.12389">[arXiv]</a> <a href="https://vaidehi8913.github.io/burer-monteiro/">[viz]</a> <br/>
                 <i>with <a href="https://liamocarroll.github.io">Liam O'Carroll</a>, <a href="http://users.eecs.northwestern.edu/~aravindv/">Aravindan Vijayaraghavan</a>, </i><br/>
                 to appear NeurIPS 2022. 
             </div>;
