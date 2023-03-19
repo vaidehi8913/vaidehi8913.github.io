@@ -4,7 +4,7 @@ import React, { Component } from "react";
 //     Link
 // } from "react-router-dom";
 
-import CV from "./files/SrinivasCV22.pdf";
+import CV from "./files/SrinivasCVSpring23.pdf";
 import SeniorThesis from "./files/SimplerApproximationsForNetworkSteinerTree.pdf";
 
 
@@ -349,7 +349,7 @@ class Academic extends Component {
 
                             <font size="+2">Other</font><br/><br/>
                             
-                            A more complete list of my projects and interests are in my <a href={CV}><b>CV</b></a> (last updated fall 2022).<br/><br/>
+                            A more complete list of my projects and interests are in my <a href={CV}><b>CV</b></a> (last updated spring 2023).<br/><br/>
 
                             {/* I also draw <Link to="/octopus">comics</Link>. Some are even CS related!  */}
                         </div>
