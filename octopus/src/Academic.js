@@ -228,7 +228,7 @@ class Academic extends Component {
             <div> 
                 <b>The Burer-Monteiro SDP method can fail even above the Barvinok-Pataki bound</b> <a href="https://arxiv.org/abs/2211.12389">[arXiv]</a> <a href="https://vaidehi8913.github.io/burer-monteiro/">[viz]</a> <br/>
                 <i>with <a href="https://liamocarroll.github.io">Liam O'Carroll</a>, <a href="http://users.eecs.northwestern.edu/~aravindv/">Aravindan Vijayaraghavan</a>, </i><br/>
-                to appear NeurIPS 2022. 
+                <a href="https://nips.cc/virtual/2022/poster/54028">NeurIPS 2022</a>. 
             </div>;
 
         var burerMonteiroPaperDescription = 
@@ -245,7 +245,7 @@ class Academic extends Component {
                     <a href="https://www.youtube.com/watch?v=kIwS5Z3PF3M">[video]</a><br/>
                 <i> with <a href="http://www.cs.cmu.edu/~dwoodruf/">David P. Woodruff</a>, <a href="https://neilzxu.me/">Ziyu Xu</a>, 
                 <a href="https://samsonzhou.github.io/">Samson Zhou</a>, </i><br/>
-                <a href="http://acm-stoc.org/stoc2022/">STOC 2022.</a>
+                <a href="http://acm-stoc.org/stoc2022/">STOC 2022</a>.
             </div>;
 
         var expertsPaperDescription = 
