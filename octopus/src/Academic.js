@@ -224,6 +224,25 @@ class Academic extends Component {
 
     render () {
 
+        var predictedDeletionPaperMainInfo = 
+            <div> 
+                <b>The Predicted-Deletion Dynamic Model: Taking Advantage of ML Predictions, for Free</b> <a href="https://arxiv.org/abs/2307.08890">[arXiv]</a> <br/>
+                <i>with <a href="https://quanquancliu.com/">Quanquan C. Liu</a>, </i><br/>
+                preprint. 
+            </div>;
+
+        var predictedDeletionPaperDescription = 
+            <p>
+                We introduce the predicted-deletion dynamic model.  In this model, elements are inserted 
+                and deleted online, and when an element is inserted, it is accompanied by a "prediction" 
+                of its deletion time.  We design an algorithmic framework that lifts a worst-case 
+                incremental algorithm into the predicted-deletion model.  Our performance matches that of 
+                the incremental algorithm when the prediction error is low, does no worse than a 
+                fully-dynamic algorithm when the prediction error is high, and exhibits a graceful tradeoff
+                between the two cases.
+            </p>;
+
+
         var burerMonteiroPaperMainInfo = 
             <div> 
                 <b>The Burer-Monteiro SDP method can fail even above the Barvinok-Pataki bound</b> <a href="https://arxiv.org/abs/2211.12389">[arXiv]</a> <a href="https://vaidehi8913.github.io/burer-monteiro/">[webapp]</a> <br/>
@@ -331,6 +350,11 @@ class Academic extends Component {
 
                             <font size="+2">Research</font><br/><br/>
                             
+                            <PaperWrapper mainPaperInfo={predictedDeletionPaperMainInfo}
+                                          paperDescription={predictedDeletionPaperDescription}/>
+
+                            <br/>
+
                             <PaperWrapper mainPaperInfo={burerMonteiroPaperMainInfo}
                                           paperDescription={burerMonteiroPaperDescription}/>
 
