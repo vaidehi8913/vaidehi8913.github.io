@@ -340,11 +340,13 @@ class Academic extends Component {
                                 visting student at the University of Vienna in 
                                 the <a href="https://taa.cs.univie.ac.at">Theory and Applications of Algorithms group</a>, 
                                 and I earned my B.S. in Computer Science at Carnegie Mellon University. 
+                                I am grateful to be supported by the 
+                                <a href="https://www.tgs.northwestern.edu/funding/fellowships-and-grants/internal-fellowships-grants/presidential-fellowship-winners/fellowship-winners.html">Northwestern Presidential Fellowship</a>. 
                             </p>
 
-                            <p>
+                            {/*<p>
                                 <i>Ich spreche auch gerne Deutsch!</i>
-                            </p>
+                            </p>*/}
                             
                             <br/>
 
