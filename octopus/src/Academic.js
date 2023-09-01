@@ -228,7 +228,7 @@ class Academic extends Component {
             <div> 
                 <b>The Predicted-Deletion Dynamic Model: Taking Advantage of ML Predictions, for Free</b> <a href="https://arxiv.org/abs/2307.08890">[arXiv]</a> <br/>
                 <i>with <a href="https://quanquancliu.com/">Quanquan C. Liu</a>, </i><br/>
-                preprint. 
+                Preprint. 
             </div>;
 
         var predictedDeletionPaperDescription = 
@@ -340,8 +340,7 @@ class Academic extends Component {
                                 visting student at the University of Vienna in 
                                 the <a href="https://taa.cs.univie.ac.at">Theory and Applications of Algorithms group</a>, 
                                 and I earned my B.S. in Computer Science at Carnegie Mellon University. 
-                                I am grateful to be supported by the 
-                                <a href="https://www.tgs.northwestern.edu/funding/fellowships-and-grants/internal-fellowships-grants/presidential-fellowship-winners/fellowship-winners.html">Northwestern Presidential Fellowship</a>. 
+                                I am grateful to be supported by the <a href="https://www.tgs.northwestern.edu/funding/fellowships-and-grants/internal-fellowships-grants/presidential-fellowship-winners/fellowship-winners.html">Northwestern Presidential Fellowship</a>. 
                             </p>
 
                             {/*<p>
