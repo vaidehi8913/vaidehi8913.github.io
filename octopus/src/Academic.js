@@ -224,22 +224,23 @@ class Academic extends Component {
 
     render () {
 
-        var predictedDeletionPaperMainInfo = 
+        var predictedUpdatesPaperMainInfo = 
             <div> 
-                <b>The Predicted-Deletion Dynamic Model: Taking Advantage of ML Predictions, for Free</b> <a href="https://arxiv.org/abs/2307.08890">[arXiv]</a> <br/>
+                <b>The Predicted-Updates Dynamic Model: Offline, Incremental, and Decremental to Fully Dynamic Transformations</b> <a href="https://arxiv.org/abs/2307.08890">[arXiv]</a> <br/>
                 <i>with <a href="https://quanquancliu.com/">Quanquan C. Liu</a>, </i><br/>
                 Preprint. 
             </div>;
 
-        var predictedDeletionPaperDescription = 
+        var predictedUpdatesPaperDescription = 
             <p>
-                We introduce the predicted-deletion dynamic model.  In this model, elements are inserted 
-                and deleted online, and when an element is inserted, it is accompanied by a "prediction" 
-                of its deletion time.  We design an algorithmic framework that lifts a worst-case 
-                incremental algorithm into the predicted-deletion model.  Our performance matches that of 
-                the incremental algorithm when the prediction error is low, does no worse than a 
-                fully-dynamic algorithm when the prediction error is high, and exhibits a graceful tradeoff
-                between the two cases.
+                We introduce the predicted-updates dynamic model, one of the first beyond-worst-case models 
+                for dynamic algorithms.  We give a novel framework that "lifts" offline divide-and-conquer 
+                algorithms to the fully dynamic setting, when given predictions of update times.  Our 
+                runtime matches that of the offline algorithm when the L1 prediction error is near-linear 
+                in the number of updates, does no worse than a fully-dynamic algorithm when the prediction 
+                error is high, and exhibits a graceful linear tradeoff between the two cases.  We further 
+                generalize our result to lift incremental and decremental algorithms to the fully dynamic 
+                setting given predictions of only the deletion and insertion updates, respectively.
             </p>;
 
 
@@ -351,8 +352,8 @@ class Academic extends Component {
 
                             <font size="+2">Research</font><br/><br/>
                             
-                            <PaperWrapper mainPaperInfo={predictedDeletionPaperMainInfo}
-                                          paperDescription={predictedDeletionPaperDescription}/>
+                            <PaperWrapper mainPaperInfo={predictedUpdatesPaperMainInfo}
+                                          paperDescription={predictedUpdatesPaperDescription}/>
 
                             <br/>
 
