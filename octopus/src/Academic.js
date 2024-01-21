@@ -4,7 +4,7 @@ import React, { Component } from "react";
 //     Link
 // } from "react-router-dom";
 
-import CV from "./files/SrinivasCVSpring24.pdf";
+import CV from "./files/SrinivasCVWinter24.pdf";
 import SeniorThesis from "./files/SimplerApproximationsForNetworkSteinerTree.pdf";
 
 
