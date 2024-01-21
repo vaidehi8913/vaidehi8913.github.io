@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.e6c13ad2.css",
-    "main.js": "/static/js/main.9b4b4c74.js",
+    "main.js": "/static/js/main.4f8ca25b.js",
     "static/media/23.gif": "/static/media/23.8c7cd4bc29934cdf2e8d.gif",
     "static/media/27.png": "/static/media/27.10290bc05453b90e20e5.png",
     "static/media/31.png": "/static/media/31.f296dc08832cbc37991c.png",
@@ -25,7 +25,7 @@
     "static/media/14.jpeg": "/static/media/14.16df19c3e95448aff207.jpeg",
     "static/media/12.jpeg": "/static/media/12.befa903eb34694db2c21.jpeg",
     "static/media/10.jpeg": "/static/media/10.ae0d2847164a7e79eba5.jpeg",
-    "static/media/SrinivasCVSpring23.pdf": "/static/media/SrinivasCVSpring23.768ad8ffd44346d8a296.pdf",
+    "static/media/SrinivasCVWinter24.pdf": "/static/media/SrinivasCVWinter24.159b3f7a14f2397c0868.pdf",
     "static/media/15.jpeg": "/static/media/15.5362ed74d1c829555af5.jpeg",
     "static/media/13.jpeg": "/static/media/13.f32bd58736d51fb72803.jpeg",
     "static/media/8.jpeg": "/static/media/8.838a8b5aef1e25219e0b.jpeg",
@@ -39,10 +39,10 @@
     "static/media/6.jpeg": "/static/media/6.1a4356531427a8078c2e.jpeg",
     "index.html": "/index.html",
     "main.e6c13ad2.css.map": "/static/css/main.e6c13ad2.css.map",
-    "main.9b4b4c74.js.map": "/static/js/main.9b4b4c74.js.map"
+    "main.4f8ca25b.js.map": "/static/js/main.4f8ca25b.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.9b4b4c74.js"
+    "static/js/main.4f8ca25b.js"
   ]
 }
