@@ -3,6 +3,7 @@ import React, { Component } from "react";
 // import {
 //     Link
 // } from "react-router-dom";
+import { useRef } from 'react';
 
 import CV from "./files/SrinivasCVWinter24.pdf";
 import SeniorThesis from "./files/SimplerApproximationsForNetworkSteinerTree.pdf";
@@ -151,6 +152,33 @@ class Academic extends Component {
     constructor(props){
         super(props);
 
+        this.state = {
+            isDesktop: false 
+        }
+
+        this.updatePredicate = this.updatePredicate.bind(this);
+    }
+
+    componentDidMount() {
+        this.updatePredicate();
+        window.addEventListener("resize", this.updatePredicate);
+    }
+    
+    componentWillUnmount() {
+        window.removeEventListener("resize", this.updatePredicate);
+    }
+    
+    updatePredicate() {
+        this.setState({ isDesktop: window.innerWidth > 850 });
+        // console.log("new width: " + window.innerWidth );
+        // console.log("what? " + window.innerWidth > 500);
+        // console.log("isDesktop: " + this.state.isDesktop);
+    }
+
+    render () {
+
+        /* STYLES */
+
         this.backgroundBoxStyle = {
             backgroundColor: "#fffcf0",
             overflow: "auto",
@@ -165,14 +193,14 @@ class Academic extends Component {
         }
 
         this.longSpacerStyle = {
-            height: "100px"
+            height: this.state.isDesktop ? "100px" : "25px"
         }
 
         this.academicBoxStyle = {
             display: "flex",
-            flexDirection: "row",
+            flexDirection: this.state.isDesktop ? "row" : "column",
             justifyContent: "space-around",
-            alignItems: "flex-start",
+            alignItems: this.state.isDesktop ? "flex-start" : "center",
             //height: "700px",
             //backgroundColor: "#f2c7f2"
         }
@@ -189,7 +217,7 @@ class Academic extends Component {
             alignItems: "center",
             flex: "1",
             margin: "5px",
-            maxWidth: "30%",
+            maxWidth: this.state.isDesktop ? "30%" : "70%",
             fontFamily: "'Open Sans', sans-serif"
         }
 
@@ -198,7 +226,7 @@ class Academic extends Component {
             flexDirection: "column",
             flex: "1",
             margin: "5px",
-            maxWidth: "50%",
+            maxWidth: this.state.isDesktop ? "50%" : "80%",
             scrollBehavior: "smooth"
         }
 
@@ -220,9 +248,11 @@ class Academic extends Component {
             fontSize: "120%",
             textAlign: "center"
         }
-    }
 
-    render () {
+
+
+        /* CONTENT */
+
 
         var predictedUpdatesPaperMainInfo = 
             <div> 
@@ -289,6 +319,9 @@ class Academic extends Component {
                 submodular function optimization under knapsack constraints (idea due to Deeparnab Chakrabarty). 
             </p>;
 
+
+        /* OBJECT */
+
         return (
             <div className="background-color" style={this.backgroundBoxStyle}>
 
@@ -319,6 +352,8 @@ class Academic extends Component {
                         <div className="email" style={this.emailStyle}>
                             [firstname] AT u DOT northwestern DOT edu
                         </div>
+
+                        <div className="longspacer" style={this.longSpacerStyle}/>
                     </div>
 
                     <div className="right-box" style={this.rightBoxStyle}>
