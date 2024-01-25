@@ -413,6 +413,8 @@ class Academic extends Component {
                             A more complete list of my projects and interests are in my <a href={CV}><b>CV</b></a> (last updated winter 2024).<br/><br/>
 
                             {/* I also draw <Link to="/octopus">comics</Link>. Some are even CS related!  */}
+
+                            <div className="longspacer" style={this.longSpacerStyle}/>
                         </div>
                     </div>
                 </div>
