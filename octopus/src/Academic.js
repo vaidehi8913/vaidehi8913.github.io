@@ -274,6 +274,25 @@ class Academic extends Component {
             </p>;
 
 
+        var smoothedStuffPaperMainInfo = 
+            <div> 
+                <b>New Tools for Smoothed Analysis: Least Singular Value Bounds for Random Matrices with Dependent Entries</b> [coming soon...] <br/>
+                <i>with <a href="https://users.cs.utah.edu/~bhaskara/">Aditya Bhaskara</a>, <a href="https://ericevert.com/">Eric Evert</a>, <a href="https://users.cs.northwestern.edu/~aravindv/">Aravindan Vijayaraghavan</a>, </i><br/>
+                <a href="http://acm-stoc.org/stoc2024/">STOC 2024</a>. 
+            </div>;
+
+        var smoothedStuffPaperDescription = 
+            <p>
+                We develop new techniques for proving lower bounds on the least singular value of structured 
+                random matrices with limited randomness.  Showing that such matrices are well-conditioned is 
+                a key step in providing "smoothed analysis" guarantees in many settings.  Our new techniques
+                both simplify known results and generalize to new settings, allowing us to get smoothed 
+                analysis results for previously open settings.  Statements of this form are
+                matrix "anti-concentration" inequalities, which require a different set of techniques and are 
+                not as well-understood as matrix concentration (or large deviation) bounds.
+            </p>;    
+
+
         var burerMonteiroPaperMainInfo = 
             <div> 
                 <b>The Burer-Monteiro SDP method can fail even above the Barvinok-Pataki bound</b> <a href="https://arxiv.org/abs/2211.12389">[arXiv]</a> <a href="https://vaidehi8913.github.io/burer-monteiro/">[webapp]</a> <br/>
@@ -293,8 +312,7 @@ class Academic extends Component {
             <div>
                 <b>Memory Bounds for the Experts Problem</b> <a href="http://arxiv.org/abs/2204.09837">[arXiv]</a> 
                     <a href="https://www.youtube.com/watch?v=kIwS5Z3PF3M">[video]</a><br/>
-                <i> with <a href="http://www.cs.cmu.edu/~dwoodruf/">David P. Woodruff</a>, <a href="https://neilzxu.me/">Ziyu Xu</a>, 
-                <a href="https://samsonzhou.github.io/">Samson Zhou</a>, </i><br/>
+                <i> with <a href="http://www.cs.cmu.edu/~dwoodruf/">David P. Woodruff</a>, <a href="https://neilzxu.me/">Ziyu Xu</a>, <a href="https://samsonzhou.github.io/">Samson Zhou</a>, </i><br/>
                 <a href="http://acm-stoc.org/stoc2022/">STOC 2022</a>.
             </div>;
 
@@ -389,6 +407,11 @@ class Academic extends Component {
                             
                             <PaperWrapper mainPaperInfo={predictedUpdatesPaperMainInfo}
                                           paperDescription={predictedUpdatesPaperDescription}/>
+
+                            <br/>
+
+                            <PaperWrapper mainPaperInfo={smoothedStuffPaperMainInfo}
+                                          paperDescription={smoothedStuffPaperDescription}/>
 
                             <br/>
 
