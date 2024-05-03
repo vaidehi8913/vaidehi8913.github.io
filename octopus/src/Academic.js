@@ -277,7 +277,7 @@ class Academic extends Component {
 
         var smoothedStuffPaperMainInfo = 
             <div> 
-                <b>New Tools for Smoothed Analysis: Least Singular Value Bounds for Random Matrices with Dependent Entries</b> <a href={SmoothedStuff}>[conference version]</a> <br/>
+                <b>New Tools for Smoothed Analysis: Least Singular Value Bounds for Random Matrices with Dependent Entries</b> <a href="https://arxiv.org/abs/2405.01517">[arXiv]</a> <a href={SmoothedStuff}>[conference version]</a> <br/>
                 <i>with <a href="https://users.cs.utah.edu/~bhaskara/">Aditya Bhaskara</a>, <a href="https://ericevert.com/">Eric Evert</a>, <a href="https://users.cs.northwestern.edu/~aravindv/">Aravindan Vijayaraghavan</a>, </i><br/>
                 <a href="http://acm-stoc.org/stoc2024/">STOC 2024</a>. 
             </div>;
