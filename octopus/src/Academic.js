@@ -93,7 +93,7 @@ class PaperWrapper extends Component {
         var permanentBoxStyle = {
             display: "flex",
             flexDirection: "row",
-            alignItems: "flex-end",
+            alignItems: "flex-start",
             justifyContent: "space-between"
         }
 
@@ -126,21 +126,18 @@ class PaperWrapper extends Component {
         }
 
         return(
-            <div>
-                <div style={permanentBoxStyle}>
+            <div style={permanentBoxStyle}>
+                <div>
                     {this.props.mainPaperInfo}
-
-                    <div style={feedbackButtonStyle}
-			      	  onClick={this.onClick}
-                      onMouseEnter={this.onMouseEnter}
-                      onMouseLeave={this.onMouseLeave}>
-		              {this.state.dropDown ? "less!" : "more!"}
-		            </div>
-                
+                    {dropDownBox}
                 </div>
 
-                {dropDownBox}
-
+                <div style={feedbackButtonStyle}
+                    onClick={this.onClick}
+                    onMouseEnter={this.onMouseEnter}
+                    onMouseLeave={this.onMouseLeave}>
+                    {this.state.dropDown ? "less!" : "more!"}
+                </div>
             </div>
         );
     }
@@ -253,6 +250,21 @@ class Academic extends Component {
 
 
         /* CONTENT */
+
+        var warmStartsPaperMainInfo = 
+            <div> 
+                <b>Competitive strategies to use "warm start" algorithms with predictions</b> <a href="https://arxiv.org/abs/2405.03661">[arXiv]</a> <br/>
+                <i>with <a href="https://home.ttic.edu/~avrim/">Avrim Blum</a>, </i><br/>
+                Preprint. 
+            </div>;
+
+        var warmStartsPaperDescription = 
+            <p>
+                "Warm start" algorithms are ones that take an input and a predicted solution, and output 
+                the true solution in time proportional to the error of the prediction.  Such algorithms 
+                are useful when solving sequences of related instances.  We give competitive guarantees 
+                in the setting where instances come from a mixture of "clusters." 
+            </p>;
 
 
         var predictedUpdatesPaperMainInfo = 
@@ -405,6 +417,11 @@ class Academic extends Component {
                             <br/>
 
                             <font size="+2">Research</font><br/><br/>
+
+                            <PaperWrapper mainPaperInfo={warmStartsPaperMainInfo}
+                                          paperDescription={warmStartsPaperDescription}/>
+
+                            <br/>
                             
                             <PaperWrapper mainPaperInfo={predictedUpdatesPaperMainInfo}
                                           paperDescription={predictedUpdatesPaperDescription}/>
