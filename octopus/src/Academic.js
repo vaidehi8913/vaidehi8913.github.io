@@ -271,7 +271,7 @@ class Academic extends Component {
             <div> 
                 <b>The Predicted-Updates Dynamic Model: Offline, Incremental, and Decremental to Fully Dynamic Transformations</b> <a href="https://arxiv.org/abs/2307.08890">[arXiv]</a> <br/>
                 <i>with <a href="https://quanquancliu.com/">Quanquan C. Liu</a>, </i><br/>
-                Preprint. 
+                <a href="https://learningtheory.org/colt2024/index.html">COLT 2024</a>. 
             </div>;
 
         var predictedUpdatesPaperDescription = 
