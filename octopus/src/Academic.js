@@ -260,10 +260,11 @@ class Academic extends Component {
 
         var warmStartsPaperDescription = 
             <p>
-                "Warm start" algorithms are ones that take an input and a predicted solution, and output 
-                the true solution in time proportional to the error of the prediction.  Such algorithms 
-                are useful when solving sequences of related instances.  We give competitive guarantees 
-                in the setting where instances come from a mixture of "clusters." 
+                A "warm start" algorithm is one that takes an instance <i>I</i> and a predicted 
+                solution <i>P</i> as input, and outputs the true solution <i>S</i> to <i>I</i> in time proportional 
+                to the distance between <i>P</i> and <i>S</i> ("error" of the prediction).  Such algorithms 
+                are useful when solving sequences of related instances.  We give competitive guarantees in 
+                settings where instances come from a mixture of "clusters." 
             </p>;
 
 
@@ -289,7 +290,7 @@ class Academic extends Component {
 
         var smoothedStuffPaperMainInfo = 
             <div> 
-                <b>New Tools for Smoothed Analysis: Least Singular Value Bounds for Random Matrices with Dependent Entries</b> <a href="https://arxiv.org/abs/2405.01517">[arXiv]</a> <a href={SmoothedStuff}>[conference version]</a> <br/>
+                <b>New Tools for Smoothed Analysis: Least Singular Value Bounds for Random Matrices with Dependent Entries</b> <a href="https://arxiv.org/abs/2405.01517">[arXiv]</a> <a href="https://www.youtube.com/watch?v=KTFfq4q2kHc&list=PL2200vk1q4pnoZJZphNyvIFzB3UnUZEmj&index=34">[video]</a> <a href={SmoothedStuff}>[conference version]</a> <br/>
                 <i>with <a href="https://users.cs.utah.edu/~bhaskara/">Aditya Bhaskara</a>, <a href="https://ericevert.com/">Eric Evert</a>, <a href="https://users.cs.northwestern.edu/~aravindv/">Aravindan Vijayaraghavan</a>, </i><br/>
                 <a href="http://acm-stoc.org/stoc2024/">STOC 2024</a>. 
             </div>;
@@ -398,7 +399,8 @@ class Academic extends Component {
 
                             <p>
                                 I am interested in designing and analyzing simple algorithms that are practical for 
-                                real-world input.
+                                real-world input, particularly in beyond worst-case settings like smoothed analysis 
+                                and algorithms with predictions.
                             </p>
 
                             <p>
@@ -410,10 +412,6 @@ class Academic extends Component {
                                 I am grateful to be supported by the <a href="https://www.tgs.northwestern.edu/funding/fellowships-and-grants/internal-fellowships-grants/presidential-fellowship-winners/fellowship-winners.html">Northwestern Presidential Fellowship</a>. 
                             </p>
 
-                            {/*<p>
-                                <i>Ich spreche auch gerne Deutsch!</i>
-                            </p>*/}
-                            
                             <br/>
 
                             <font size="+2">Research</font><br/><br/>
