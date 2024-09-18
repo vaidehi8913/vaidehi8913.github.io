@@ -8,6 +8,11 @@ import { useRef } from 'react';
 import CV from "./files/SrinivasCVWinter24.pdf";
 import SeniorThesis from "./files/SimplerApproximationsForNetworkSteinerTree.pdf";
 import SmoothedStuff from "./files/STOC2024_smoothedanalysis.pdf";
+import SWXZslides from "./files/slides-SWXZ22.pdf";
+import OSVslides from "./files/slides-OSV22.pdf";
+import BESVslides from "./files/slides-BESV24.pdf";
+import LSslides from "./files/slides-LS24.pdf";
+import SBslides from "./files/slides-SB24.pdf";
 
 
 class ProfilePicture extends Component {
@@ -253,7 +258,9 @@ class Academic extends Component {
 
         var warmStartsPaperMainInfo = 
             <div> 
-                <b>Competitive strategies to use "warm start" algorithms with predictions</b> <a href="https://arxiv.org/abs/2405.03661">[arXiv]</a> <br/>
+                <b>Competitive strategies to use "warm start" algorithms with predictions</b> 
+                    &nbsp;<a href="https://arxiv.org/abs/2405.03661">[arXiv]</a> 
+                    <a href={SBslides}>[slides]</a><br/>
                 <i>with <a href="https://home.ttic.edu/~avrim/">Avrim Blum</a>, </i><br/>
                 Preprint. 
             </div>;
@@ -270,7 +277,9 @@ class Academic extends Component {
 
         var predictedUpdatesPaperMainInfo = 
             <div> 
-                <b>The Predicted-Updates Dynamic Model: Offline, Incremental, and Decremental to Fully Dynamic Transformations</b> <a href="https://arxiv.org/abs/2307.08890">[arXiv]</a> <br/>
+                <b>The Predicted-Updates Dynamic Model: Offline, Incremental, and Decremental to Fully Dynamic Transformations</b> 
+                    &nbsp;<a href="https://arxiv.org/abs/2307.08890">[arXiv]</a> 
+                    <a href={LSslides}>[slides]</a><br/>
                 <i>with <a href="https://quanquancliu.com/">Quanquan C. Liu</a>, </i><br/>
                 <a href="https://learningtheory.org/colt2024/index.html">COLT 2024</a>. 
             </div>;
@@ -290,7 +299,11 @@ class Academic extends Component {
 
         var smoothedStuffPaperMainInfo = 
             <div> 
-                <b>New Tools for Smoothed Analysis: Least Singular Value Bounds for Random Matrices with Dependent Entries</b> <a href="https://arxiv.org/abs/2405.01517">[arXiv]</a> <a href="https://www.youtube.com/watch?v=KTFfq4q2kHc&list=PL2200vk1q4pnoZJZphNyvIFzB3UnUZEmj&index=34">[video]</a> <a href={SmoothedStuff}>[conference version]</a> <br/>
+                <b>New Tools for Smoothed Analysis: Least Singular Value Bounds for Random Matrices with Dependent Entries</b> 
+                    &nbsp;<a href="https://arxiv.org/abs/2405.01517">[arXiv]</a> 
+                    <a href="https://www.youtube.com/watch?v=KTFfq4q2kHc&list=PL2200vk1q4pnoZJZphNyvIFzB3UnUZEmj&index=34">[video]</a> 
+                    <a href={BESVslides}>[slides]</a>
+                    <a href={SmoothedStuff}>[conference version]</a> <br/>
                 <i>with <a href="https://users.cs.utah.edu/~bhaskara/">Aditya Bhaskara</a>, <a href="https://ericevert.com/">Eric Evert</a>, <a href="https://users.cs.northwestern.edu/~aravindv/">Aravindan Vijayaraghavan</a>, </i><br/>
                 <a href="http://acm-stoc.org/stoc2024/">STOC 2024</a>. 
             </div>;
@@ -309,7 +322,10 @@ class Academic extends Component {
 
         var burerMonteiroPaperMainInfo = 
             <div> 
-                <b>The Burer-Monteiro SDP method can fail even above the Barvinok-Pataki bound</b> <a href="https://arxiv.org/abs/2211.12389">[arXiv]</a> <a href="https://vaidehi8913.github.io/burer-monteiro/">[webapp]</a> <br/>
+                <b>The Burer-Monteiro SDP method can fail even above the Barvinok-Pataki bound</b> 
+                    &nbsp;<a href="https://arxiv.org/abs/2211.12389">[arXiv]</a> 
+                    <a href={OSVslides}>[slides]</a>
+                    <a href="https://vaidehi8913.github.io/burer-monteiro/">[webapp]</a> <br/>
                 <i>with <a href="https://liamocarroll.github.io">Liam O'Carroll</a>, <a href="http://users.eecs.northwestern.edu/~aravindv/">Aravindan Vijayaraghavan</a>, </i><br/>
                 <a href="https://nips.cc/virtual/2022/poster/54028">NeurIPS 2022</a>. 
             </div>;
@@ -324,7 +340,9 @@ class Academic extends Component {
 
         var expertsPaperMainInfo = 
             <div>
-                <b>Memory Bounds for the Experts Problem</b> <a href="http://arxiv.org/abs/2204.09837">[arXiv]</a> 
+                <b>Memory Bounds for the Experts Problem</b> 
+                    &nbsp; <a href="http://arxiv.org/abs/2204.09837">[arXiv]</a> 
+                    <a href={SWXZslides}>[slides]</a>
                     <a href="https://www.youtube.com/watch?v=kIwS5Z3PF3M">[video]</a><br/>
                 <i> with <a href="http://www.cs.cmu.edu/~dwoodruf/">David P. Woodruff</a>, <a href="https://neilzxu.me/">Ziyu Xu</a>, <a href="https://samsonzhou.github.io/">Samson Zhou</a>, </i><br/>
                 <a href="http://acm-stoc.org/stoc2022/">STOC 2022</a>.
@@ -391,7 +409,7 @@ class Academic extends Component {
                     <div className="right-box" style={this.rightBoxStyle}>
                         <div>
                             <p>
-                                I am a third-year Ph.D. student in the Computer
+                                I am a fourth-year Ph.D. student in the Computer
                                 Science <a href= "https://theory.cs.northwestern.edu/">Theory group</a> at Northwestern 
                                 University, advised  
                                 by <a href="http://users.eecs.northwestern.edu/~aravindv/">Aravindan Vijayaraghavan</a>.    
