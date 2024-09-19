@@ -8,6 +8,7 @@ import { useRef } from 'react';
 import CV from "./files/SrinivasCVWinter24.pdf";
 import SeniorThesis from "./files/SimplerApproximationsForNetworkSteinerTree.pdf";
 import SmoothedStuff from "./files/STOC2024_smoothedanalysis.pdf";
+import seniorthesisslides from "./files/slides-seniorthesis.pdf";
 import SWXZslides from "./files/slides-SWXZ22.pdf";
 import OSVslides from "./files/slides-OSV22.pdf";
 import BESVslides from "./files/slides-BESV24.pdf";
@@ -341,9 +342,9 @@ class Academic extends Component {
         var expertsPaperMainInfo = 
             <div>
                 <b>Memory Bounds for the Experts Problem</b> 
-                    &nbsp; <a href="http://arxiv.org/abs/2204.09837">[arXiv]</a> 
-                    <a href={SWXZslides}>[slides]</a>
-                    <a href="https://www.youtube.com/watch?v=kIwS5Z3PF3M">[video]</a><br/>
+                    &nbsp;<a href="http://arxiv.org/abs/2204.09837">[arXiv]</a> 
+                    <a href="https://www.youtube.com/watch?v=kIwS5Z3PF3M">[video]</a>
+                    <a href={SWXZslides}>[slides]</a><br/>
                 <i> with <a href="http://www.cs.cmu.edu/~dwoodruf/">David P. Woodruff</a>, <a href="https://neilzxu.me/">Ziyu Xu</a>, <a href="https://samsonzhou.github.io/">Samson Zhou</a>, </i><br/>
                 <a href="http://acm-stoc.org/stoc2022/">STOC 2022</a>.
             </div>;
@@ -356,7 +357,9 @@ class Academic extends Component {
 
         var steinerTreePaperMainInfo = 
             <div>
-                <b>Simpler Approximations for the Network-Steiner Tree Problem</b> <a href={SeniorThesis}>[pdf]</a><br/> 
+                <b>Simpler Approximations for the Network-Steiner Tree Problem</b> 
+                    &nbsp;<a href={SeniorThesis}>[pdf]</a>
+                    <a href={seniorthesisslides}>[slides]</a><br/> 
                 <i>advised by <a href="http://www.cs.cmu.edu/~anupamg/">Anupam Gupta</a>,</i><br/>
                 Undergraduate Thesis, 2020.
             </div>;
