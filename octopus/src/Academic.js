@@ -263,7 +263,7 @@ class Academic extends Component {
                     &nbsp;<a href="https://arxiv.org/abs/2405.03661">[arXiv]</a> 
                     <a href={SBslides}>[slides]</a><br/>
                 <i>with <a href="https://home.ttic.edu/~avrim/">Avrim Blum</a>, </i><br/>
-                Preprint. 
+                <a href="https://www.siam.org/conferences-events/siam-conferences/soda25/program/">SODA 2025</a>. 
             </div>;
 
         var warmStartsPaperDescription = 
