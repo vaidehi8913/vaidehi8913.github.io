@@ -359,7 +359,8 @@ class Academic extends Component {
             <div>
                 <b>Simpler Approximations for the Network-Steiner Tree Problem</b> 
                     &nbsp;<a href={SeniorThesis}>[pdf]</a>
-                    <a href={seniorthesisslides}>[slides]</a><br/> 
+                    <a href={seniorthesisslides}>[slides]</a>
+                    <a href="https://www.cs.cmu.edu/~tcortina/thesis/srinivas.pdf">[poster]</a><br/> 
                 <i>advised by <a href="http://www.cs.cmu.edu/~anupamg/">Anupam Gupta</a>,</i><br/>
                 Undergraduate Thesis, 2020.
             </div>;
