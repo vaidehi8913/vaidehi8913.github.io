@@ -256,6 +256,30 @@ class Academic extends Component {
 
 
         /* CONTENT */
+        var conformalDPPaperMainInfo = 
+            <div> 
+                <b>Volume Optimality in Conformal Prediction with Structured Prediction Sets</b> 
+                    &nbsp;<a href="https://arxiv.org/pdf/2502.16658">[arXiv]</a><br/>
+                <i>with <a href="https://www.stat.uchicago.edu/~chaogao/">Chao Gao</a>, <a href="https://lirenshan.github.io/">Liren Shan</a>, <a href="https://users.cs.northwestern.edu/~aravindv/">Aravindan Vijayaraghavan</a>,</i><br/>
+                preprint. 
+            </div>;
+
+        var conformalDPPaperDescription = 
+            <p>
+                The goal of conformal prediction is to produce a confidence interval for a distribution 
+                given samples.  A conformal predictor must achieve a given target coverage, assuming only 
+                the exchangeability of the training examples and test example.  Among the many possible 
+                ways to construct conformal predictors, one measure of efficiency that we may want to 
+                optimize, is the volume of the output confidence set (i.e., a trivial predictor can always
+                output the whole space, and a more efficient predictor outputs a lower volume set in expectation).
+                In general, finding the lowest volume valid confidence interval is statistically intractable. 
+                We observe that the problem becomes tractable when we restrict to comparing to confidence sets 
+                that come from a family of bounded VC-dimension.  In one dimension, we give an efficient 
+                distirbution-free dynamic programming algorithm that competes with the best union 
+                of <i>k</i> intervals. We also show how to combine this with the framework of 
+                (Chernozhukov et al, 2021) to handle supervised learning problems.   
+            </p>;
+
 
         var warmStartsPaperMainInfo = 
             <div> 
@@ -437,6 +461,11 @@ class Academic extends Component {
                             <br/>
 
                             <font size="+2">Research</font><br/><br/>
+
+                            <PaperWrapper mainPaperInfo={conformalDPPaperMainInfo}
+                                          paperDescription={conformalDPPaperDescription}/>
+
+                            <br/>
 
                             <PaperWrapper mainPaperInfo={warmStartsPaperMainInfo}
                                           paperDescription={warmStartsPaperDescription}/>
