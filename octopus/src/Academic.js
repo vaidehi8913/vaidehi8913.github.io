@@ -14,6 +14,9 @@ import OSVslides from "./files/slides-OSV22.pdf";
 import BESVslides from "./files/slides-BESV24.pdf";
 import LSslides from "./files/slides-LS24.pdf";
 import SBslides from "./files/slides-SB24.pdf";
+import BESVposter from "./files/poster-BESV24.pdf";
+import LSposter from "./files/poster-LS24.pdf";
+import SWXZposter from "./files/poster-SWXZ22.pdf";
 
 
 class ProfilePicture extends Component {
@@ -304,7 +307,8 @@ class Academic extends Component {
             <div> 
                 <b>The Predicted-Updates Dynamic Model: Offline, Incremental, and Decremental to Fully Dynamic Transformations</b> 
                     &nbsp;<a href="https://arxiv.org/abs/2307.08890">[arXiv]</a> 
-                    <a href={LSslides}>[slides]</a><br/>
+                    <a href={LSslides}>[slides]</a>
+                    <a href={LSposter}>[poster]</a><br/>
                 <i>with <a href="https://quanquancliu.com/">Quanquan C. Liu</a>, </i><br/>
                 <a href="https://learningtheory.org/colt2024/index.html">COLT 2024</a>. 
             </div>;
@@ -328,6 +332,7 @@ class Academic extends Component {
                     &nbsp;<a href="https://arxiv.org/abs/2405.01517">[arXiv]</a> 
                     <a href="https://www.youtube.com/watch?v=KTFfq4q2kHc&list=PL2200vk1q4pnoZJZphNyvIFzB3UnUZEmj&index=34">[video]</a> 
                     <a href={BESVslides}>[slides]</a>
+                    <a href={BESVposter}>[poster]</a>
                     <a href={SmoothedStuff}>[conference version]</a> <br/>
                 <i>with <a href="https://users.cs.utah.edu/~bhaskara/">Aditya Bhaskara</a>, <a href="https://ericevert.com/">Eric Evert</a>, <a href="https://users.cs.northwestern.edu/~aravindv/">Aravindan Vijayaraghavan</a>, </i><br/>
                 <a href="http://acm-stoc.org/stoc2024/">STOC 2024</a>. 
@@ -368,7 +373,8 @@ class Academic extends Component {
                 <b>Memory Bounds for the Experts Problem</b> 
                     &nbsp;<a href="http://arxiv.org/abs/2204.09837">[arXiv]</a> 
                     <a href="https://www.youtube.com/watch?v=kIwS5Z3PF3M">[video]</a>
-                    <a href={SWXZslides}>[slides]</a><br/>
+                    <a href={SWXZslides}>[slides]</a>
+                    <a href={SWXZposter}>[poster]</a><br/>
                 <i> with <a href="http://www.cs.cmu.edu/~dwoodruf/">David P. Woodruff</a>, <a href="https://neilzxu.me/">Ziyu Xu</a>, <a href="https://samsonzhou.github.io/">Samson Zhou</a>, </i><br/>
                 <a href="http://acm-stoc.org/stoc2022/">STOC 2022</a>.
             </div>;
