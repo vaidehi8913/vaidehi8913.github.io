@@ -259,6 +259,29 @@ class Academic extends Component {
 
 
         /* CONTENT */
+        
+        var highDimConformalPaperMainInfo =
+            <div> 
+                <b>Computing High-Dimensional Confidence Sets for Arbitrary Distributions</b> 
+                    &nbsp;<a href="https://arxiv.org/abs/2504.02723">[arXiv]</a><br/>
+                <i>with <a href="https://www.stat.uchicago.edu/~chaogao/">Chao Gao</a>, <a href="https://lirenshan.github.io/">Liren Shan</a>, <a href="https://users.cs.northwestern.edu/~aravindv/">Aravindan Vijayaraghavan</a>,</i><br/>
+                preprint. 
+            </div>;
+
+        var highDimConformalPaperDescription = 
+            <p>
+                We learn the high-density region of an arbitrary distribution.  Given a target coverage, 
+                and sample access to a distribution <i>D</i> over n dimensional space, we want to find a 
+                set <i>S</i> such that the probability of a point from <i>D</i> landing in <i>S</i> is at
+                least delta, and <i>S</i> is as small as possible.  Specifically, we restrict our attention
+                to considering sets <i>S</i> that are Euclidean balls, and we provide approximation 
+                algorithms that compete with the best ball.  This problem is spiritually related to robust
+                statistics, in that we can think of it as trying to recover a delta fraction of "inliers"
+                from the corrupted distribution <i>D</i>.  We show that using insights from robust 
+                statistics, we can design a surprisingly simple algorithm that works, even assuming no
+                structural properties about the inliers.  
+            </p>;
+
         var conformalDPPaperMainInfo = 
             <div> 
                 <b>Volume Optimality in Conformal Prediction with Structured Prediction Sets</b> 
@@ -278,7 +301,7 @@ class Academic extends Component {
                 In general, finding the lowest volume valid confidence interval is statistically intractable. 
                 We observe that the problem becomes tractable when we restrict to comparing to confidence sets 
                 that come from a family of bounded VC-dimension.  In one dimension, we give an efficient 
-                distirbution-free dynamic programming algorithm that competes with the best union 
+                distribution-free dynamic programming algorithm that competes with the best union 
                 of <i>k</i> intervals. We also show how to combine this with the framework of 
                 (Chernozhukov et al, 2021) to handle supervised learning problems.   
             </p>;
@@ -467,6 +490,11 @@ class Academic extends Component {
                             <br/>
 
                             <font size="+2">Research</font><br/><br/>
+
+                            <PaperWrapper mainPaperInfo={highDimConformalPaperMainInfo}
+                                          paperDescription={highDimConformalPaperDescription}/>
+
+                            <br/>
 
                             <PaperWrapper mainPaperInfo={conformalDPPaperMainInfo}
                                           paperDescription={conformalDPPaperDescription}/>
