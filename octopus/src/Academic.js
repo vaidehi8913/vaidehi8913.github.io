@@ -287,7 +287,7 @@ class Academic extends Component {
                 <b>Volume Optimality in Conformal Prediction with Structured Prediction Sets</b> 
                     &nbsp;<a href="https://arxiv.org/abs/2502.16658">[arXiv]</a><br/>
                 <i>with <a href="https://www.stat.uchicago.edu/~chaogao/">Chao Gao</a>, <a href="https://lirenshan.github.io/">Liren Shan</a>, <a href="https://users.cs.northwestern.edu/~aravindv/">Aravindan Vijayaraghavan</a>,</i><br/>
-                preprint. 
+                ICML 2025. 
             </div>;
 
         var conformalDPPaperDescription = 
