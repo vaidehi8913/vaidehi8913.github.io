@@ -18,16 +18,16 @@ class Main extends Component {
 
     render () {
         return (
-            <BrowserRouter>
-                <Routes>
-                    <Route exact path="/" element={<Academic/>}/>
-                    {/*<Route path="/octopus/*" element={<Octopus/>}/>*/}
-                    {/*<Route path="/burer-monteiro" element={<BurerMonteiro/>}/>*/}
-                    <Route path="/predictions-and-uncertainty" element={<PredictionsAndUncertainty/>}/>
-                </Routes>
-            </BrowserRouter>
+            // <BrowserRouter>
+            //     <Routes>
+            //         <Route exact path="/" element={<Academic/>}/>
+            //         {/*<Route path="/octopus/*" element={<Octopus/>}/>*/}
+            //         {/*<Route path="/burer-monteiro" element={<BurerMonteiro/>}/>*/}
+            //         <Route path="/predictions-and-uncertainty" element={<PredictionsAndUncertainty/>}/>
+            //     </Routes>
+            // </BrowserRouter>
 
-            // <Academic />
+            <Academic />
 
             // Useful HashRouter Info
             // https://stackoverflow.com/questions/63124161/attempted-import-error-switch-is-not-exported-from-react-router-dom
