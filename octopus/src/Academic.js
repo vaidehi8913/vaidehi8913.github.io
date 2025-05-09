@@ -110,8 +110,13 @@ class PaperWrapper extends Component {
 
         var invertColorScheme = this.state.dropDown || this.state.hovering;
 
-        var mainColor = invertColorScheme ? null : "black";
-        var textColor = invertColorScheme ? "black" : "#fffcf0";
+        var foregroundColor = this.props.buttonColor ? this.props.buttonColor : "black";
+        var backgroundColor = "#fffcf0";
+
+        // var mainColor = invertColorScheme ? null : "black";
+        // var textColor = invertColorScheme ? "black" : "#fffcf0";
+        var mainColor = invertColorScheme ? null : foregroundColor;
+        var textColor = invertColorScheme ? foregroundColor : backgroundColor;
 
         var feedbackButtonStyle = {
             width: "15px",
@@ -125,7 +130,7 @@ class PaperWrapper extends Component {
             margin: "15px",
             color: textColor,
             fontSize: "65%",
-            borderColor: "black",
+            borderColor: foregroundColor, //"black",
             borderWidth: "3px",
             borderStyle: "solid"
         };
@@ -256,9 +261,33 @@ class Academic extends Component {
             textAlign: "center"
         }
 
+        var niceGreen = "#14871e"; //"#22a82d";
+
+        var announcementStyle = {
+            color: niceGreen
+        };
+
 
 
         /* CONTENT */
+
+        var coltWorkshopMainInfo = 
+            <div style={announcementStyle}>
+                <b>
+                    I am co-organizing the <a href="https://vaidehi8913.github.io/predictions-and-uncertainty-colt25">Workshop on Predictions 
+                    and Uncertainty</a> at COLT 2025, on June 30 in Lyon, France.  We are accepting poster submissions until May 25, 2025.  
+                </b>
+            </div>;
+
+        var coltWorkshopDescription = 
+            <p>
+                The goal of the workshop is to bring together researchers working on diverse areas 
+                of algorithms and statistics that develop techniques for quantifying and mitigating 
+                the uncertainty of potentially unreliable predictions.  Some examples include 
+                conformal prediction, algorithms with predictions, robust statistics, and 
+                decision making.  We welcome poster submissions on relevant topics, please do 
+                spread the word!
+            </p>;
         
         var highDimConformalPaperMainInfo =
             <div> 
@@ -486,6 +515,11 @@ class Academic extends Component {
                                 and I earned my B.S. in Computer Science at Carnegie Mellon University. 
                                 I am grateful to be supported by the <a href="https://www.tgs.northwestern.edu/funding/fellowships-and-grants/internal-fellowships-grants/presidential-fellowship-winners/fellowship-winners.html">Northwestern Presidential Fellowship</a>. 
                             </p>
+
+                            <PaperWrapper mainPaperInfo={coltWorkshopMainInfo}
+                                          paperDescription={coltWorkshopDescription}
+                                          buttonColor={niceGreen}/>
+
 
                             <br/>
 

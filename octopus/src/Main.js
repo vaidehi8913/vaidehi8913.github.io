@@ -8,7 +8,6 @@ import {
 import Octopus from "./octopus/Octopus";
 import Academic from "./Academic";
 import BurerMonteiro from "./burer-monteiro/BurerMonteiro";
-import PredictionsAndUncertainty from "./workshop/PredictionsAndUncertainty";
 
 class Main extends Component {
 
@@ -23,7 +22,6 @@ class Main extends Component {
             //         <Route exact path="/" element={<Academic/>}/>
             //         {/*<Route path="/octopus/*" element={<Octopus/>}/>*/}
             //         {/*<Route path="/burer-monteiro" element={<BurerMonteiro/>}/>*/}
-            //         <Route path="/predictions-and-uncertainty" element={<PredictionsAndUncertainty/>}/>
             //     </Routes>
             // </BrowserRouter>
 
