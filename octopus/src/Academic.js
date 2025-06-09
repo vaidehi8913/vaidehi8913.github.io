@@ -4,6 +4,10 @@ import React, { Component } from "react";
 //     Link
 // } from "react-router-dom";
 import { useRef } from 'react';
+// import 'katex/dist/katex.min.css';
+// import Latex from 'react-latex-next';
+// import Latex from 'react-latex';
+// import MathJax from 'react-mathjax2';
 
 import CV from "./files/SrinivasCVWinter25.pdf";
 import SeniorThesis from "./files/SimplerApproximationsForNetworkSteinerTree.pdf";
@@ -17,6 +21,7 @@ import SBslides from "./files/slides-SB24.pdf";
 import BESVposter from "./files/poster-BESV24.pdf";
 import LSposter from "./files/poster-LS24.pdf";
 import SWXZposter from "./files/poster-SWXZ22.pdf";
+import OnlineConformalPDF from "./files/draft-online-conformal.pdf";
 
 
 class ProfilePicture extends Component {
@@ -288,6 +293,21 @@ class Academic extends Component {
                 decision making.  We welcome poster submissions on relevant topics, please do 
                 spread the word!
             </p>;
+
+        var onlineConformalPaperMainInfo = 
+            <div> 
+                <b>Online Conformal Prediction with Efficiency Guarantees</b> 
+                    &nbsp;<a href={OnlineConformalPDF}>[pdf]</a><br/>
+                <i>in submission</i>. 
+            </div>;
+
+        var onlineConformalPaperDescription = 
+            <p>
+                Conformal prediction is the problem of generating confidence sets.  We study this problem 
+                in an online formulation, while explicitly optimizing for efficiency (size of the confidence 
+                sets).  We show that this problem has a very different landscape than online learning, which
+                can be thought of as its unconstrained counterpart. 
+            </p>;
         
         var highDimConformalPaperMainInfo =
             <div> 
@@ -300,7 +320,7 @@ class Academic extends Component {
         var highDimConformalPaperDescription = 
             <p>
                 We learn the high-density region of an arbitrary distribution.  Given a target coverage, 
-                and sample access to a distribution <i>D</i> over n dimensional space, we want to find a 
+                and sample access to a distribution <i>D</i> over <i>n</i> dimensional space, we want to find a 
                 set <i>S</i> such that the probability of a point from <i>D</i> landing in <i>S</i> is at
                 least delta, and <i>S</i> is as small as possible.  Specifically, we restrict our attention
                 to considering sets <i>S</i> that are Euclidean balls, and we provide approximation 
@@ -308,7 +328,7 @@ class Academic extends Component {
                 statistics, in that we can think of it as trying to recover a delta fraction of "inliers"
                 from the corrupted distribution <i>D</i>.  We show that using insights from robust 
                 statistics, we can design a surprisingly simple algorithm that works, even assuming no
-                structural properties about the inliers.  
+                structural properties about the inliers. 
             </p>;
 
         var conformalDPPaperMainInfo = 
@@ -524,6 +544,11 @@ class Academic extends Component {
                             <br/>
 
                             <font size="+2">Research</font><br/><br/>
+
+                            <PaperWrapper mainPaperInfo={onlineConformalPaperMainInfo}
+                                          paperDescription={onlineConformalPaperDescription}/>
+
+                            <br/>
 
                             <PaperWrapper mainPaperInfo={highDimConformalPaperMainInfo}
                                           paperDescription={highDimConformalPaperDescription}/>
