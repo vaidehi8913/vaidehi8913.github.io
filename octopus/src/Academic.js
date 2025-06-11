@@ -280,7 +280,7 @@ class Academic extends Component {
             <div style={announcementStyle}>
                 <b>
                     I am co-organizing the <a href="https://vaidehi8913.github.io/predictions-and-uncertainty-colt25">Workshop on Predictions 
-                    and Uncertainty</a> at COLT 2025, on June 30 in Lyon, France.  We are accepting poster submissions until May 25, 2025.  
+                    and Uncertainty</a> at COLT 2025, on June 30 in Lyon, France.  
                 </b>
             </div>;
 
@@ -290,8 +290,7 @@ class Academic extends Component {
                 of algorithms and statistics that develop techniques for quantifying and mitigating 
                 the uncertainty of potentially unreliable predictions.  Some examples include 
                 conformal prediction, algorithms with predictions, robust statistics, and 
-                decision making.  We welcome poster submissions on relevant topics, please do 
-                spread the word!
+                decision making.  We have a great lineup, please do spread the word!
             </p>;
 
         var onlineConformalPaperMainInfo = 
