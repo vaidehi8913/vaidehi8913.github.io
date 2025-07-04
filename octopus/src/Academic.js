@@ -296,8 +296,8 @@ class Academic extends Component {
         var onlineConformalPaperMainInfo = 
             <div> 
                 <b>Online Conformal Prediction with Efficiency Guarantees</b> 
-                    &nbsp;<a href={OnlineConformalPDF}>[pdf]</a><br/>
-                <i>in submission</i>. 
+                    &nbsp;<a href="https://arxiv.org/abs/2507.02496">[arXiv]</a><br/>
+                <i>preprint</i>. 
             </div>;
 
         var onlineConformalPaperDescription = 
