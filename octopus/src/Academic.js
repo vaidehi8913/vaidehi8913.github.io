@@ -152,12 +152,13 @@ class PaperWrapper extends Component {
                     {dropDownBox}
                 </div>
 
+                {this.props.paperDescription ? 
                 <div style={feedbackButtonStyle}
                     onClick={this.onClick}
                     onMouseEnter={this.onMouseEnter}
                     onMouseLeave={this.onMouseLeave}>
                     {this.state.dropDown ? "less!" : "more!"}
-                </div>
+                </div> : null}
             </div>
         );
     }
@@ -273,26 +274,24 @@ class Academic extends Component {
             color: niceGreen
         };
 
-
-
         /* CONTENT */
 
-        var coltWorkshopMainInfo = 
+        var acdaTutorialMainInfo = 
             <div style={announcementStyle}>
                 <b>
-                    I am co-organizing the <a href="https://vaidehi8913.github.io/predictions-and-uncertainty-colt25">Workshop on Predictions 
-                    and Uncertainty</a> at COLT 2025, on June 30 in Lyon, France.  
+                    I am co-organizing a mini-tutorial on <i>Learning-Augmented Algorithms</i> at <a href="https://www.siam.org/conferences-events/siam-conferences/acda25/">ACDA 2025</a>, on 
+                    July 31 in Montreal, Canada.  
                 </b>
             </div>;
 
-        var coltWorkshopDescription = 
-            <p>
-                The goal of the workshop is to bring together researchers working on diverse areas 
-                of algorithms and statistics that develop techniques for quantifying and mitigating 
-                the uncertainty of potentially unreliable predictions.  Some examples include 
-                conformal prediction, algorithms with predictions, robust statistics, and 
-                decision making.  We have a great lineup, please do spread the word!
-            </p>;
+        // var coltWorkshopDescription = 
+        //     <p>
+        //         The goal of the workshop is to bring together researchers working on diverse areas 
+        //         of algorithms and statistics that develop techniques for quantifying and mitigating 
+        //         the uncertainty of potentially unreliable predictions.  Some examples include 
+        //         conformal prediction, algorithms with predictions, robust statistics, and 
+        //         decision making.  We have a great lineup, please do spread the word!
+        //     </p>;
 
         var onlineConformalPaperMainInfo = 
             <div> 
@@ -536,8 +535,7 @@ class Academic extends Component {
                                 I am grateful to be supported by the <a href="https://www.tgs.northwestern.edu/funding/fellowships-and-grants/internal-fellowships-grants/presidential-fellowship-winners/fellowship-winners.html">Northwestern Presidential Fellowship</a>. 
                             </p>
 
-                            <PaperWrapper mainPaperInfo={coltWorkshopMainInfo}
-                                          paperDescription={coltWorkshopDescription}
+                            <PaperWrapper mainPaperInfo={acdaTutorialMainInfo}
                                           buttonColor={niceGreen}/>
 
 
@@ -591,9 +589,14 @@ class Academic extends Component {
                             <br/>
                             <br/>
 
-                            <font size="+2">Other</font><br/><br/>
+                            <font size="+2">Other</font>
+
+                            <p>I co-organized the <b><a href="https://vaidehi8913.github.io/predictions-and-uncertainty-colt25">Workshop on 
+                            Predictions and Uncertainty</a></b> at <a href="https://learningtheory.org/colt2025/">COLT 2025</a>. 
+                            The materials are up on the workshop website if you are interested in what we got up to.</p>
                             
-                            A more complete list of my projects and interests are in my <a href={CV}><b>CV</b></a> (last updated winter 2025).<br/><br/>
+                            <p>A more complete list of my projects and interests are in my <a href={CV}><b>CV</b></a> (last 
+                            updated winter 2025).</p> <br/><br/>
 
                             {/* I also draw <Link to="/octopus">comics</Link>. Some are even CS related!  */}
 
