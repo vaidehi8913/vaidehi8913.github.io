@@ -22,7 +22,9 @@ import BESVposter from "./files/poster-BESV24.pdf";
 import LSposter from "./files/poster-LS24.pdf";
 import SWXZposter from "./files/poster-SWXZ22.pdf";
 import GSSVaslides from "./files/slides-GSSV25a.pdf";
-import OnlineConformalPDF from "./files/draft-online-conformal.pdf";
+// import OnlineConformalPDF from "./files/draft-online-conformal.pdf";
+import ACDAslidesWTransitions from "./files/slides-ACDA-tutorial-transitions.pdf";
+import ACDAslides from "./files/slides-ACDA-tutorial.pdf";
 
 
 class ProfilePicture extends Component {
@@ -276,13 +278,13 @@ class Academic extends Component {
 
         /* CONTENT */
 
-        var acdaTutorialMainInfo = 
-            <div style={announcementStyle}>
-                <b>
-                    I am co-organizing a mini-tutorial on <i>Learning-Augmented Algorithms</i> at <a href="https://www.siam.org/conferences-events/siam-conferences/acda25/">ACDA 2025</a>, on 
-                    July 31 in Montreal, Canada.  
-                </b>
-            </div>;
+        // var acdaTutorialMainInfo = 
+        //     <div style={announcementStyle}>
+        //         <b>
+        //             I am co-organizing a mini-tutorial on <i>Learning-Augmented Algorithms</i> at <a href="https://www.siam.org/conferences-events/siam-conferences/acda25/">ACDA 2025</a>, on 
+        //             July 31 in Montreal, Canada.  
+        //         </b>
+        //     </div>;
 
         // var coltWorkshopDescription = 
         //     <p>
@@ -535,8 +537,7 @@ class Academic extends Component {
                                 I am grateful to be supported by the <a href="https://www.tgs.northwestern.edu/funding/fellowships-and-grants/internal-fellowships-grants/presidential-fellowship-winners/fellowship-winners.html">Northwestern Presidential Fellowship</a>. 
                             </p>
 
-                            <PaperWrapper mainPaperInfo={acdaTutorialMainInfo}
-                                          buttonColor={niceGreen}/>
+                            
 
 
                             <br/>
@@ -590,6 +591,10 @@ class Academic extends Component {
                             <br/>
 
                             <font size="+2">Other</font>
+
+                            <p>I gave part 2 of the <b>Mini-Tutorial on Learning-Augmented 
+                            Algorithms</b> at <a href="https://www.siam.org/conferences-events/siam-conferences/acda25/program/program-abstracts/">ACDA 2025</a>.  
+                            You can find my slides here: <a href={ACDAslidesWTransitions}>with transitions</a>, <a href={ACDAslides}>and without</a>.</p>
 
                             <p>I co-organized the <b><a href="https://vaidehi8913.github.io/predictions-and-uncertainty-colt25">Workshop on 
                             Predictions and Uncertainty</a></b> at <a href="https://learningtheory.org/colt2025/">COLT 2025</a>. 
