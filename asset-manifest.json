@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.e6c13ad2.css",
-    "main.js": "/static/js/main.381a086a.js",
+    "main.js": "/static/js/main.f3c0ecad.js",
     "static/media/slides-LS24.pdf": "/static/media/slides-LS24.770c4325c1646cbe2838.pdf",
     "static/media/slides-OSV22.pdf": "/static/media/slides-OSV22.067bb00bedd4116b8548.pdf",
     "static/media/slides-BESV24.pdf": "/static/media/slides-BESV24.fb5b1f0384d42d1daa81.pdf",
@@ -9,6 +9,7 @@
     "static/media/poster-LS24.pdf": "/static/media/poster-LS24.d6992a6ed7bfaf554678.pdf",
     "static/media/poster-BESV24.pdf": "/static/media/poster-BESV24.7de25ac1653c39bd7f0a.pdf",
     "static/media/23.gif": "/static/media/23.8c7cd4bc29934cdf2e8d.gif",
+    "static/media/slides-ACDA-tutorial-transitions.pdf": "/static/media/slides-ACDA-tutorial-transitions.c6025a32305b96e083eb.pdf",
     "static/media/slides-seniorthesis.pdf": "/static/media/slides-seniorthesis.ebbbe2e5ef432e3b2d5b.pdf",
     "static/media/profile-zoom-out.jpg": "/static/media/profile-zoom-out.5161c496655712a88325.jpg",
     "static/media/27.png": "/static/media/27.10290bc05453b90e20e5.png",
@@ -17,6 +18,7 @@
     "static/media/profile.jpg": "/static/media/profile.f6c7ca18d6236af4d509.jpg",
     "static/media/31.png": "/static/media/31.f296dc08832cbc37991c.png",
     "static/media/slides-GSSV25a.pdf": "/static/media/slides-GSSV25a.5873a69565c320414444.pdf",
+    "static/media/slides-ACDA-tutorial.pdf": "/static/media/slides-ACDA-tutorial.a43482794e5d9341d476.pdf",
     "static/media/30.png": "/static/media/30.8fdba5dd6e5fb11dfa92.png",
     "static/media/21.gif": "/static/media/21.f027aaadeb3f6665e659.gif",
     "static/media/29.png": "/static/media/29.661e3e00645665746671.png",
@@ -24,7 +26,6 @@
     "static/media/Espresso.png": "/static/media/Espresso.c806ba33c3d6ffe350fa.png",
     "static/media/28.png": "/static/media/28.dfa8a20f04499f9ea951.png",
     "static/media/poster-SWXZ22.pdf": "/static/media/poster-SWXZ22.739538bee1a1f7bc5da0.pdf",
-    "static/media/draft-online-conformal.pdf": "/static/media/draft-online-conformal.29b13877047fbacb3c35.pdf",
     "static/media/profile-old.jpg": "/static/media/profile-old.9117040e118b560723f1.jpg",
     "static/media/profile-alt-original.png": "/static/media/profile-alt-original.f7206ad43bde1187d0c1.png",
     "static/media/19.jpeg": "/static/media/19.02edfed23dd0fece5299.jpeg",
@@ -55,10 +56,10 @@
     "static/media/6.jpeg": "/static/media/6.1a4356531427a8078c2e.jpeg",
     "index.html": "/index.html",
     "main.e6c13ad2.css.map": "/static/css/main.e6c13ad2.css.map",
-    "main.381a086a.js.map": "/static/js/main.381a086a.js.map"
+    "main.f3c0ecad.js.map": "/static/js/main.f3c0ecad.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.381a086a.js"
+    "static/js/main.f3c0ecad.js"
   ]
 }
