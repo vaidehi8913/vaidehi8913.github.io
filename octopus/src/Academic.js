@@ -9,7 +9,7 @@ import { useRef } from 'react';
 // import Latex from 'react-latex';
 // import MathJax from 'react-mathjax2';
 
-import CV from "./files/SrinivasCVWinter25.pdf";
+import CV from "./files/SrinivasCVSummer25.pdf";
 import SeniorThesis from "./files/SimplerApproximationsForNetworkSteinerTree.pdf";
 import SmoothedStuff from "./files/STOC2024_smoothedanalysis.pdf";
 import seniorthesisslides from "./files/slides-seniorthesis.pdf";
@@ -25,6 +25,7 @@ import GSSVaslides from "./files/slides-GSSV25a.pdf";
 // import OnlineConformalPDF from "./files/draft-online-conformal.pdf";
 import ACDAslidesWTransitions from "./files/slides-ACDA-tutorial-transitions.pdf";
 import ACDAslides from "./files/slides-ACDA-tutorial.pdf";
+import GSSVbposter from "./files/poster-GSSV25b.pdf";
 
 
 class ProfilePicture extends Component {
@@ -335,9 +336,9 @@ class Academic extends Component {
         var conformalDPPaperMainInfo = 
             <div> 
                 <b>Volume Optimality in Conformal Prediction with Structured Prediction Sets</b> 
-                    &nbsp;<a href="https://arxiv.org/abs/2502.16658">[arXiv]</a><br/>
+                    &nbsp;<a href="https://arxiv.org/abs/2502.16658">[arXiv]</a> <a href={GSSVbposter}>[poster]</a><br/>
                 <i>with <a href="https://www.stat.uchicago.edu/~chaogao/">Chao Gao</a>, <a href="https://lirenshan.github.io/">Liren Shan</a>, <a href="https://users.cs.northwestern.edu/~aravindv/">Aravindan Vijayaraghavan</a>,</i><br/>
-                ICML 2025. 
+                <a href="https://icml.cc/virtual/2025/poster/44066">ICML 2025</a>. 
             </div>;
 
         var conformalDPPaperDescription = 
@@ -601,7 +602,7 @@ class Academic extends Component {
                             The materials are up on the workshop website if you are interested in what we got up to.</p>
                             
                             <p>A more complete list of my projects and interests are in my <a href={CV}><b>CV</b></a> (last 
-                            updated winter 2025).</p> <br/><br/>
+                            updated summer 2025).</p> <br/><br/>
 
                             {/* I also draw <Link to="/octopus">comics</Link>. Some are even CS related!  */}
 
