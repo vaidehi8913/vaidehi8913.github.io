@@ -22,6 +22,7 @@ import BESVposter from "./files/poster-BESV24.pdf";
 import LSposter from "./files/poster-LS24.pdf";
 import SWXZposter from "./files/poster-SWXZ22.pdf";
 import GSSVaslides from "./files/slides-GSSV25a.pdf";
+import ASVslides from "./files/slides-ASV25.pdf";
 // import OnlineConformalPDF from "./files/draft-online-conformal.pdf";
 import ACDAslidesWTransitions from "./files/slides-ACDA-tutorial-transitions.pdf";
 import ACDAslides from "./files/slides-ACDA-tutorial.pdf";
@@ -296,6 +297,22 @@ class Academic extends Component {
         //         decision making.  We have a great lineup, please do spread the word!
         //     </p>;
 
+        var alsPaperMainInfo = 
+            <div> 
+                <b>Guarantees for Alternating Least Squares in Overparameterized Tensor Decompositions</b> 
+                    &nbsp;[paper coming soon...]<a href={ASVslides}>[slides]</a><br/>
+                <i>with <a href="https://dion11ar.github.io/">Dionysis Arvanitakis</a>, <a href="https://users.cs.northwestern.edu/~aravindv/">Aravindan Vijayaraghavan</a>,</i><br/>
+                NeurIPS 2025 (spotlight). 
+            </div>;
+
+        var alsPaperDescription = 
+            <p>
+                Alternating Least Squares (ALS) is the most popular method to compute tensor CP decompositions 
+                in practice.  We provide convergence guarantees for this method in the overparameterized regime 
+                by establishing a new connection to random matrix theory.  Our analysis provides new ways to 
+                argue about overparamterization and random initialization.  
+            </p>;
+
         var onlineConformalPaperMainInfo = 
             <div> 
                 <b>Online Conformal Prediction with Efficiency Guarantees</b> 
@@ -532,7 +549,7 @@ class Academic extends Component {
                             <p>
                                 Before Northwestern, I was 
                                 a <a href="https://us.fulbrightonline.org/countries/europe-and-eurasia/austria/255">Fulbright </a> 
-                                visting student at the University of Vienna in 
+                                visiting student at the University of Vienna in 
                                 the <a href="https://taa.cs.univie.ac.at">Theory and Applications of Algorithms group</a>, 
                                 and I earned my B.S. in Computer Science at Carnegie Mellon University. 
                                 I am grateful to be supported by the <a href="https://www.tgs.northwestern.edu/funding/fellowships-and-grants/internal-fellowships-grants/presidential-fellowship-winners/fellowship-winners.html">Northwestern Presidential Fellowship</a>. 
@@ -547,6 +564,11 @@ class Academic extends Component {
 
                             <PaperWrapper mainPaperInfo={onlineConformalPaperMainInfo}
                                           paperDescription={onlineConformalPaperDescription}/>
+
+                            <br/>
+
+                            <PaperWrapper mainPaperInfo={alsPaperMainInfo}
+                                          paperDescription={alsPaperDescription}/>
 
                             <br/>
 
