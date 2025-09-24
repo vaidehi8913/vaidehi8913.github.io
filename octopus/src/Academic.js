@@ -253,6 +253,15 @@ class Academic extends Component {
             scrollBehavior: "smooth"
         }
 
+        this.findMeStyle = {
+            display: "flex",
+            flexDirection: "column",
+            flex: "1",
+            margin: "5px"
+            // maxWidth: this.state.isDesktop ? "50%" : "80%",
+            // scrollBehavior: "smooth"
+        }
+
         this.nameStyle = {
             fontFamily: "'Open Sans', sans-serif",
             fontSize: "200%",
@@ -297,6 +306,52 @@ class Academic extends Component {
         //         decision making.  We have a great lineup, please do spread the word!
         //     </p>;
 
+        var findMe = 
+            <div style={this.findMeStyle}>
+                
+                <font size="+2">Find me at</font> 
+
+                <ul>
+                    <li> <b>Oct '25 @ MIT, Boston, US:</b> <a href="https://risingstars-eecs.mit.edu/">MIT Rising Stars in EECS workshop</a> <br/><br/></li>
+                    <li> <b>Aug '25 @ EPFL, Lausanne, CH:</b> <a href="https://optimization-unplugged.github.io/">Optimization Unplugged</a> workshop at the Bernoulli Center of EPFL <br/><br/></li>
+                    <li> <b>Jul '25 @ Montreal, CA:</b> <a href="https://www.siam.org/conferences-events/past-event-archive/acda25/">ACDA</a> (SIAM Conference on Applied and Computational Discrete Algorithms)<br/><br/> </li>
+                    <li> <b>Jul '25 @ Vancouver, CA:</b> <a href="https://icml.cc/">ICML</a> (International Conference on Machine Learning)<br/><br/> </li>
+                    <li> <b>Jun '25 @ ENS Lyon, FR:</b> <a href="https://learningtheory.org/colt2025/">COLT</a> (Conference on Learning Theory)<br/><br/> </li>
+                    <li> ... </li>
+                </ul>
+            </div>
+
+        var bioMainInfo = 
+            <p>
+                I work on providing provable guarantees for machine learning tasks. A running technical 
+                theme in my work has been the use of <i>beyond worst-case analysis</i> to 
+                establish new kinds of theoretical guarantees.
+            </p>;
+
+        var bioDescription = 
+            <p>
+                There is a large 
+                gap between the sophisticated machine learning methods that practitioners develop, 
+                and the methods that we can analyze in theory.  I work towards closing this gap in two ways.
+
+                <ul>
+                    <li>The long-term research goal of machine learning theory is to understand why practical 
+                        methods work so well in solving problems that are <i>intractable</i> in the worst case.  
+                        I am interested in reasoning about how these methods perform in <i>non-worst-case</i> settings. 
+                        This includes understanding when problems are tractable under paradigms 
+                        like <i>smoothed analysis</i> <a href="https://arxiv.org/abs/2405.01517">[BE<b>S</b>V STOC'24]</a>, and applying these insights to study iterative 
+                        optimization techniques in non-convex settings <a href="https://arxiv.org/abs/2211.12389">[O<b>S</b>V NeurIPS'22]</a> <a href={ASVslides}>[A<b>S</b>V NeurIPS'25]</a>. <br/><br/></li>
+
+                    <li>In the meantime, new paradigms treat learned models as inherently unreliable, and design 
+                        principled methods to use them as a black box.  My work in this space has focused 
+                        on <i>algorithms with predictions</i>, which incorporates machine learned predictions into 
+                        algorithmic decisions in a "risk-free" way <a href="https://arxiv.org/abs/2307.08890">[L<b>S</b> COLT'24]</a><a href="https://arxiv.org/abs/2405.03661">[B<b>S</b> SODA'25]</a>, 
+                        and <i>conformal prediction</i>, which 
+                        estimates the uncertainty of model predictions on the 
+                        fly <a href="https://arxiv.org/abs/2502.16658">[GS<b>S</b>V ICML'25]</a> <a href="https://arxiv.org/abs/2504.02723">[GS<b>S</b>V COLT'25]</a>  <a href="https://arxiv.org/abs/2507.02496">[<b>S</b> '25]</a>.</li>
+                </ul>
+            </p>
+
         var alsPaperMainInfo = 
             <div> 
                 <b>Guarantees for Alternating Least Squares in Overparameterized Tensor Decompositions</b> 
@@ -324,7 +379,7 @@ class Academic extends Component {
             <p>
                 Conformal prediction is the problem of generating confidence sets.  We study this problem 
                 in an online formulation, while explicitly optimizing for efficiency (size of the confidence 
-                sets).  We show that this problem has a very different landscape than online learning, which
+                sets).  We show that this problem admits very different guarantees than online learning, which
                 can be thought of as its unconstrained counterpart. 
             </p>;
         
@@ -525,10 +580,15 @@ class Academic extends Component {
 
                         <div style={{height: "15px"}}/>
                         <div className="email" style={this.emailStyle}>
-                            [firstname] AT u DOT northwestern DOT edu
+                            vaidehi@u.northwestern.edu
                         </div>
 
-                        <div className="longspacer" style={this.longSpacerStyle}/>
+                        {/* <div className="longspacer" style={this.longSpacerStyle}/> */}
+                        <br/><br/> 
+
+                        {this.state.isDesktop ? findMe : null}
+
+                        
                     </div>
 
                     <div className="right-box" style={this.rightBoxStyle}>
@@ -540,11 +600,8 @@ class Academic extends Component {
                                 by <a href="http://users.eecs.northwestern.edu/~aravindv/">Aravindan Vijayaraghavan</a>.    
                             </p>
 
-                            <p>
-                                I am interested in designing and analyzing simple algorithms that are practical for 
-                                real-world input, particularly in beyond worst-case settings like smoothed analysis 
-                                and algorithms with predictions.
-                            </p>
+                            <PaperWrapper mainPaperInfo={bioMainInfo}
+                                          paperDescription={bioDescription}/>
 
                             <p>
                                 Before Northwestern, I was 
@@ -552,7 +609,7 @@ class Academic extends Component {
                                 visiting student at the University of Vienna in 
                                 the <a href="https://taa.cs.univie.ac.at">Theory and Applications of Algorithms group</a>, 
                                 and I earned my B.S. in Computer Science at Carnegie Mellon University. 
-                                I am grateful to be supported by the <a href="https://www.tgs.northwestern.edu/funding/fellowships-and-grants/internal-fellowships-grants/presidential-fellowship-winners/fellowship-winners.html">Northwestern Presidential Fellowship</a>. 
+                                I am grateful to have been supported by the <a href="https://www.tgs.northwestern.edu/funding/fellowships-and-grants/internal-fellowships-grants/presidential-fellowship-winners/fellowship-winners.html">Northwestern Presidential Fellowship</a>. 
                             </p>
 
                             
@@ -624,9 +681,11 @@ class Academic extends Component {
                             The materials are up on the workshop website if you are interested in what we got up to.</p>
                             
                             <p>A more complete list of my projects and interests are in my <a href={CV}><b>CV</b></a> (last 
-                            updated summer 2025).</p> <br/><br/>
+                            updated summer 2025).</p> <br/>
 
                             {/* I also draw <Link to="/octopus">comics</Link>. Some are even CS related!  */}
+
+                            {this.state.isDesktop ? null : findMe }
 
                             <div className="longspacer" style={this.longSpacerStyle}/>
                         </div>
