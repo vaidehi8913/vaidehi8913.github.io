@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.e6c13ad2.css",
-    "main.js": "/static/js/main.e49c1b50.js",
+    "main.js": "/static/js/main.142e57eb.js",
     "static/media/slides-LS24.pdf": "/static/media/slides-LS24.770c4325c1646cbe2838.pdf",
     "static/media/slides-OSV22.pdf": "/static/media/slides-OSV22.067bb00bedd4116b8548.pdf",
     "static/media/slides-BESV24.pdf": "/static/media/slides-BESV24.fb5b1f0384d42d1daa81.pdf",
@@ -58,10 +58,10 @@
     "static/media/6.jpeg": "/static/media/6.1a4356531427a8078c2e.jpeg",
     "index.html": "/index.html",
     "main.e6c13ad2.css.map": "/static/css/main.e6c13ad2.css.map",
-    "main.e49c1b50.js.map": "/static/js/main.e49c1b50.js.map"
+    "main.142e57eb.js.map": "/static/js/main.142e57eb.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.e49c1b50.js"
+    "static/js/main.142e57eb.js"
   ]
 }
