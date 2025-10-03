@@ -348,7 +348,7 @@ class Academic extends Component {
                         algorithmic decisions in a "risk-free" way <a href="https://arxiv.org/abs/2307.08890">[L<b>S</b> COLT'24]</a><a href="https://arxiv.org/abs/2405.03661">[B<b>S</b> SODA'25]</a>, 
                         and <i>conformal prediction</i>, which 
                         estimates the uncertainty of model predictions on the 
-                        fly <a href="https://arxiv.org/abs/2502.16658">[GS<b>S</b>V ICML'25]</a> <a href="https://arxiv.org/abs/2504.02723">[GS<b>S</b>V COLT'25]</a>  <a href="https://arxiv.org/abs/2507.02496">[<b>S</b> SODA'25]</a>.</li>
+                        fly <a href="https://arxiv.org/abs/2502.16658">[GS<b>S</b>V ICML'25]</a> <a href="https://arxiv.org/abs/2504.02723">[GS<b>S</b>V COLT'25]</a>  <a href="https://arxiv.org/abs/2507.02496">[<b>S</b> SODA'26]</a>.</li>
                 </ul>
             </p>
 
@@ -372,7 +372,7 @@ class Academic extends Component {
             <div> 
                 <b>Online Conformal Prediction with Efficiency Guarantees</b> 
                     &nbsp;<a href="https://arxiv.org/abs/2507.02496">[arXiv]</a><br/>
-                <i>SODA 2026.</i>. 
+                <i>SODA 2026</i>. 
             </div>;
 
         var onlineConformalPaperDescription = 
