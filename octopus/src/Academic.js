@@ -365,7 +365,7 @@ class Academic extends Component {
                 Alternating Least Squares (ALS) is the most popular method to compute tensor CP decompositions 
                 in practice.  We provide convergence guarantees for this method in the overparameterized regime 
                 by establishing a new connection to random matrix theory.  Our analysis provides new ways to 
-                argue about overparamterization and random initialization.  
+                argue about overparameterization and random initialization.  
             </p>;
 
         var onlineConformalPaperMainInfo = 
