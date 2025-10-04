@@ -356,7 +356,7 @@ class Academic extends Component {
             <div> 
                 <b>Guarantees for Alternating Least Squares in Overparameterized Tensor Decompositions</b> 
                     &nbsp;[paper coming soon...]<a href={ASVslides}>[slides]</a><br/>
-                <i>with <a href="https://dion11ar.github.io/">Dionysis Arvanitakis</a>, <a href="https://users.cs.northwestern.edu/~aravindv/">Aravindan Vijayaraghavan</a>,</i><br/>
+                <i> with <a href="https://dion11ar.github.io/">Dionysis Arvanitakis</a>, <a href="https://users.cs.northwestern.edu/~aravindv/">Aravindan Vijayaraghavan</a>,</i><br/>
                 NeurIPS 2025 (spotlight). 
             </div>;
 
@@ -372,7 +372,7 @@ class Academic extends Component {
             <div> 
                 <b>Online Conformal Prediction with Efficiency Guarantees</b> 
                     &nbsp;<a href="https://arxiv.org/abs/2507.02496">[arXiv]</a><br/>
-                <i>SODA 2026</i>. 
+                SODA 2026. 
             </div>;
 
         var onlineConformalPaperDescription = 
