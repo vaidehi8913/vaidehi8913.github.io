@@ -9,7 +9,7 @@ import { useRef } from 'react';
 // import Latex from 'react-latex';
 // import MathJax from 'react-mathjax2';
 
-import CV from "./files/SrinivasCVSummer25.pdf";
+import CV from "./files/SrinivasCVFall25.pdf";
 import SeniorThesis from "./files/SimplerApproximationsForNetworkSteinerTree.pdf";
 import SmoothedStuff from "./files/STOC2024_smoothedanalysis.pdf";
 import seniorthesisslides from "./files/slides-seniorthesis.pdf";
@@ -681,7 +681,7 @@ class Academic extends Component {
                             The materials are up on the workshop website if you are interested in what we got up to.</p>
                             
                             <p>A more complete list of my projects and interests are in my <a href={CV}><b>CV</b></a> (last 
-                            updated summer 2025).</p> <br/>
+                            updated fall 2025).</p> <br/>
 
                             {/* I also draw <Link to="/octopus">comics</Link>. Some are even CS related!  */}
 
