@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.e6c13ad2.css",
-    "main.js": "/static/js/main.5324e0d0.js",
+    "main.js": "/static/js/main.5ce7ffb4.js",
     "static/media/slides-LS24.pdf": "/static/media/slides-LS24.770c4325c1646cbe2838.pdf",
     "static/media/slides-OSV22.pdf": "/static/media/slides-OSV22.067bb00bedd4116b8548.pdf",
     "static/media/slides-BESV24.pdf": "/static/media/slides-BESV24.fb5b1f0384d42d1daa81.pdf",
@@ -42,9 +42,9 @@
     "static/media/1.jpeg": "/static/media/1.02263276387d9621e600.jpeg",
     "static/media/16.jpeg": "/static/media/16.61b56ded57463cbe4719.jpeg",
     "static/media/14.jpeg": "/static/media/14.16df19c3e95448aff207.jpeg",
-    "static/media/SrinivasCVSummer25.pdf": "/static/media/SrinivasCVSummer25.07a6f4c6c21120ee3e16.pdf",
     "static/media/12.jpeg": "/static/media/12.befa903eb34694db2c21.jpeg",
     "static/media/10.jpeg": "/static/media/10.ae0d2847164a7e79eba5.jpeg",
+    "static/media/SrinivasCVFall25.pdf": "/static/media/SrinivasCVFall25.7896667b549ff69f270a.pdf",
     "static/media/15.jpeg": "/static/media/15.5362ed74d1c829555af5.jpeg",
     "static/media/13.jpeg": "/static/media/13.f32bd58736d51fb72803.jpeg",
     "static/media/8.jpeg": "/static/media/8.838a8b5aef1e25219e0b.jpeg",
@@ -58,10 +58,10 @@
     "static/media/6.jpeg": "/static/media/6.1a4356531427a8078c2e.jpeg",
     "index.html": "/index.html",
     "main.e6c13ad2.css.map": "/static/css/main.e6c13ad2.css.map",
-    "main.5324e0d0.js.map": "/static/js/main.5324e0d0.js.map"
+    "main.5ce7ffb4.js.map": "/static/js/main.5ce7ffb4.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.5324e0d0.js"
+    "static/js/main.5ce7ffb4.js"
   ]
 }
