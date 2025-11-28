@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.e6c13ad2.css",
-    "main.js": "/static/js/main.5ce7ffb4.js",
+    "main.js": "/static/js/main.b4904c11.js",
     "static/media/slides-LS24.pdf": "/static/media/slides-LS24.770c4325c1646cbe2838.pdf",
     "static/media/slides-OSV22.pdf": "/static/media/slides-OSV22.067bb00bedd4116b8548.pdf",
     "static/media/slides-BESV24.pdf": "/static/media/slides-BESV24.fb5b1f0384d42d1daa81.pdf",
@@ -51,6 +51,7 @@
     "static/media/22.gif": "/static/media/22.50f1de4279782aa6d447.gif",
     "static/media/4.jpeg": "/static/media/4.8839278f4d5101317eaf.jpeg",
     "static/media/7.jpeg": "/static/media/7.23da4850d7c5cfa47566.jpeg",
+    "static/media/focs24-scavenger-hunt.pdf": "/static/media/focs24-scavenger-hunt.2ba074cdeb587cdf04f8.pdf",
     "static/media/9.jpeg": "/static/media/9.5e87eec7f0d68f4befed.jpeg",
     "static/media/3.jpeg": "/static/media/3.e1e6ca7d26772d941317.jpeg",
     "static/media/5.jpeg": "/static/media/5.e0897a550f7c82476591.jpeg",
@@ -58,10 +59,10 @@
     "static/media/6.jpeg": "/static/media/6.1a4356531427a8078c2e.jpeg",
     "index.html": "/index.html",
     "main.e6c13ad2.css.map": "/static/css/main.e6c13ad2.css.map",
-    "main.5ce7ffb4.js.map": "/static/js/main.5ce7ffb4.js.map"
+    "main.b4904c11.js.map": "/static/js/main.b4904c11.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.5ce7ffb4.js"
+    "static/js/main.b4904c11.js"
   ]
 }
