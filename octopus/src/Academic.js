@@ -27,6 +27,7 @@ import ASVslides from "./files/slides-ASV25.pdf";
 import ACDAslidesWTransitions from "./files/slides-ACDA-tutorial-transitions.pdf";
 import ACDAslides from "./files/slides-ACDA-tutorial.pdf";
 import GSSVbposter from "./files/poster-GSSV25b.pdf";
+import FOCSScavHunt from "./files/focs24-scavenger-hunt.pdf";
 
 
 class ProfilePicture extends Component {
@@ -312,11 +313,13 @@ class Academic extends Component {
                 <font size="+2">Find me at</font> 
 
                 <ul>
+                    <li> <b>Jan '26 @ Vancouver, CA:</b> <a href="https://www.siam.org/conferences-events/siam-conferences/soda26/">SODA</a> (Symposium on Discrete Algorithms)<br/><br/></li>
+                    <li> <b>Dec '25 @ San Diego, US:</b> <a href="https://neurips.cc/virtual/2025/loc/san-diego/poster/119560">NeurIPS</a> (Conference on Neural Information Processing Systems)<br/><br/></li>
                     <li> <b>Oct '25 @ MIT, Boston, US:</b> <a href="https://risingstars-eecs.mit.edu/">MIT Rising Stars in EECS workshop</a> <br/><br/></li>
                     <li> <b>Aug '25 @ EPFL, Lausanne, CH:</b> <a href="https://optimization-unplugged.github.io/">Optimization Unplugged</a> workshop at the Bernoulli Center of EPFL <br/><br/></li>
                     <li> <b>Jul '25 @ Montreal, CA:</b> <a href="https://www.siam.org/conferences-events/past-event-archive/acda25/">ACDA</a> (SIAM Conference on Applied and Computational Discrete Algorithms)<br/><br/> </li>
-                    <li> <b>Jul '25 @ Vancouver, CA:</b> <a href="https://icml.cc/">ICML</a> (International Conference on Machine Learning)<br/><br/> </li>
-                    <li> <b>Jun '25 @ ENS Lyon, FR:</b> <a href="https://learningtheory.org/colt2025/">COLT</a> (Conference on Learning Theory)<br/><br/> </li>
+                    {/* <li> <b>Jul '25 @ Vancouver, CA:</b> <a href="https://icml.cc/">ICML</a> (International Conference on Machine Learning)<br/><br/> </li> */}
+                    {/* <li> <b>Jun '25 @ ENS Lyon, FR:</b> <a href="https://learningtheory.org/colt2025/">COLT</a> (Conference on Learning Theory)<br/><br/> </li> */}
                     <li> ... </li>
                 </ul>
             </div>
@@ -357,7 +360,7 @@ class Academic extends Component {
                 <b>Guarantees for Alternating Least Squares in Overparameterized Tensor Decompositions</b> 
                     &nbsp;[paper coming soon...]<a href={ASVslides}>[slides]</a><br/>
                 <i> with <a href="https://dion11ar.github.io/">Dionysis Arvanitakis</a>, <a href="https://users.cs.northwestern.edu/~aravindv/">Aravindan Vijayaraghavan</a>,</i><br/>
-                NeurIPS 2025 (spotlight). 
+                <a href="https://neurips.cc/virtual/2025/loc/san-diego/poster/119560">NeurIPS 2025</a> (spotlight). 
             </div>;
 
         var alsPaperDescription = 
@@ -372,7 +375,7 @@ class Academic extends Component {
             <div> 
                 <b>Online Conformal Prediction with Efficiency Guarantees</b> 
                     &nbsp;<a href="https://arxiv.org/abs/2507.02496">[arXiv]</a><br/>
-                SODA 2026. 
+                <a href="https://www.siam.org/conferences-events/siam-conferences/soda26/">SODA 2026</a>. 
             </div>;
 
         var onlineConformalPaperDescription = 
@@ -679,6 +682,9 @@ class Academic extends Component {
                             <p>I co-organized the <b><a href="https://vaidehi8913.github.io/predictions-and-uncertainty-colt25">Workshop on 
                             Predictions and Uncertainty</a></b> at <a href="https://learningtheory.org/colt2025/">COLT 2025</a>. 
                             The materials are up on the workshop website if you are interested in what we got up to.</p>
+
+                            <p>I organized a <b><a href={FOCSScavHunt}>Chicago scavenger hunt</a></b> as a social event 
+                            for <a href="https://focs.computer.org/2024/">FOCS 2024</a>.</p>
                             
                             <p>A more complete list of my projects and interests are in my <a href={CV}><b>CV</b></a> (last 
                             updated fall 2025).</p> <br/>
