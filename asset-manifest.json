@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.e6c13ad2.css",
-    "main.js": "/static/js/main.b4904c11.js",
+    "main.js": "/static/js/main.f4fa1ff7.js",
     "static/media/slides-LS24.pdf": "/static/media/slides-LS24.770c4325c1646cbe2838.pdf",
     "static/media/slides-OSV22.pdf": "/static/media/slides-OSV22.067bb00bedd4116b8548.pdf",
     "static/media/slides-BESV24.pdf": "/static/media/slides-BESV24.fb5b1f0384d42d1daa81.pdf",
@@ -27,6 +27,7 @@
     "static/media/SimplerApproximationsForNetworkSteinerTree.pdf": "/static/media/SimplerApproximationsForNetworkSteinerTree.e0fcc1a3644455774343.pdf",
     "static/media/Espresso.png": "/static/media/Espresso.c806ba33c3d6ffe350fa.png",
     "static/media/28.png": "/static/media/28.dfa8a20f04499f9ea951.png",
+    "static/media/slides-Sri26.pdf": "/static/media/slides-Sri26.ab8dcd9a778d49f2c2d9.pdf",
     "static/media/poster-SWXZ22.pdf": "/static/media/poster-SWXZ22.739538bee1a1f7bc5da0.pdf",
     "static/media/profile-old.jpg": "/static/media/profile-old.9117040e118b560723f1.jpg",
     "static/media/profile-alt-original.png": "/static/media/profile-alt-original.f7206ad43bde1187d0c1.png",
@@ -59,10 +60,10 @@
     "static/media/6.jpeg": "/static/media/6.1a4356531427a8078c2e.jpeg",
     "index.html": "/index.html",
     "main.e6c13ad2.css.map": "/static/css/main.e6c13ad2.css.map",
-    "main.b4904c11.js.map": "/static/js/main.b4904c11.js.map"
+    "main.f4fa1ff7.js.map": "/static/js/main.f4fa1ff7.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.b4904c11.js"
+    "static/js/main.f4fa1ff7.js"
   ]
 }
