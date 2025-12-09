@@ -28,6 +28,7 @@ import ACDAslidesWTransitions from "./files/slides-ACDA-tutorial-transitions.pdf
 import ACDAslides from "./files/slides-ACDA-tutorial.pdf";
 import GSSVbposter from "./files/poster-GSSV25b.pdf";
 import FOCSScavHunt from "./files/focs24-scavenger-hunt.pdf";
+import Srislides from "./files/slides-Sri26.pdf";
 
 
 class ProfilePicture extends Component {
@@ -374,7 +375,7 @@ class Academic extends Component {
         var onlineConformalPaperMainInfo = 
             <div> 
                 <b>Online Conformal Prediction with Efficiency Guarantees</b> 
-                    &nbsp;<a href="https://arxiv.org/abs/2507.02496">[arXiv]</a><br/>
+                    &nbsp;<a href="https://arxiv.org/abs/2507.02496">[arXiv]</a> <a href={Srislides}>[slides]</a><br/>
                 <a href="https://www.siam.org/conferences-events/siam-conferences/soda26/">SODA 2026</a>. 
             </div>;
 
