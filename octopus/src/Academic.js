@@ -356,6 +356,25 @@ class Academic extends Component {
                 </ul>
             </p>
 
+        var confidenceEllipsoidPaperMainInfo =
+            <div> 
+                <b>Learning Confidence Ellipsoids and Applications to Robust Subspace Recovery</b> 
+                    &nbsp;<a href="https://arxiv.org/abs/2512.16875">[arXiv]</a> <br/>
+                <i>with <a href="https://www.stat.uchicago.edu/~chaogao/">Chao Gao</a>, <a href="https://lirenshan.github.io/">Liren Shan</a>, <a href="https://users.cs.northwestern.edu/~aravindv/">Aravindan Vijayaraghavan</a>,</i><br/>
+                preprint. 
+            </div>;
+
+        var confidenceEllipsoidPaperDescription = 
+            <p>
+                We study the problem of finding confidence ellipsoids for arbitrary distributions.  In particular, 
+                given sample access to a distribution <i>D</i>, we want to find an ellipsoid <i>E</i> that covers a prescribed 1 - α 
+                probability mass of the distribution, and as small volume as possible.  We give an approximation 
+                algorithm for this problem.  Our algorithm and analysis establish nice properties of the SDP 
+                for finding the minimum volume enclosing ellipsoid (MVEE) (of all of the points), and we show that 
+                sampling from the dual solution of this program allows us to remove outliers effectively.
+            </p>;
+
+
         var alsPaperMainInfo = 
             <div> 
                 <b>Guarantees for Alternating Least Squares in Overparameterized Tensor Decompositions</b> 
@@ -623,6 +642,11 @@ class Academic extends Component {
 
                             <font size="+2">Research</font><br/><br/>
 
+                            <PaperWrapper mainPaperInfo={confidenceEllipsoidPaperMainInfo}
+                                          paperDescription={confidenceEllipsoidPaperDescription}/>
+
+                            <br/>
+                            
                             <PaperWrapper mainPaperInfo={onlineConformalPaperMainInfo}
                                           paperDescription={onlineConformalPaperDescription}/>
 
