@@ -409,7 +409,7 @@ class Academic extends Component {
         var highDimConformalPaperMainInfo =
             <div> 
                 <b>Computing High-Dimensional Confidence Sets for Arbitrary Distributions</b> 
-                    &nbsp;<a href="https://arxiv.org/abs/2504.02723">[arXiv]</a> <a href={GSSVaslides}>[slides]</a><br/>
+                    &nbsp;<a href="https://arxiv.org/abs/2504.02723">[arXiv]</a> <a href="https://youtu.be/0YFXx70cPWw?si=mxA1wnuv4XrzA9PG&t=2170">[video]</a> <a href={GSSVaslides}>[slides]</a><br/>
                 <i>with <a href="https://www.stat.uchicago.edu/~chaogao/">Chao Gao</a>, <a href="https://lirenshan.github.io/">Liren Shan</a>, <a href="https://users.cs.northwestern.edu/~aravindv/">Aravindan Vijayaraghavan</a>,</i><br/>
                 <a href="https://learningtheory.org/colt2025/">COLT 2025</a>. 
             </div>;
