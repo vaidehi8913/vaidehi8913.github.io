@@ -1,13 +1,6 @@
 import React, { Component } from "react";
-//import {TouchableOpacity} from "react-native";
-// import {
-//     Link
-// } from "react-router-dom";
-import { useRef } from 'react';
-// import 'katex/dist/katex.min.css';
-// import Latex from 'react-latex-next';
-// import Latex from 'react-latex';
-// import MathJax from 'react-mathjax2';
+// import "./Academic.css";
+// import { useRef } from 'react';
 
 import CV from "./files/SrinivasCVFall25.pdf";
 import SeniorThesis from "./files/SimplerApproximationsForNetworkSteinerTree.pdf";
@@ -29,6 +22,28 @@ import ACDAslides from "./files/slides-ACDA-tutorial.pdf";
 import GSSVbposter from "./files/poster-GSSV25b.pdf";
 import FOCSScavHunt from "./files/focs24-scavenger-hunt.pdf";
 import Srislides from "./files/slides-Sri26.pdf";
+
+import arxivMainImg from "./img/arxiv-main.png";
+import arxivAltImg from "./img/arxiv-alt.png";
+import videoMainImg from "./img/video-main.png";
+import videoAltImg from "./img/video-alt.png";
+import slidesMainImg from "./img/slides-main.png";
+import slidesAltImg from "./img/slides-alt.png";
+import webMainImg from "./img/web-main.png";
+import webAltImg from "./img/web-alt.png";
+import posterMainImg from "./img/poster-main.png";
+import posterAltImg from "./img/poster-alt.png";
+import paperMainImg from "./img/paper-main.png";
+import paperAltImg from "./img/paper-alt.png";
+import googleScholarMainImg from "./img/google-scholar-main.png";
+import googleScholarAltImg from "./img/google-scholar-alt.png";
+import profileMainImg from "./img/profile.jpg";
+import profileAltImg from "./img/profile-alt.png";
+import plusMainImg from "./img/plus-main.png";
+import plusAltImg from "./img/plus-alt.png";
+import minusMainImg from "./img/minus-main.png";
+import minusAltImg from "./img/minus-alt.png";
+
 
 
 class ProfilePicture extends Component {
@@ -58,10 +73,10 @@ class ProfilePicture extends Component {
 
     render () {
 
-        var imgSource = require("./img/profile.jpg");
+        var imgSource = profileMainImg; //require("./img/profile.jpg");
 
         if (this.state.hover) {
-            imgSource = require("./img/profile-alt.png");
+            imgSource = profileAltImg //require("./img/profile-alt.png");
         }
 
         var imageStyle = {
@@ -77,9 +92,85 @@ class ProfilePicture extends Component {
     }
 }
 
+/*  
+    PROPS:
+        imgMain
+        imgAlt
+        imgWidth
+        maxWidth
+        borderRadius
+        altText
+        link
+        onClick
+*/
+class HoverButton extends Component{
+
+    constructor(props) {
+        super(props);
+
+        this.state = ({
+            hover: false
+        });
+
+        this.onMouseEnter = this.onMouseEnter.bind(this);
+        this.onMouseLeave = this.onMouseLeave.bind(this);
+        this.onClick = this.onClick.bind(this);
+    }
+
+    onMouseEnter(){
+        this.setState({
+            hover: true
+        });
+    }
+
+    onMouseLeave(){
+        this.setState({
+            hover: false
+        });
+    }
+
+    onClick(){
+        this.props.onClick()
+    }
+
+    render () {
+
+        var imgSource = this.props.imgMain;
+
+        if (this.state.hover) {
+            imgSource = this.props.imgAlt;
+        }
+
+        var imageStyle = {
+            width: this.props.imgWidth ? this.props.imgWidth : "40px",
+            maxWidth: this.props.maxWidth ? this.props.maxWidth : "40px",
+            borderRadius: this.props.borderRadius ? this.props.borderRadius : "50%"
+        }
+
+        return(
+            <a href={this.props.link}><img src={imgSource} 
+                 alt={this.props.altText} 
+                 style={imageStyle} 
+                 onMouseEnter={this.onMouseEnter} 
+                 onMouseLeave={this.onMouseLeave} 
+                 onClick={this.props.onClick}
+            /></a>
+        );
+    }
+}
+
+
+
 /* PROPS
-mainPaperInfo (formatted)
-paperDescription (dropdown)
+    mainPaperInfo (formatted)
+    paperDescription (dropdown)
+    arxiv
+    video
+    slides
+    web
+    poster
+    paper
+    plusToSide : bool
 */
 class PaperWrapper extends Component {
 
@@ -111,60 +202,148 @@ class PaperWrapper extends Component {
 
     render () {
 
+        var outerBoxStyle = {width: "100%"}
+
         var permanentBoxStyle = {
             display: "flex",
             flexDirection: "row",
-            alignItems: "flex-start",
-            justifyContent: "space-between"
+            alignItems: "center",
+            justifyContent: "space-between",
+            gap: "10px",
+            width: "100%"
         }
 
         var dropDownBox = null;
 
-        var invertColorScheme = this.state.dropDown || this.state.hovering;
+        // var invertColorScheme = this.state.dropDown || this.state.hovering;
 
-        var foregroundColor = this.props.buttonColor ? this.props.buttonColor : "black";
-        var backgroundColor = "#fffcf0";
+        // var foregroundColor = this.props.buttonColor ? this.props.buttonColor : "black";
+        // var backgroundColor = "#fffcf0";
 
-        // var mainColor = invertColorScheme ? null : "black";
-        // var textColor = invertColorScheme ? "black" : "#fffcf0";
-        var mainColor = invertColorScheme ? null : foregroundColor;
-        var textColor = invertColorScheme ? foregroundColor : backgroundColor;
+        // var mainColor = invertColorScheme ? null : foregroundColor;
+        // var textColor = invertColorScheme ? foregroundColor : backgroundColor;
 
-        var feedbackButtonStyle = {
-            width: "15px",
-            height: "15px",
+        // var feedbackButtonStyle = {
+        //     width: "15px",
+        //     height: "15px",
+        //     display: "flex",
+        //     justifyContent: "center",
+        //     alignItems: "center",
+        //     padding: 10,
+        //     borderRadius: 100,
+        //     backgroundColor: mainColor,
+        //     margin: "15px",
+        //     color: textColor,
+        //     fontSize: "65%",
+        //     borderColor: foregroundColor, //"black",
+        //     borderWidth: "3px",
+        //     borderStyle: "solid"
+        // };
+        
+        var arXivLink = this.props.arxiv ? <HoverButton imgMain={arxivMainImg} 
+                                                        imgAlt={arxivAltImg}
+                                                        link={this.props.arxiv}/> 
+                                         : null
+
+        var videoLink = this.props.video ? <HoverButton imgMain={videoMainImg} 
+                                                        imgAlt={videoAltImg}
+                                                        link={this.props.video}/> 
+                                         : null
+
+        var slidesLink = this.props.slides ? <HoverButton imgMain={slidesMainImg} 
+                                                        imgAlt={slidesAltImg}
+                                                        link={this.props.slides}/> 
+                                         : null
+
+        var webLink = this.props.web ? <HoverButton imgMain={webMainImg} 
+                                                        imgAlt={webAltImg}
+                                                        link={this.props.web}/> 
+                                         : null
+
+        var posterLink = this.props.poster ? <HoverButton imgMain={posterMainImg} 
+                                                        imgAlt={posterAltImg}
+                                                        link={this.props.poster}/> 
+                                         : null
+
+        var paperLink = this.props.paper ? <HoverButton imgMain={paperMainImg} 
+                                                        imgAlt={paperAltImg}
+                                                        link={this.props.paper}/> 
+                                         : null
+
+        var moreButton = <HoverButton imgMain={plusMainImg} 
+                                      imgAlt={plusAltImg}
+                                      imgWidth="40px"
+                                      onClick={this.onClick}/> 
+
+        var lessButton = <HoverButton imgMain={minusMainImg} 
+                                      imgAlt={minusAltImg}
+                                      imgWidth="40px"
+                                      onClick={this.onClick}/> 
+
+        var linksStyle = {
             display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            padding: 10,
-            borderRadius: 100,
-            backgroundColor: mainColor,
-            margin: "15px",
-            color: textColor,
-            fontSize: "65%",
-            borderColor: foregroundColor, //"black",
-            borderWidth: "3px",
-            borderStyle: "solid"
-        };
+            flexDirection: "row",
+            justifyContent: "flex-start",
+            gap: "10px"
+            // justifyContent: "space-between"
+        }
+
+        var allButtonsStyle = {
+            display: "flex",
+            flexDirection: "row",
+            // alignItems: "flex-start",
+            gap: "10px",
+            justifyContent: "space-between",
+            marginTop: "10px"
+        }
+
+        var allLinks = this.props.arxiv ? 
+                        <div style={linksStyle}>
+                            {arXivLink}
+                            {videoLink}
+                            {slidesLink}
+                            {webLink}
+                            {posterLink}
+                            {paperLink}
+                        </div> :
+                        <div style={linksStyle}>
+                            {paperLink}
+                            {videoLink}
+                            {slidesLink}
+                            {webLink}
+                            {posterLink}
+                        </div>
+
+        var allButtons = <div style={allButtonsStyle}>
+                            {allLinks}
+                            {this.props.paperDescription ? this.state.dropDown ? lessButton : moreButton
+                                             : null}
+                         </div>
 
         if (this.state.dropDown) {
             dropDownBox = <div>{this.props.paperDescription}</div>;
         }
 
         return(
-            <div style={permanentBoxStyle}>
-                <div>
-                    {this.props.mainPaperInfo}
-                    {dropDownBox}
+            <div style={outerBoxStyle}>
+                <div style={permanentBoxStyle}>
+                    <div style={outerBoxStyle}>
+                        {this.props.mainPaperInfo}
+                        {this.props.plusToSide ? allLinks : allButtons}
+                    </div>
+
+                    {/* {this.props.paperDescription ? 
+                    <div style={feedbackButtonStyle}
+                        onClick={this.onClick}
+                        onMouseEnter={this.onMouseEnter}
+                        onMouseLeave={this.onMouseLeave}>
+                        {this.state.dropDown ? "less!" : "more!"}
+                    </div> : null} */}
+                    {this.props.plusToSide ? (this.props.paperDescription ? (this.state.dropDown ? lessButton : moreButton)
+                                                : null) : null}
                 </div>
 
-                {this.props.paperDescription ? 
-                <div style={feedbackButtonStyle}
-                    onClick={this.onClick}
-                    onMouseEnter={this.onMouseEnter}
-                    onMouseLeave={this.onMouseLeave}>
-                    {this.state.dropDown ? "less!" : "more!"}
-                </div> : null}
+                {dropDownBox}
             </div>
         );
     }
@@ -359,7 +538,7 @@ class Academic extends Component {
         var confidenceEllipsoidPaperMainInfo =
             <div> 
                 <b>Learning Confidence Ellipsoids and Applications to Robust Subspace Recovery</b> 
-                    &nbsp;<a href="https://arxiv.org/abs/2512.16875">[arXiv]</a> <br/>
+                    {/* &nbsp;<a href="https://arxiv.org/abs/2512.16875">[arXiv]</a>*/} <br/> 
                 <i>with <a href="https://www.stat.uchicago.edu/~chaogao/">Chao Gao</a>, <a href="https://lirenshan.github.io/">Liren Shan</a>, <a href="https://users.cs.northwestern.edu/~aravindv/">Aravindan Vijayaraghavan</a>,</i><br/>
                 preprint. 
             </div>;
@@ -374,11 +553,15 @@ class Academic extends Component {
                 sampling from the dual solution of this program allows us to remove outliers effectively.
             </p>;
 
+        var confidenceEllipsoid = 
+            <PaperWrapper mainPaperInfo={confidenceEllipsoidPaperMainInfo}
+                          paperDescription={confidenceEllipsoidPaperDescription}
+                          arxiv="https://arxiv.org/abs/2512.16875"/>
 
         var alsPaperMainInfo = 
             <div> 
                 <b>Guarantees for Alternating Least Squares in Overparameterized Tensor Decompositions</b> 
-                    &nbsp;[paper coming soon...]<a href={ASVslides}>[slides]</a><br/>
+                    {/* &nbsp;[paper coming soon...]<a href={ASVslides}>[slides]</a>*/} <br/> 
                 <i> with <a href="https://dion11ar.github.io/">Dionysis Arvanitakis</a>, <a href="https://users.cs.northwestern.edu/~aravindv/">Aravindan Vijayaraghavan</a>,</i><br/>
                 <a href="https://neurips.cc/virtual/2025/loc/san-diego/poster/119560">NeurIPS 2025</a> (spotlight). 
             </div>;
@@ -391,10 +574,15 @@ class Academic extends Component {
                 argue about overparameterization and random initialization.  
             </p>;
 
+        var als = 
+            <PaperWrapper mainPaperInfo={alsPaperMainInfo}
+                          paperDescription={alsPaperDescription}
+                          paper="https://openreview.net/attachment?id=9FDErIfoVE&name=pdf"
+                          slides={ASVslides}/>
+
         var onlineConformalPaperMainInfo = 
             <div> 
-                <b>Online Conformal Prediction with Efficiency Guarantees</b> 
-                    &nbsp;<a href="https://arxiv.org/abs/2507.02496">[arXiv]</a> <a href={Srislides}>[slides]</a><br/>
+                <b>Online Conformal Prediction with Efficiency Guarantees</b> <br/>
                 <a href="https://www.siam.org/conferences-events/siam-conferences/soda26/">SODA 2026</a>. 
             </div>;
 
@@ -406,10 +594,15 @@ class Academic extends Component {
                 can be thought of as its unconstrained counterpart. 
             </p>;
         
+        var onlineConformal = 
+            <PaperWrapper mainPaperInfo={onlineConformalPaperMainInfo}
+                          paperDescription={onlineConformalPaperDescription}
+                          arxiv="https://arxiv.org/abs/2507.02496"
+                          slides={Srislides}/>
+
         var highDimConformalPaperMainInfo =
             <div> 
-                <b>Computing High-Dimensional Confidence Sets for Arbitrary Distributions</b> 
-                    &nbsp;<a href="https://arxiv.org/abs/2504.02723">[arXiv]</a> <a href="https://youtu.be/0YFXx70cPWw?si=mxA1wnuv4XrzA9PG&t=2170">[video]</a> <a href={GSSVaslides}>[slides]</a><br/>
+                <b>Computing High-Dimensional Confidence Sets for Arbitrary Distributions</b> <br/>
                 <i>with <a href="https://www.stat.uchicago.edu/~chaogao/">Chao Gao</a>, <a href="https://lirenshan.github.io/">Liren Shan</a>, <a href="https://users.cs.northwestern.edu/~aravindv/">Aravindan Vijayaraghavan</a>,</i><br/>
                 <a href="https://learningtheory.org/colt2025/">COLT 2025</a>. 
             </div>;
@@ -428,10 +621,18 @@ class Academic extends Component {
                 structural properties about the inliers. 
             </p>;
 
+        var highDimConformal = 
+            <PaperWrapper mainPaperInfo={highDimConformalPaperMainInfo}
+                          paperDescription={highDimConformalPaperDescription}
+                          arxiv="https://arxiv.org/abs/2504.02723"
+                          video="https://youtu.be/0YFXx70cPWw?si=mxA1wnuv4XrzA9PG&t=2170"
+                          slides={GSSVaslides}/>
+
+
+
         var conformalDPPaperMainInfo = 
             <div> 
-                <b>Volume Optimality in Conformal Prediction with Structured Prediction Sets</b> 
-                    &nbsp;<a href="https://arxiv.org/abs/2502.16658">[arXiv]</a> <a href={GSSVbposter}>[poster]</a><br/>
+                <b>Volume Optimality in Conformal Prediction with Structured Prediction Sets</b> <br/>
                 <i>with <a href="https://www.stat.uchicago.edu/~chaogao/">Chao Gao</a>, <a href="https://lirenshan.github.io/">Liren Shan</a>, <a href="https://users.cs.northwestern.edu/~aravindv/">Aravindan Vijayaraghavan</a>,</i><br/>
                 <a href="https://icml.cc/virtual/2025/poster/44066">ICML 2025</a>. 
             </div>;
@@ -452,12 +653,15 @@ class Academic extends Component {
                 (Chernozhukov et al, 2021) to handle supervised learning problems.   
             </p>;
 
+        var conformalDP = 
+            <PaperWrapper mainPaperInfo={conformalDPPaperMainInfo}
+                          paperDescription={conformalDPPaperDescription}
+                          arxiv="https://arxiv.org/abs/2502.16658"
+                          poster={GSSVbposter}/>
 
         var warmStartsPaperMainInfo = 
             <div> 
-                <b>Competitive strategies to use "warm start" algorithms with predictions</b> 
-                    &nbsp;<a href="https://arxiv.org/abs/2405.03661">[arXiv]</a> 
-                    <a href={SBslides}>[slides]</a><br/>
+                <b>Competitive strategies to use "warm start" algorithms with predictions</b> <br/>
                 <i>with <a href="https://home.ttic.edu/~avrim/">Avrim Blum</a>, </i><br/>
                 <a href="https://www.siam.org/conferences-events/siam-conferences/soda25/program/">SODA 2025</a>. 
             </div>;
@@ -470,6 +674,12 @@ class Academic extends Component {
                 are useful when solving sequences of related instances.  We give competitive guarantees in 
                 settings where instances come from a mixture of "clusters." 
             </p>;
+
+        var warmStarts = 
+            <PaperWrapper mainPaperInfo={warmStartsPaperMainInfo}
+                          paperDescription={warmStartsPaperDescription}
+                          arxiv="https://arxiv.org/abs/2405.03661"
+                          slides={SBslides}/>
 
 
         var predictedUpdatesPaperMainInfo = 
@@ -493,6 +703,13 @@ class Academic extends Component {
                 generalize our result to lift incremental and decremental algorithms to the fully dynamic 
                 setting given predictions of only the deletion and insertion updates, respectively.
             </p>;
+
+        var predictedUpdates = 
+            <PaperWrapper mainPaperInfo={predictedUpdatesPaperMainInfo}
+                          paperDescription={predictedUpdatesPaperDescription}
+                          arxiv="https://arxiv.org/abs/2307.08890"
+                          slides={LSslides}
+                          poster={LSposter}/>
 
 
         var smoothedStuffPaperMainInfo = 
@@ -518,13 +735,18 @@ class Academic extends Component {
                 not as well-understood as matrix concentration (or large deviation) bounds.
             </p>;    
 
+        var smoothedStuffPaper =
+            <PaperWrapper mainPaperInfo={smoothedStuffPaperMainInfo}
+                            paperDescription={smoothedStuffPaperDescription}
+                            arxiv="https://arxiv.org/abs/2405.01517"
+                            video="https://www.youtube.com/watch?v=KTFfq4q2kHc&list=PL2200vk1q4pnoZJZphNyvIFzB3UnUZEmj&index=35"
+                            slides={BESVslides}
+                            poster={BESVposter}
+                            paper={SmoothedStuff}/>
 
         var burerMonteiroPaperMainInfo = 
             <div> 
-                <b>The Burer-Monteiro SDP method can fail even above the Barvinok-Pataki bound</b> 
-                    &nbsp;<a href="https://arxiv.org/abs/2211.12389">[arXiv]</a> 
-                    <a href={OSVslides}>[slides]</a>
-                    <a href="https://vaidehi8913.github.io/burer-monteiro/">[webapp]</a> <br/>
+                <b>The Burer-Monteiro SDP method can fail even above the Barvinok-Pataki bound</b> <br/>
                 <i>with <a href="https://liamocarroll.github.io">Liam O'Carroll</a>, <a href="http://users.eecs.northwestern.edu/~aravindv/">Aravindan Vijayaraghavan</a>, </i><br/>
                 <a href="https://nips.cc/virtual/2022/poster/54028">NeurIPS 2022</a>. 
             </div>;
@@ -537,13 +759,16 @@ class Academic extends Component {
                 like smoothed analysis to obtain guarantees.
             </p>;
 
+        var burerMonteiro = 
+            <PaperWrapper mainPaperInfo={burerMonteiroPaperMainInfo}
+                            paperDescription={burerMonteiroPaperDescription}
+                            arxiv="https://arxiv.org/abs/2211.12389"
+                            slides={OSVslides}
+                            web="https://vaidehi8913.github.io/burer-monteiro/"/>
+
         var expertsPaperMainInfo = 
             <div>
-                <b>Memory Bounds for the Experts Problem</b> 
-                    &nbsp;<a href="http://arxiv.org/abs/2204.09837">[arXiv]</a> 
-                    <a href="https://www.youtube.com/watch?v=kIwS5Z3PF3M">[video]</a>
-                    <a href={SWXZslides}>[slides]</a>
-                    <a href={SWXZposter}>[poster]</a><br/>
+                <b>Memory Bounds for the Experts Problem</b> <br/>
                 <i> with <a href="http://www.cs.cmu.edu/~dwoodruf/">David P. Woodruff</a>, <a href="https://neilzxu.me/">Ziyu Xu</a>, <a href="https://samsonzhou.github.io/">Samson Zhou</a>, </i><br/>
                 <a href="http://acm-stoc.org/stoc2022/">STOC 2022</a>.
             </div>;
@@ -554,12 +779,17 @@ class Academic extends Component {
                 Our upper and lower bounds give a smooth tradeoff between memory and regret (accuracy). 
             </p>;
 
+        var experts = 
+            <PaperWrapper mainPaperInfo={expertsPaperMainInfo}
+                            paperDescription={expertsPaperDescription}
+                            arxiv="http://arxiv.org/abs/2204.09837"
+                            video="https://www.youtube.com/watch?v=kIwS5Z3PF3M"
+                            slides={SWXZslides}
+                            poster={SWXZposter}/>
+
         var steinerTreePaperMainInfo = 
             <div>
-                <b>Simpler Approximations for the Network-Steiner Tree Problem</b> 
-                    &nbsp;<a href={SeniorThesis}>[pdf]</a>
-                    <a href={seniorthesisslides}>[slides]</a>
-                    <a href="https://www.cs.cmu.edu/~tcortina/thesis/srinivas.pdf">[poster]</a><br/> 
+                <b>Simpler Approximations for the Network-Steiner Tree Problem</b> <br/> 
                 <i>advised by <a href="http://www.cs.cmu.edu/~anupamg/">Anupam Gupta</a>,</i><br/>
                 Undergraduate Thesis, 2020.
             </div>;
@@ -571,6 +801,22 @@ class Academic extends Component {
                 also notorious for their very technical analyses.  We provide a simple modular analysis by reducing to 
                 submodular function optimization under knapsack constraints (idea due to Deeparnab Chakrabarty). 
             </p>;
+
+        var steinerTree = 
+            <PaperWrapper mainPaperInfo={steinerTreePaperMainInfo}
+                            paperDescription={steinerTreePaperDescription}
+                            paper={SeniorThesis}
+                            slides={seniorthesisslides}
+                            poster="https://www.cs.cmu.edu/~tcortina/thesis/srinivas.pdf"/>
+
+        var profilePicture = 
+            <div style={this.nameStyle}>
+                <HoverButton imgMain={profileMainImg} 
+                                     imgAlt={profileAltImg} 
+                                     altText="Vaidehi"
+                                     imgWidth="80%"
+                                     maxWidth="250px"/>
+            </div>
 
 
         /* OBJECT */
@@ -589,7 +835,8 @@ class Academic extends Component {
 
                         <div className="longspacer" style={this.longSpacerStyle}/>
                         
-                        <ProfilePicture />
+                        {/* <ProfilePicture /> */}
+                        {profilePicture}
                         
                         <div style={{height: "15px"}}/>
                         <div className="name" style={this.nameStyle}>
@@ -604,6 +851,14 @@ class Academic extends Component {
                         <div style={{height: "15px"}}/>
                         <div className="email" style={this.emailStyle}>
                             vaidehi@u.northwestern.edu
+                        </div>
+
+                        <div style={{height: "15px"}}/>
+                        <div style={this.nameStyle}>
+                            <HoverButton imgMain={googleScholarMainImg} 
+                                     imgAlt={googleScholarAltImg} 
+                                     altText="Google Scholar"
+                                     link="https://scholar.google.com/citations?user=OIJtMzEAAAAJ&hl=en"/>
                         </div>
 
                         {/* <div className="longspacer" style={this.longSpacerStyle}/> */}
@@ -624,7 +879,8 @@ class Academic extends Component {
                             </p>
 
                             <PaperWrapper mainPaperInfo={bioMainInfo}
-                                          paperDescription={bioDescription}/>
+                                          paperDescription={bioDescription}
+                                          plusToSide={true}/>
 
                             <p>
                                 Before Northwestern, I was 
@@ -642,58 +898,47 @@ class Academic extends Component {
 
                             <font size="+2">Research</font><br/><br/>
 
-                            <PaperWrapper mainPaperInfo={confidenceEllipsoidPaperMainInfo}
-                                          paperDescription={confidenceEllipsoidPaperDescription}/>
+                            {confidenceEllipsoid}
 
                             <br/>
                             
-                            <PaperWrapper mainPaperInfo={onlineConformalPaperMainInfo}
-                                          paperDescription={onlineConformalPaperDescription}/>
+                            {onlineConformal}
 
                             <br/>
 
-                            <PaperWrapper mainPaperInfo={alsPaperMainInfo}
-                                          paperDescription={alsPaperDescription}/>
+                            {als}
 
                             <br/>
 
-                            <PaperWrapper mainPaperInfo={highDimConformalPaperMainInfo}
-                                          paperDescription={highDimConformalPaperDescription}/>
+                            {highDimConformal}
 
                             <br/>
 
-                            <PaperWrapper mainPaperInfo={conformalDPPaperMainInfo}
-                                          paperDescription={conformalDPPaperDescription}/>
+                            {conformalDP}
 
                             <br/>
 
-                            <PaperWrapper mainPaperInfo={warmStartsPaperMainInfo}
-                                          paperDescription={warmStartsPaperDescription}/>
+                            {warmStarts}
 
                             <br/>
                             
-                            <PaperWrapper mainPaperInfo={predictedUpdatesPaperMainInfo}
-                                          paperDescription={predictedUpdatesPaperDescription}/>
+                            {predictedUpdates}
 
                             <br/>
 
-                            <PaperWrapper mainPaperInfo={smoothedStuffPaperMainInfo}
-                                          paperDescription={smoothedStuffPaperDescription}/>
+                            {smoothedStuffPaper}
 
                             <br/>
 
-                            <PaperWrapper mainPaperInfo={burerMonteiroPaperMainInfo}
-                                          paperDescription={burerMonteiroPaperDescription}/>
+                            {burerMonteiro}
 
                             <br/>
 
-                            <PaperWrapper mainPaperInfo={expertsPaperMainInfo}
-                                          paperDescription={expertsPaperDescription}/>
+                            {experts}
 
                             <br/>
                             
-                            <PaperWrapper mainPaperInfo={steinerTreePaperMainInfo}
-                                          paperDescription={steinerTreePaperDescription}/>
+                            {steinerTree}
                     
                             <br/>
                             <br/>
