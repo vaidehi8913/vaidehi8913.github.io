@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.e6c13ad2.css",
-    "main.js": "/static/js/main.5e11f273.js",
+    "main.js": "/static/js/main.4c4f6a40.js",
     "static/media/slides-LS24.pdf": "/static/media/slides-LS24.770c4325c1646cbe2838.pdf",
     "static/media/slides-OSV22.pdf": "/static/media/slides-OSV22.067bb00bedd4116b8548.pdf",
     "static/media/slides-BESV24.pdf": "/static/media/slides-BESV24.fb5b1f0384d42d1daa81.pdf",
@@ -58,12 +58,20 @@
     "static/media/5.jpeg": "/static/media/5.e0897a550f7c82476591.jpeg",
     "static/media/2.jpeg": "/static/media/2.8a8adc77cd19b78a2f67.jpeg",
     "static/media/6.jpeg": "/static/media/6.1a4356531427a8078c2e.jpeg",
+    "static/media/web-alt.png": "/static/media/web-alt.e2d7774336af67c84beb.png",
+    "static/media/arxiv-alt.png": "/static/media/arxiv-alt.8dddbfe6ce4fcce61b58.png",
+    "static/media/arxiv-main.png": "/static/media/arxiv-main.321d57d4d39fde8d1715.png",
+    "static/media/google-scholar-alt.png": "/static/media/google-scholar-alt.da5ea823d6d75af14fe4.png",
+    "static/media/video-main.png": "/static/media/video-main.06f14f5f086ed814bf31.png",
+    "static/media/google-scholar-main.png": "/static/media/google-scholar-main.0811573026b27d9589ea.png",
+    "static/media/video-alt.png": "/static/media/video-alt.98b960f77cec76a946c7.png",
+    "static/media/paper-alt.png": "/static/media/paper-alt.d0376c75acf89e3f8699.png",
     "index.html": "/index.html",
     "main.e6c13ad2.css.map": "/static/css/main.e6c13ad2.css.map",
-    "main.5e11f273.js.map": "/static/js/main.5e11f273.js.map"
+    "main.4c4f6a40.js.map": "/static/js/main.4c4f6a40.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.5e11f273.js"
+    "static/js/main.4c4f6a40.js"
   ]
 }
