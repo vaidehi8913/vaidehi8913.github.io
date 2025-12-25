@@ -684,10 +684,7 @@ class Academic extends Component {
 
         var predictedUpdatesPaperMainInfo = 
             <div> 
-                <b>The Predicted-Updates Dynamic Model: Offline, Incremental, and Decremental to Fully Dynamic Transformations</b> 
-                    &nbsp;<a href="https://arxiv.org/abs/2307.08890">[arXiv]</a> 
-                    <a href={LSslides}>[slides]</a>
-                    <a href={LSposter}>[poster]</a><br/>
+                <b>The Predicted-Updates Dynamic Model: Offline, Incremental, and Decremental to Fully Dynamic Transformations</b> <br/>
                 <i>with <a href="https://quanquancliu.com/">Quanquan C. Liu</a>, </i><br/>
                 <a href="https://learningtheory.org/colt2024/index.html">COLT 2024</a>. 
             </div>;
@@ -714,12 +711,7 @@ class Academic extends Component {
 
         var smoothedStuffPaperMainInfo = 
             <div> 
-                <b>New Tools for Smoothed Analysis: Least Singular Value Bounds for Random Matrices with Dependent Entries</b> 
-                    &nbsp;<a href="https://arxiv.org/abs/2405.01517">[arXiv]</a> 
-                    <a href="https://www.youtube.com/watch?v=KTFfq4q2kHc&list=PL2200vk1q4pnoZJZphNyvIFzB3UnUZEmj&index=34">[video]</a> 
-                    <a href={BESVslides}>[slides]</a>
-                    <a href={BESVposter}>[poster]</a>
-                    <a href={SmoothedStuff}>[conference version]</a> <br/>
+                <b>New Tools for Smoothed Analysis: Least Singular Value Bounds for Random Matrices with Dependent Entries</b> <br/>
                 <i>with <a href="https://users.cs.utah.edu/~bhaskara/">Aditya Bhaskara</a>, <a href="https://ericevert.com/">Eric Evert</a>, <a href="https://users.cs.northwestern.edu/~aravindv/">Aravindan Vijayaraghavan</a>, </i><br/>
                 <a href="http://acm-stoc.org/stoc2024/">STOC 2024</a>. 
             </div>;
