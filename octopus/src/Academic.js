@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// import "./Academic.css";
+import "./Academic.css";
 // import { useRef } from 'react';
 
 import CV from "./files/SrinivasCVFall25.pdf";
@@ -43,54 +43,12 @@ import plusMainImg from "./img/plus-main.png";
 import plusAltImg from "./img/plus-alt.png";
 import minusMainImg from "./img/minus-main.png";
 import minusAltImg from "./img/minus-alt.png";
+import cvMainImg from "./img/cv-main.png";
+import cvAltImg from "./img/cv-alt.png";
+import emailMainImg from "./img/email-main.png";
+import emailAltImg from "./img/email-alt.png";
 
 
-
-class ProfilePicture extends Component {
-
-    constructor(props) {
-        super(props);
-
-        this.state = ({
-            hover: false
-        });
-
-        this.onMouseEnter = this.onMouseEnter.bind(this);
-        this.onMouseLeave = this.onMouseLeave.bind(this);
-    }
-
-    onMouseEnter(){
-        this.setState({
-            hover: true
-        });
-    }
-
-    onMouseLeave(){
-        this.setState({
-            hover: false
-        });
-    }
-
-    render () {
-
-        var imgSource = profileMainImg; //require("./img/profile.jpg");
-
-        if (this.state.hover) {
-            imgSource = profileAltImg //require("./img/profile-alt.png");
-        }
-
-        var imageStyle = {
-            width: "80%",
-            maxWidth: "250px",
-            borderRadius: "50%"
-        }
-
-        return(
-            <img src={imgSource} alt="Vaidehi" style={imageStyle} onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave} 
-            />
-        );
-    }
-}
 
 /*  
     PROPS:
@@ -202,43 +160,7 @@ class PaperWrapper extends Component {
 
     render () {
 
-        var outerBoxStyle = {width: "100%"}
-
-        var permanentBoxStyle = {
-            display: "flex",
-            flexDirection: "row",
-            alignItems: "center",
-            justifyContent: "space-between",
-            gap: "10px",
-            width: "100%"
-        }
-
         var dropDownBox = null;
-
-        // var invertColorScheme = this.state.dropDown || this.state.hovering;
-
-        // var foregroundColor = this.props.buttonColor ? this.props.buttonColor : "black";
-        // var backgroundColor = "#fffcf0";
-
-        // var mainColor = invertColorScheme ? null : foregroundColor;
-        // var textColor = invertColorScheme ? foregroundColor : backgroundColor;
-
-        // var feedbackButtonStyle = {
-        //     width: "15px",
-        //     height: "15px",
-        //     display: "flex",
-        //     justifyContent: "center",
-        //     alignItems: "center",
-        //     padding: 10,
-        //     borderRadius: 100,
-        //     backgroundColor: mainColor,
-        //     margin: "15px",
-        //     color: textColor,
-        //     fontSize: "65%",
-        //     borderColor: foregroundColor, //"black",
-        //     borderWidth: "3px",
-        //     borderStyle: "solid"
-        // };
         
         var arXivLink = this.props.arxiv ? <HoverButton imgMain={arxivMainImg} 
                                                         imgAlt={arxivAltImg}
@@ -280,25 +202,8 @@ class PaperWrapper extends Component {
                                       imgWidth="40px"
                                       onClick={this.onClick}/> 
 
-        var linksStyle = {
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "flex-start",
-            gap: "10px"
-            // justifyContent: "space-between"
-        }
-
-        var allButtonsStyle = {
-            display: "flex",
-            flexDirection: "row",
-            // alignItems: "flex-start",
-            gap: "10px",
-            justifyContent: "space-between",
-            marginTop: "10px"
-        }
-
         var allLinks = this.props.arxiv ? 
-                        <div style={linksStyle}>
+                        <div className="links">
                             {arXivLink}
                             {videoLink}
                             {slidesLink}
@@ -306,7 +211,7 @@ class PaperWrapper extends Component {
                             {posterLink}
                             {paperLink}
                         </div> :
-                        <div style={linksStyle}>
+                        <div className="links">
                             {paperLink}
                             {videoLink}
                             {slidesLink}
@@ -314,7 +219,7 @@ class PaperWrapper extends Component {
                             {posterLink}
                         </div>
 
-        var allButtons = <div style={allButtonsStyle}>
+        var allButtons = <div id="all-buttons">
                             {allLinks}
                             {this.props.paperDescription ? this.state.dropDown ? lessButton : moreButton
                                              : null}
@@ -325,20 +230,13 @@ class PaperWrapper extends Component {
         }
 
         return(
-            <div style={outerBoxStyle}>
-                <div style={permanentBoxStyle}>
-                    <div style={outerBoxStyle}>
+            <div className="paper-wrapper">
+                <div className="perma-box">
+                    <div className="paper-wrapper">
                         {this.props.mainPaperInfo}
                         {this.props.plusToSide ? allLinks : allButtons}
                     </div>
 
-                    {/* {this.props.paperDescription ? 
-                    <div style={feedbackButtonStyle}
-                        onClick={this.onClick}
-                        onMouseEnter={this.onMouseEnter}
-                        onMouseLeave={this.onMouseLeave}>
-                        {this.state.dropDown ? "less!" : "more!"}
-                    </div> : null} */}
                     {this.props.plusToSide ? (this.props.paperDescription ? (this.state.dropDown ? lessButton : moreButton)
                                                 : null) : null}
                 </div>
@@ -374,121 +272,35 @@ class Academic extends Component {
     
     updatePredicate() {
         this.setState({ isDesktop: window.innerWidth > 850 });
-        // console.log("new width: " + window.innerWidth );
-        // console.log("what? " + window.innerWidth > 500);
-        // console.log("isDesktop: " + this.state.isDesktop);
     }
 
     render () {
 
         /* STYLES */
 
-        this.backgroundBoxStyle = {
-            backgroundColor: "#fffcf0",
-            overflow: "auto",
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "center",
-            height: "100vh"
-        }
-
-        this.spacerStyle = {
-            height: "25px"
-        }
-
         this.longSpacerStyle = {
             height: this.state.isDesktop ? "100px" : "25px"
         }
 
         this.academicBoxStyle = {
-            display: "flex",
             flexDirection: this.state.isDesktop ? "row" : "column",
-            justifyContent: "space-around",
             alignItems: this.state.isDesktop ? "flex-start" : "center",
-            //height: "700px",
-            //backgroundColor: "#f2c7f2"
-        }
-
-        this.innerWrapperStyle = {
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "flex-start"
         }
 
         this.leftBoxStyle = {
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            flex: "1",
-            margin: "5px",
             maxWidth: this.state.isDesktop ? "30%" : "70%",
-            fontFamily: "'Open Sans', sans-serif"
         }
 
         this.rightBoxStyle = {
-            display: "flex",
-            flexDirection: "column",
-            flex: "1",
-            margin: "5px",
             maxWidth: this.state.isDesktop ? "50%" : "80%",
-            scrollBehavior: "smooth"
         }
-
-        this.findMeStyle = {
-            display: "flex",
-            flexDirection: "column",
-            flex: "1",
-            margin: "5px"
-            // maxWidth: this.state.isDesktop ? "50%" : "80%",
-            // scrollBehavior: "smooth"
-        }
-
-        this.nameStyle = {
-            fontFamily: "'Open Sans', sans-serif",
-            fontSize: "200%",
-            textAlign: "center"
-        }
-
-        this.pronounsStyle = {
-            fontFamily: "sans-serif",
-            fontStyle: "italic",
-            fontSize: "120%",
-            textAlign: "center"
-        }
-
-        this.emailStyle = {
-            fontFamily: "monospace",
-            fontSize: "120%",
-            textAlign: "center"
-        }
-
-        var niceGreen = "#14871e"; //"#22a82d";
-
-        var announcementStyle = {
-            color: niceGreen
-        };
 
         /* CONTENT */
 
-        // var acdaTutorialMainInfo = 
-        //     <div style={announcementStyle}>
-        //         <b>
-        //             I am co-organizing a mini-tutorial on <i>Learning-Augmented Algorithms</i> at <a href="https://www.siam.org/conferences-events/siam-conferences/acda25/">ACDA 2025</a>, on 
-        //             July 31 in Montreal, Canada.  
-        //         </b>
-        //     </div>;
-
-        // var coltWorkshopDescription = 
-        //     <p>
-        //         The goal of the workshop is to bring together researchers working on diverse areas 
-        //         of algorithms and statistics that develop techniques for quantifying and mitigating 
-        //         the uncertainty of potentially unreliable predictions.  Some examples include 
-        //         conformal prediction, algorithms with predictions, robust statistics, and 
-        //         decision making.  We have a great lineup, please do spread the word!
-        //     </p>;
-
         var findMe = 
-            <div style={this.findMeStyle}>
+            <div className="find-me">
+
+                <br/><br/>
                 
                 <font size="+2">Find me at</font> 
 
@@ -535,10 +347,32 @@ class Academic extends Component {
                 </ul>
             </p>
 
+        var bio = 
+            <div>
+                <p>
+                    I am a fifth-year Ph.D. student in the Computer
+                    Science <a href= "https://theory.cs.northwestern.edu/">Theory group</a> at Northwestern 
+                    University, advised  
+                    by <a href="http://users.eecs.northwestern.edu/~aravindv/">Aravindan Vijayaraghavan</a>.    
+                </p>
+
+                <PaperWrapper mainPaperInfo={bioMainInfo}
+                                paperDescription={bioDescription}
+                                plusToSide={true}/>
+
+                <p>
+                    Before Northwestern, I was 
+                    a <a href="https://us.fulbrightonline.org/countries/europe-and-eurasia/austria/255">Fulbright </a> 
+                    visiting student at the University of Vienna in 
+                    the <a href="https://taa.cs.univie.ac.at">Theory and Applications of Algorithms group</a>, 
+                    and I earned my B.S. in Computer Science at Carnegie Mellon University. 
+                    I am grateful to have been supported by the <a href="https://www.tgs.northwestern.edu/funding/fellowships-and-grants/internal-fellowships-grants/presidential-fellowship-winners/fellowship-winners.html">Northwestern Presidential Fellowship</a>. 
+                </p>
+            </div>
+
         var confidenceEllipsoidPaperMainInfo =
             <div> 
-                <b>Learning Confidence Ellipsoids and Applications to Robust Subspace Recovery</b> 
-                    {/* &nbsp;<a href="https://arxiv.org/abs/2512.16875">[arXiv]</a>*/} <br/> 
+                <b>Learning Confidence Ellipsoids and Applications to Robust Subspace Recovery</b> <br/> 
                 <i>with <a href="https://www.stat.uchicago.edu/~chaogao/">Chao Gao</a>, <a href="https://lirenshan.github.io/">Liren Shan</a>, <a href="https://users.cs.northwestern.edu/~aravindv/">Aravindan Vijayaraghavan</a>,</i><br/>
                 preprint. 
             </div>;
@@ -560,8 +394,7 @@ class Academic extends Component {
 
         var alsPaperMainInfo = 
             <div> 
-                <b>Guarantees for Alternating Least Squares in Overparameterized Tensor Decompositions</b> 
-                    {/* &nbsp;[paper coming soon...]<a href={ASVslides}>[slides]</a>*/} <br/> 
+                <b>Guarantees for Alternating Least Squares in Overparameterized Tensor Decompositions</b>  <br/> 
                 <i> with <a href="https://dion11ar.github.io/">Dionysis Arvanitakis</a>, <a href="https://users.cs.northwestern.edu/~aravindv/">Aravindan Vijayaraghavan</a>,</i><br/>
                 <a href="https://neurips.cc/virtual/2025/loc/san-diego/poster/119560">NeurIPS 2025</a> (spotlight). 
             </div>;
@@ -802,7 +635,7 @@ class Academic extends Component {
                             poster="https://www.cs.cmu.edu/~tcortina/thesis/srinivas.pdf"/>
 
         var profilePicture = 
-            <div style={this.nameStyle}>
+            <div className="name">
                 <HoverButton imgMain={profileMainImg} 
                                      imgAlt={profileAltImg} 
                                      altText="Vaidehi"
@@ -814,47 +647,54 @@ class Academic extends Component {
         /* OBJECT */
 
         return (
-            <div className="background-color" style={this.backgroundBoxStyle}>
+            <div className="background-box">
 
-            <div className="inner-wrapper" stype={this.innerWrapperStyle}>
+            <div className="inner-wrapper" >
 
-                <div className="spacer" style={this.spacerStyle}/>   
+                <div className="spacer"/>   
 
                 <div className="academic-box" style={this.academicBoxStyle}>
-                    
 
                     <div className="left-box" style={this.leftBoxStyle}>
 
                         <div className="longspacer" style={this.longSpacerStyle}/>
                         
-                        {/* <ProfilePicture /> */}
                         {profilePicture}
                         
-                        <div style={{height: "15px"}}/>
-                        <div className="name" style={this.nameStyle}>
+                        <div className="name-spacer" />
+                        <div className="name">
                             Vaidehi Srinivas
                         </div>
 
-                        <div style={{height: "10px"}}/>
-                        <div className="pronouns" style={this.pronounsStyle}>
+                        <div className="name-spacer"/>
+                        <div className="pronouns">
                             (she/her)<br/>
                         </div>
 
-                        <div style={{height: "15px"}}/>
-                        <div className="email" style={this.emailStyle}>
+                        <div className="name-spacer"/>
+                        <div className="email">
                             vaidehi@u.northwestern.edu
                         </div>
 
-                        <div style={{height: "15px"}}/>
-                        <div style={this.nameStyle}>
+                        <div className="name-spacer"/>
+                        <div className="name">
+                            <div className="links">
+                            <HoverButton imgMain={emailMainImg} 
+                                     imgAlt={emailAltImg} 
+                                     altText="email"
+                                     link="mailto:vaidehi@u.northwestern.edu"/>
+
                             <HoverButton imgMain={googleScholarMainImg} 
                                      imgAlt={googleScholarAltImg} 
                                      altText="Google Scholar"
                                      link="https://scholar.google.com/citations?user=OIJtMzEAAAAJ&hl=en"/>
-                        </div>
 
-                        {/* <div className="longspacer" style={this.longSpacerStyle}/> */}
-                        <br/><br/> 
+                            <HoverButton imgMain={cvMainImg} 
+                                     imgAlt={cvAltImg} 
+                                     altText="CV"
+                                     link={CV}/>
+                            </div>
+                        </div>
 
                         {this.state.isDesktop ? findMe : null}
 
@@ -863,30 +703,12 @@ class Academic extends Component {
 
                     <div className="right-box" style={this.rightBoxStyle}>
                         <div>
-                            <p>
-                                I am a fifth-year Ph.D. student in the Computer
-                                Science <a href= "https://theory.cs.northwestern.edu/">Theory group</a> at Northwestern 
-                                University, advised  
-                                by <a href="http://users.eecs.northwestern.edu/~aravindv/">Aravindan Vijayaraghavan</a>.    
-                            </p>
 
-                            <PaperWrapper mainPaperInfo={bioMainInfo}
-                                          paperDescription={bioDescription}
-                                          plusToSide={true}/>
+                            {this.state.isDesktop ? <br/> : null}
 
-                            <p>
-                                Before Northwestern, I was 
-                                a <a href="https://us.fulbrightonline.org/countries/europe-and-eurasia/austria/255">Fulbright </a> 
-                                visiting student at the University of Vienna in 
-                                the <a href="https://taa.cs.univie.ac.at">Theory and Applications of Algorithms group</a>, 
-                                and I earned my B.S. in Computer Science at Carnegie Mellon University. 
-                                I am grateful to have been supported by the <a href="https://www.tgs.northwestern.edu/funding/fellowships-and-grants/internal-fellowships-grants/presidential-fellowship-winners/fellowship-winners.html">Northwestern Presidential Fellowship</a>. 
-                            </p>
+                            {bio}
 
-                            
-
-
-                            <br/>
+                            <br/><br/>
 
                             <font size="+2">Research</font><br/><br/>
 
@@ -932,8 +754,7 @@ class Academic extends Component {
                             
                             {steinerTree}
                     
-                            <br/>
-                            <br/>
+                            <br/><br/>
 
                             <font size="+2">Other</font>
 
