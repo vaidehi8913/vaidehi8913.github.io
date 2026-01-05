@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.cf2d4abc.css",
-    "main.js": "/static/js/main.ad5b59f1.js",
+    "main.css": "/static/css/main.bf852913.css",
+    "main.js": "/static/js/main.82a20e7d.js",
     "static/media/slides-LS24.pdf": "/static/media/slides-LS24.770c4325c1646cbe2838.pdf",
     "static/media/slides-OSV22.pdf": "/static/media/slides-OSV22.067bb00bedd4116b8548.pdf",
     "static/media/slides-BESV24.pdf": "/static/media/slides-BESV24.fb5b1f0384d42d1daa81.pdf",
@@ -67,12 +67,13 @@
     "static/media/google-scholar-main.png": "/static/media/google-scholar-main.0811573026b27d9589ea.png",
     "static/media/video-alt.png": "/static/media/video-alt.98b960f77cec76a946c7.png",
     "static/media/paper-alt.png": "/static/media/paper-alt.d0376c75acf89e3f8699.png",
+    "static/media/house.svg": "/static/media/house.b9224ccefa8456816ae431ef8a9c1383.svg",
     "index.html": "/index.html",
-    "main.cf2d4abc.css.map": "/static/css/main.cf2d4abc.css.map",
-    "main.ad5b59f1.js.map": "/static/js/main.ad5b59f1.js.map"
+    "main.bf852913.css.map": "/static/css/main.bf852913.css.map",
+    "main.82a20e7d.js.map": "/static/js/main.82a20e7d.js.map"
   },
   "entrypoints": [
-    "static/css/main.cf2d4abc.css",
-    "static/js/main.ad5b59f1.js"
+    "static/css/main.bf852913.css",
+    "static/js/main.82a20e7d.js"
   ]
 }
