@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./Academic.css";
 // import { useRef } from 'react';
+import FindMe from "./Map";
 
 import CV from "./files/SrinivasCVFall25.pdf";
 import SeniorThesis from "./files/SimplerApproximationsForNetworkSteinerTree.pdf";
@@ -297,24 +298,8 @@ class Academic extends Component {
 
         /* CONTENT */
 
-        var findMe = 
-            <div className="find-me">
-
-                <br/><br/>
-                
-                <font size="+2">Find me at</font> 
-
-                <ul>
-                    <li> <b>Jan '26 @ Vancouver, CA:</b> <a href="https://www.siam.org/conferences-events/siam-conferences/soda26/">SODA</a> (Symposium on Discrete Algorithms)<br/><br/></li>
-                    <li> <b>Dec '25 @ San Diego, US:</b> <a href="https://neurips.cc/virtual/2025/loc/san-diego/poster/119560">NeurIPS</a> (Conference on Neural Information Processing Systems)<br/><br/></li>
-                    <li> <b>Oct '25 @ MIT, Boston, US:</b> <a href="https://risingstars-eecs.mit.edu/">MIT Rising Stars in EECS workshop</a> <br/><br/></li>
-                    <li> <b>Aug '25 @ EPFL, Lausanne, CH:</b> <a href="https://optimization-unplugged.github.io/">Optimization Unplugged</a> workshop at the Bernoulli Center of EPFL <br/><br/></li>
-                    <li> <b>Jul '25 @ Montreal, CA:</b> <a href="https://www.siam.org/conferences-events/past-event-archive/acda25/">ACDA</a> (SIAM Conference on Applied and Computational Discrete Algorithms)<br/><br/> </li>
-                    {/* <li> <b>Jul '25 @ Vancouver, CA:</b> <a href="https://icml.cc/">ICML</a> (International Conference on Machine Learning)<br/><br/> </li> */}
-                    {/* <li> <b>Jun '25 @ ENS Lyon, FR:</b> <a href="https://learningtheory.org/colt2025/">COLT</a> (Conference on Learning Theory)<br/><br/> </li> */}
-                    <li> ... </li>
-                </ul>
-            </div>
+        var findMe = <FindMe/>;
+            
 
         var bioMainInfo = 
             <p>

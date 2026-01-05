@@ -1,0 +1,61 @@
+/* html {
+  font-family: system-ui, sans-serif;
+  font-size: 1.25rem;
+}
+
+body {
+  margin: 0;
+}
+
+svg {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+path {
+  fill: #2a354d;
+}
+
+.App {
+  font-family: sans-serif;
+  text-align: center;
+} */
+
+.find-me {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin: 5px;
+  width: 100%
+}
+
+.loc-item-wrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px
+}
+
+.loc-item-key {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* .loc-info {
+  margin-top: 10px;
+  margin-bottom: 10px
+} */
+
+.with-dropdown {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  width: 100%
+}
+
