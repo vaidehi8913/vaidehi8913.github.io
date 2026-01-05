@@ -20,6 +20,17 @@ import { ReactComponent as HouseIcon } from './img/house.svg';
 const colorHash = new ColorHash({ lightness: [0.5, 0.5, 0.5], saturation: [0.7, 0.7, 0.7] });
 // usage: colorHash.hex(locName + time)
 
+const homes = [{locName: "Evanston, IL, US",
+                locCoords: [-87.6872, 42.0568]},
+               {locName: "Vienna, AT",
+                locCoords: [16.3713, 48.2081]},
+               {locName: "Pittsburgh, PA, US",
+                locCoords: [-79.9972, 40.4387]},
+               {locName: "Bangalore, IN",
+                locCoords: [77.5775, 12.9629]},
+               {locName: "Palo Alto, CA, US",
+                locCoords: [-122.1430, 37.4419]}];
+
 const locations = [{time: "Jan '26", 
                     desc: <text><a href="https://www.siam.org/conferences-events/siam-conferences/soda26/">SODA</a> (Symposium on Discrete Algorithms)</text>,
                     locName: "Vancouver, BC, CA",
@@ -86,16 +97,132 @@ const locations = [{time: "Jan '26",
                      locCoords: [12.4822, 41.8967]}
                  ];
 
-const homes = [{locName: "Evanston, IL, US",
-                locCoords: [-87.6872, 42.0568]},
-               {locName: "Vienna, AT",
-                locCoords: [16.3713, 48.2081]},
-               {locName: "Pittsburgh, PA, US",
-                locCoords: [-79.9972, 40.4387]},
-               {locName: "Bangalore, IN",
-                locCoords: [77.5775, 12.9629]},
-               {locName: "Palo Alto, CA, US",
-                locCoords: [-122.1430, 37.4419]}];
+const uniqueLocations = Array.from(new Set(locations.map(({locName, locCoords}) => ({locName: locName, locCoords: locCoords}))))
+
+const indexedLocations = locations.map(item => {
+    var index = uniqueLocations.findIndex(uniqueItem => (uniqueItem.locName === item.locName))
+
+    return ({
+        ...item, 
+        index: index
+    });
+});
+
+const uniqueLocationsAndDescriptions = uniqueLocations.map(item => {
+    var repeats = locations.filter(sameLoc => (item.locName == sameLoc.locName))
+    var times = repeats.reverse().reduce((accumulator, y) => {
+
+        if (accumulator === ""){
+            return y.time;
+        }
+
+        return(accumulator + ", " + y.time);
+    }
+    , "") // (lambda (accumulator, currentValue) => something, initialValue)
+
+    var desc = item.locName + "\n\n" + times ;
+
+    return({
+        ...item,
+        times: times,
+        desc: desc  
+    });
+});
+
+
+/*
+    PROPS
+    house 
+    coords 
+    outsideHover
+    descLineOne
+    descLineTwo
+    color
+    key
+*/
+class HoverMarker extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = ({
+            hover: false
+        });
+
+        this.onMarkerMouseEnter = this.onMarkerMouseEnter.bind(this);
+        this.onMarkerMouseLeave = this.onMarkerMouseLeave.bind(this);
+        // this.onClick = this.onClick.bind(this);
+    }
+
+    onMarkerMouseEnter () {
+        this.setState({
+            hover: true
+        });
+    }
+
+    onMarkerMouseLeave (){
+        this.setState({
+            hover: false
+        });
+    }
+
+    render () {
+
+        // var lineOne = <tspan x={0} dy="-20px">{this.props.descLineOne}</tspan> ;
+        // var lineTwo = <tspan x={0} dy="-5px">{this.props.descLineTwo}</tspan> ;
+
+        // var descRectangle = <rect fill="rgba(255, 255, 255, 0.5)">
+        //     <text
+        //         textAnchor="middle"
+        //         y={-10}
+        //         // backgroundColor="rgba(255, 255, 255, 0.5)"
+        //         // style={{ fontFamily: "system-ui", fill: "black", stroke:"white", strokeWidth:"1px", fontSize: "24pt" }}
+        //     >
+        //         {lineTwo}
+        //         {lineOne}
+        //     </text>
+        // </rect>;
+
+        return(
+            <Marker  key={this.props.key} coordinates={this.props.coords}> 
+
+                {this.props.house ? 
+                  <HouseIcon fill={this.props.color}
+                                // stroke="#000000"
+                                // stroke-width="3px"
+                                width="20" 
+                                height="20" 
+                                x="-10" 
+                                y="-10" 
+                                onMouseEnter={this.onMarkerMouseEnter}
+                                onMouseLeave={this.onMarkerMouseLeave}/>
+                : <circle r={this.props.outsideHover ? 15 : 7} 
+                        fill={this.props.color} 
+                        // stroke="#fff" 
+                        strokeWidth={2} 
+                        onMouseEnter={this.onMarkerMouseEnter}
+                        onMouseLeave={this.onMarkerMouseLeave}/>
+                }
+
+                {this.state.hover ?
+                                <text
+                                    textAnchor="middle"
+                                    y={-10}
+                                    // backgroundColor="rgba(255, 255, 255, 0.5)"
+                                    // style={{ fontFamily: "system-ui", fill: "black", stroke:"white", strokeWidth:"1px", fontSize: "24pt" }}
+                                >
+                                    <tspan x={0} dy="-5px">{this.props.descLineTwo}</tspan>
+                                    <tspan x={0} dy="-20px">{this.props.descLineOne}</tspan>
+                                </text> : null}
+
+                {/* {this.state.hover ? descRectangle : null } */}
+
+            </Marker>
+        );
+    }
+}
+
+
+
 
 /*
     PROPS
@@ -124,25 +251,21 @@ class MapChart extends Component{
                     }
                 </Geographies>
 
-                {this.props.homes.map(({locCoords, locName, color}, itemNumber) => (
-                    <Marker  key={locName} coordinates={locCoords}> 
-                        <HouseIcon fill={(itemNumber == 0) ? "#000000" : "#b3b3b3"}
-                                stroke="#000000"
-                                stroke-width="3px"
-                                width="20" 
-                                height="20" 
-                                x="-10" 
-                                y="-10" />
-                    </Marker>
+                {this.props.homes.map(({locCoords, locName}, itemNumber) => (
+                    <HoverMarker key={locName}
+                                 coords={locCoords}
+                                 color={(itemNumber == 0) ? "#000000" : "#b3b3b3"}
+                                 descLineTwo={locName}
+                                 house={true}/>
                 ))}
 
-                {this.props.locations.map(({locCoords, locName, time}, itemNumber) => (
-                    <Marker  key={locName + time} coordinates={locCoords}> 
-                    <circle r={this.props.locHover[itemNumber] ? 15 : 7} 
-                            fill={colorHash.hex(locName)} 
-                            // stroke="#fff" 
-                            strokeWidth={2} />
-                    </Marker>
+                {this.props.locations.map(({locCoords, locName, times, desc}, itemNumber) => (
+                    <HoverMarker key={locName}
+                                 coords={locCoords}
+                                 color={colorHash.hex(locName)}
+                                 outsideHover={this.props.locHover[itemNumber]}
+                                 descLineOne={locName}
+                                 descLineTwo={times}/>
                 ))}
 
             </ZoomableGroup>
@@ -175,7 +298,7 @@ class LocationItem extends Component {
             hover: true
         });
 
-        this.props.mouseEnterHook(this.props.itemNumber);
+        this.props.mouseEnterHook(this.props.info.index);
     }
 
     onMouseLeave(){
@@ -183,7 +306,7 @@ class LocationItem extends Component {
             hover: false
         });
 
-        this.props.mouseLeaveHook(this.props.itemNumber);
+        this.props.mouseLeaveHook(this.props.info.index);
     }
 
     onClick(){
@@ -218,7 +341,9 @@ class FindMe extends Component {
         super(props);
 
         this.state = {
-            locHover: locations.map((loc) => false),
+            // locHover: locations.map((loc) => false),
+            locHover: uniqueLocations.map((loc) => false),
+
             dropDown: false, 
             hover: false
         };
@@ -255,9 +380,7 @@ class FindMe extends Component {
     }
 
     render () {
-
-        var locationComps = locations.map((item, index) => <LocationItem info={item}
-                                                                         itemNumber={index} 
+        var locationComps = indexedLocations.map((item) => <LocationItem info={item}
                                                                          mouseEnterHook={this.onItemMouseEnter}
                                                                          mouseLeaveHook={this.onItemMouseLeave} />);
 
@@ -266,7 +389,7 @@ class FindMe extends Component {
         }
 
         
-        var mapChart = <MapChart locations={locations} locHover={this.state.locHover} homes={homes}/>;
+        var mapChart = <MapChart locations={uniqueLocationsAndDescriptions} locHover={this.state.locHover} homes={homes}/>;
 
         var altText = this.state.dropDown ? "less" : "more";
 
