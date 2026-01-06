@@ -300,9 +300,10 @@ class MapChart extends Component{
 
                 {allLocMarkers.filter((marker, index) => !this.state.mapLocHover[index])} */}
 
+                {allHomeMarkers}
+
                 {allLocMarkers}
 
-                {allHomeMarkers}
 
             </ZoomableGroup>
             </ComposableMap>
