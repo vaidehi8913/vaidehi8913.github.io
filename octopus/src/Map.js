@@ -111,7 +111,7 @@ const locations = [{time: "Jan '26",
 const uniqueLocations = Array.from(new Set(locations.map(({locName}) => (locName))))
 
 const indexedLocations = locations.map(item => {
-    var index = uniqueLocations.findIndex(uniqueItem => (uniqueItem.locName === item.locName))
+    var index = uniqueLocations.findIndex(uniqueItem => (uniqueItem === item.locName))
 
     return ({
         ...item, 
