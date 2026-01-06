@@ -66,6 +66,10 @@ const locations = [{time: "Jan '26",
                     desc: <text><a href="https://www.siam.org/conferences-events/siam-conferences/soda25/program/">SODA</a> (Symposium on Discrete Algorithms)</text>,
                     locName: "New Orleans, LA, US",
                     locCoords: [-90.0758, 29.9509]},
+                    {time: "Oct '24", 
+                    desc: <text><a href="https://focs.computer.org/2024/">FOCS</a> (Symposium on the Foundations of Computer Science)</text>,
+                    locName: "Chicago, IL, CA",
+                    locCoords: [-87.6324, 41.8832]}, 
                     {time: "Jul '24", 
                     desc: <text><a href="https://ismp2024.gerad.ca/">ISMP</a> (International Symposium on Mathematical Programming)</text>,
                     locName: "Montreal, QC, CA",
@@ -82,6 +86,10 @@ const locations = [{time: "Jan '26",
                     desc: <text>Stanford University Theory Lunch</text>,
                     locName: "Palo Alto, CA, US",
                     locCoords: [-122.1430, 37.4419]},
+                    {time: "Nov '23",
+                    desc: <text><a href="https://focs.computer.org/2023/">FOCS</a> (Symposium on the Foundations of Computer Science)</text>,
+                    locName: "Santa Cruz, CA, US",
+                    locCoords: [-122.0288, 36.9741]},
                     {time: "Oct '23",
                     desc: <text><a href="https://meetings.informs.org/wordpress/phoenix2023/">INFORMS Annual Meeting</a></text>,
                     locName: "Phoenix, AZ, US",
@@ -100,7 +108,7 @@ const locations = [{time: "Jan '26",
                      locCoords: [12.4822, 41.8967]}
                  ];
 
-const uniqueLocations = Array.from(new Set(locations.map(({locName, locCoords}) => ({locName: locName, locCoords: locCoords}))))
+const uniqueLocations = Array.from(new Set(locations.map(({locName}) => (locName))))
 
 const indexedLocations = locations.map(item => {
     var index = uniqueLocations.findIndex(uniqueItem => (uniqueItem.locName === item.locName))
@@ -111,8 +119,8 @@ const indexedLocations = locations.map(item => {
     });
 });
 
-const uniqueLocationsAndDescriptions = uniqueLocations.map(item => {
-    var repeats = locations.filter(sameLoc => (item.locName == sameLoc.locName))
+const uniqueLocationsAndDescriptions = uniqueLocations.map(locName => {
+    var repeats = locations.filter(sameLoc => (locName == sameLoc.locName))
     var times = repeats.reverse().reduce((accumulator, y) => {
 
         if (accumulator === ""){
@@ -123,10 +131,11 @@ const uniqueLocationsAndDescriptions = uniqueLocations.map(item => {
     }
     , "") // (lambda (accumulator, currentValue) => something, initialValue)
 
-    var desc = item.locName + "\n\n" + times ;
+    var desc = locName + "\n\n" + times ;
 
     return({
-        ...item,
+        locName: locName, 
+        locCoords: repeats[0].locCoords,
         times: times,
         desc: desc  
     });
@@ -176,6 +185,7 @@ class HoverMarker extends Component {
 
                 {this.props.house ? 
                   <HouseIcon fill={this.props.color}
+                             opacity="80%"
                                 // stroke="#000000"
                                 // stroke-width="3px"
                                 width={this.state.hover ? 40 : 20} 
@@ -189,6 +199,7 @@ class HoverMarker extends Component {
                                 data-tooltip-place="top"/>
                 : <circle r={(this.props.outsideHover || this.state.hover) ? 15 : 7} 
                         fill={this.props.color} 
+                        opacity="80%"
                         // stroke="#fff" 
                         strokeWidth={2} 
                         onMouseEnter={this.onMarkerMouseEnter}
@@ -260,7 +271,7 @@ class MapChart extends Component{
                                  desc={"<center>" + locName + " <br /> " + times + "</center>"}
                                  hoverHook={(isHover) => this.hoverLoc(itemNumber, isHover)}
                                 />
-                ));
+                )).reverse();
 
         return (
             <ComposableMap 
@@ -289,9 +300,9 @@ class MapChart extends Component{
 
                 {allLocMarkers.filter((marker, index) => !this.state.mapLocHover[index])} */}
 
-                {allHomeMarkers}
-
                 {allLocMarkers}
+
+                {allHomeMarkers}
 
             </ZoomableGroup>
             </ComposableMap>
@@ -449,7 +460,9 @@ class FindMe extends Component {
 
                 <Tooltip id="map-tooltip"/>
 
-                {mapChart}
+                <div className="map-wrap">
+                    {mapChart}
+                </div>
 
                 {/* <br/> */}
 
