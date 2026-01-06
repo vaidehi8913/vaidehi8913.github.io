@@ -16,6 +16,9 @@ import minusMainImg from "./img/minus-main.png";
 import minusAltImg from "./img/minus-alt.png";
 import { ReactComponent as HouseIcon } from './img/house.svg';
 
+import { Tooltip } from 'react-tooltip';
+import 'react-tooltip/dist/react-tooltip.css'; // Optional, default styles are injected automatically in v5.13.0+
+
 // suggestion: lightness: [0.35, 0.5, 0.65], saturation: [0.35, 0.5, 0.65]
 const colorHash = new ColorHash({ lightness: [0.5, 0.5, 0.5], saturation: [0.7, 0.7, 0.7] });
 // usage: colorHash.hex(locName + time)
@@ -135,8 +138,7 @@ const uniqueLocationsAndDescriptions = uniqueLocations.map(item => {
     house 
     coords 
     outsideHover
-    descLineOne
-    descLineTwo
+    desc
     color
     key
 */
@@ -157,30 +159,17 @@ class HoverMarker extends Component {
         this.setState({
             hover: true
         });
+        this.props.hoverHook(true);
     }
 
     onMarkerMouseLeave (){
         this.setState({
             hover: false
         });
+        this.props.hoverHook(false);
     }
 
     render () {
-
-        // var lineOne = <tspan x={0} dy="-20px">{this.props.descLineOne}</tspan> ;
-        // var lineTwo = <tspan x={0} dy="-5px">{this.props.descLineTwo}</tspan> ;
-
-        // var descRectangle = <rect fill="rgba(255, 255, 255, 0.5)">
-        //     <text
-        //         textAnchor="middle"
-        //         y={-10}
-        //         // backgroundColor="rgba(255, 255, 255, 0.5)"
-        //         // style={{ fontFamily: "system-ui", fill: "black", stroke:"white", strokeWidth:"1px", fontSize: "24pt" }}
-        //     >
-        //         {lineTwo}
-        //         {lineOne}
-        //     </text>
-        // </rect>;
 
         return(
             <Marker  key={this.props.key} coordinates={this.props.coords}> 
@@ -189,32 +178,25 @@ class HoverMarker extends Component {
                   <HouseIcon fill={this.props.color}
                                 // stroke="#000000"
                                 // stroke-width="3px"
-                                width="20" 
-                                height="20" 
-                                x="-10" 
-                                y="-10" 
+                                width={this.state.hover ? 40 : 20} 
+                                height={this.state.hover ? 40 : 20} 
+                                x={this.state.hover ? -20 : -10} 
+                                y={this.state.hover ? -20 : -10} 
                                 onMouseEnter={this.onMarkerMouseEnter}
-                                onMouseLeave={this.onMarkerMouseLeave}/>
-                : <circle r={this.props.outsideHover ? 15 : 7} 
+                                onMouseLeave={this.onMarkerMouseLeave}
+                                data-tooltip-id="map-tooltip"
+                                data-tooltip-content={this.props.desc}
+                                data-tooltip-place="top"/>
+                : <circle r={(this.props.outsideHover || this.state.hover) ? 15 : 7} 
                         fill={this.props.color} 
                         // stroke="#fff" 
                         strokeWidth={2} 
                         onMouseEnter={this.onMarkerMouseEnter}
-                        onMouseLeave={this.onMarkerMouseLeave}/>
+                        onMouseLeave={this.onMarkerMouseLeave}
+                        data-tooltip-id="map-tooltip"
+                        data-tooltip-html={this.props.desc}
+                        data-tooltip-place="top"/>
                 }
-
-                {this.state.hover ?
-                                <text
-                                    textAnchor="middle"
-                                    y={-10}
-                                    // backgroundColor="rgba(255, 255, 255, 0.5)"
-                                    // style={{ fontFamily: "system-ui", fill: "black", stroke:"white", strokeWidth:"1px", fontSize: "24pt" }}
-                                >
-                                    <tspan x={0} dy="-5px">{this.props.descLineTwo}</tspan>
-                                    <tspan x={0} dy="-20px">{this.props.descLineOne}</tspan>
-                                </text> : null}
-
-                {/* {this.state.hover ? descRectangle : null } */}
 
             </Marker>
         );
@@ -231,7 +213,55 @@ class HoverMarker extends Component {
 */
 class MapChart extends Component{
 
+    constructor(props) {
+        super(props);
+
+        this.state = ({
+            homeHover: this.props.homes.map(() => false),
+            mapLocHover: this.props.locations.map(() => false)
+        });
+
+        this.hoverHome = this.hoverHome.bind(this);
+        this.hoverLoc = this.hoverLoc.bind(this)        
+    }
+
+    hoverHome(index, isHover) {
+        var homeHoverCopy = this.state.homeHover;
+        homeHoverCopy[index] = isHover;
+        this.setState({homeHover: homeHoverCopy});
+    }
+
+    hoverLoc(index, isHover) {
+        var locHoverCopy = this.state.mapLocHover;
+        locHoverCopy[index] = isHover;
+        this.setState({mapLocHover: locHoverCopy});
+    }
+
     render () {
+
+        var allHomeMarkers = this.props.homes.map(({locCoords, locName}, itemNumber) => (
+                    <HoverMarker key={locName + itemNumber + "home"}
+                                 coords={locCoords}
+                                 color={(itemNumber == 0) ? "#000000" : "#b3b3b3"}
+                                 desc={locName}
+                                //  descLineTwo={locName}
+                                 house={true}
+                                 hoverHook={(isHover) => this.hoverHome(itemNumber, isHover)}
+                                 />
+                ));
+
+        var allLocMarkers = this.props.locations.map(({locCoords, locName, times, desc}, itemNumber) => (
+                    <HoverMarker key={locName + itemNumber + "loc"}
+                                 coords={locCoords}
+                                 color={colorHash.hex(locName)}
+                                 outsideHover={this.props.locHover[itemNumber]}
+                                //  descLineOne={locName}
+                                //  descLineTwo={times}
+                                 desc={"<center>" + locName + " <br /> " + times + "</center>"}
+                                 hoverHook={(isHover) => this.hoverLoc(itemNumber, isHover)}
+                                />
+                ));
+
         return (
             <ComposableMap 
                 projection = "geoMercator"
@@ -251,22 +281,17 @@ class MapChart extends Component{
                     }
                 </Geographies>
 
-                {this.props.homes.map(({locCoords, locName}, itemNumber) => (
-                    <HoverMarker key={locName}
-                                 coords={locCoords}
-                                 color={(itemNumber == 0) ? "#000000" : "#b3b3b3"}
-                                 descLineTwo={locName}
-                                 house={true}/>
-                ))}
+                {/* {allHomeMarkers.filter((marker, index) => this.state.homeHover[index])}
 
-                {this.props.locations.map(({locCoords, locName, times, desc}, itemNumber) => (
-                    <HoverMarker key={locName}
-                                 coords={locCoords}
-                                 color={colorHash.hex(locName)}
-                                 outsideHover={this.props.locHover[itemNumber]}
-                                 descLineOne={locName}
-                                 descLineTwo={times}/>
-                ))}
+                {allLocMarkers.filter((marker, index) => this.state.mapLocHover[index])}
+
+                {allHomeMarkers.filter((marker, index) => !this.state.homeHover[index])}
+
+                {allLocMarkers.filter((marker, index) => !this.state.mapLocHover[index])} */}
+
+                {allHomeMarkers}
+
+                {allLocMarkers}
 
             </ZoomableGroup>
             </ComposableMap>
@@ -418,11 +443,32 @@ class FindMe extends Component {
                     
                 </div>
 
-                {locationComps}
+                {/* <div><font size="+2">Find me!</font></div> */}
+                
+                {/* <br/> */}
 
-                <br/>
+                <Tooltip id="map-tooltip"/>
 
                 {mapChart}
+
+                {/* <br/> */}
+
+                {locationComps}
+                
+                {/* <div className="with-dropdown">
+                    <div className="vertical-stack">
+                        {locationComps}
+                    </div>
+
+                    <img src={imgSource} 
+                        alt={altText} 
+                        style={imageStyle} 
+                        onMouseEnter={this.onPlusMouseEnter} 
+                        onMouseLeave={this.onPlusMouseLeave} 
+                        onClick={this.dropDown}/>
+                    
+                </div> */}
+
             </div>
         );
     }

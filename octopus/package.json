@@ -21,6 +21,7 @@
     "react-router-dom": "^6.2.1",
     "react-scripts": "5.0.0",
     "react-simple-maps": "^3.0.0",
+    "react-tooltip": "^5.30.0",
     "save-dev": "^0.0.1-security",
     "web-vitals": "^2.1.4"
   },
