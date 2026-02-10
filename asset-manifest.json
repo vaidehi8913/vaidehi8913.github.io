@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.b43b307d.css",
-    "main.js": "/static/js/main.e28b5dba.js",
+    "main.js": "/static/js/main.52412a8c.js",
     "static/media/slides-LS24.pdf": "/static/media/slides-LS24.770c4325c1646cbe2838.pdf",
     "static/media/slides-OSV22.pdf": "/static/media/slides-OSV22.067bb00bedd4116b8548.pdf",
     "static/media/slides-BESV24.pdf": "/static/media/slides-BESV24.fb5b1f0384d42d1daa81.pdf",
@@ -19,6 +19,7 @@
     "static/media/STOC2024_smoothedanalysis.pdf": "/static/media/STOC2024_smoothedanalysis.36cee46a8630166db120.pdf",
     "static/media/profile.jpg": "/static/media/profile.f6c7ca18d6236af4d509.jpg",
     "static/media/31.png": "/static/media/31.f296dc08832cbc37991c.png",
+    "static/media/slides-GSSV26.pdf": "/static/media/slides-GSSV26.9573c82570ec60ca9787.pdf",
     "static/media/slides-GSSV25a.pdf": "/static/media/slides-GSSV25a.5873a69565c320414444.pdf",
     "static/media/slides-ACDA-tutorial.pdf": "/static/media/slides-ACDA-tutorial.a43482794e5d9341d476.pdf",
     "static/media/slides-ASV25.pdf": "/static/media/slides-ASV25.ef8d1e17a8e91320ec39.pdf",
@@ -28,7 +29,7 @@
     "static/media/SimplerApproximationsForNetworkSteinerTree.pdf": "/static/media/SimplerApproximationsForNetworkSteinerTree.e0fcc1a3644455774343.pdf",
     "static/media/Espresso.png": "/static/media/Espresso.c806ba33c3d6ffe350fa.png",
     "static/media/28.png": "/static/media/28.dfa8a20f04499f9ea951.png",
-    "static/media/slides-Sri26.pdf": "/static/media/slides-Sri26.ab8dcd9a778d49f2c2d9.pdf",
+    "static/media/slides-Sri26.pdf": "/static/media/slides-Sri26.9ac9bea7bc758d04a15e.pdf",
     "static/media/poster-SWXZ22.pdf": "/static/media/poster-SWXZ22.739538bee1a1f7bc5da0.pdf",
     "static/media/profile-old.jpg": "/static/media/profile-old.9117040e118b560723f1.jpg",
     "static/media/profile-alt-original.png": "/static/media/profile-alt-original.f7206ad43bde1187d0c1.png",
@@ -70,10 +71,10 @@
     "static/media/house.svg": "/static/media/house.b9224ccefa8456816ae431ef8a9c1383.svg",
     "index.html": "/index.html",
     "main.b43b307d.css.map": "/static/css/main.b43b307d.css.map",
-    "main.e28b5dba.js.map": "/static/js/main.e28b5dba.js.map"
+    "main.52412a8c.js.map": "/static/js/main.52412a8c.js.map"
   },
   "entrypoints": [
     "static/css/main.b43b307d.css",
-    "static/js/main.e28b5dba.js"
+    "static/js/main.52412a8c.js"
   ]
 }
