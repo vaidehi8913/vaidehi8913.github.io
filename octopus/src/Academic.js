@@ -23,6 +23,7 @@ import ACDAslides from "./files/slides-ACDA-tutorial.pdf";
 import GSSVbposter from "./files/poster-GSSV25b.pdf";
 import FOCSScavHunt from "./files/focs24-scavenger-hunt.pdf";
 import Srislides from "./files/slides-Sri26.pdf";
+import GSSVcslides from "./files/slides-GSSV26.pdf";
 
 import arxivMainImg from "./img/arxiv-main.png";
 import arxivAltImg from "./img/arxiv-alt.png";
@@ -375,7 +376,8 @@ class Academic extends Component {
         var confidenceEllipsoid = 
             <PaperWrapper mainPaperInfo={confidenceEllipsoidPaperMainInfo}
                           paperDescription={confidenceEllipsoidPaperDescription}
-                          arxiv="https://arxiv.org/abs/2512.16875"/>
+                          arxiv="https://arxiv.org/abs/2512.16875"
+                          slides={GSSVcslides}/>
 
         var alsPaperMainInfo = 
             <div> 
