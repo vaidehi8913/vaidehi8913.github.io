@@ -441,12 +441,14 @@ class FindMe extends Component {
     }
 
     render () {
+        var SHORT_LIST_LENGTH = 5;
+
         var locationComps = indexedLocations.map((item) => <LocationItem info={item}
                                                                          mouseEnterHook={this.onItemMouseEnter}
                                                                          mouseLeaveHook={this.onItemMouseLeave} />);
 
         if (!this.state.dropDown) {
-            locationComps = locationComps.slice(0, 3)
+            locationComps = locationComps.slice(0, SHORT_LIST_LENGTH)
         }
 
         
