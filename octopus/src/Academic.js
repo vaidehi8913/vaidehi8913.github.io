@@ -3,7 +3,7 @@ import "./Academic.css";
 // import { useRef } from 'react';
 import FindMe from "./Map";
 
-import CV from "./files/SrinivasCVFall25.pdf";
+import CV from "./files/SrinivasCVSpring26.pdf";
 import SeniorThesis from "./files/SimplerApproximationsForNetworkSteinerTree.pdf";
 import SmoothedStuff from "./files/STOC2024_smoothedanalysis.pdf";
 import seniorthesisslides from "./files/slides-seniorthesis.pdf";
@@ -757,7 +757,7 @@ class Academic extends Component {
                             for <a href="https://focs.computer.org/2024/">FOCS 2024</a>.</p>
                             
                             <p>A more complete list of my projects and interests are in my <a href={CV}><b>CV</b></a> (last 
-                            updated fall 2025).</p> <br/>
+                            updated Spring 2026).</p> <br/>
 
                             {/* I also draw <Link to="/octopus">comics</Link>. Some are even CS related!  */}
 
