@@ -745,6 +745,12 @@ class Academic extends Component {
 
                             <font size="+2">Other</font>
 
+                            <p>I am co-designing and co-teaching a new graduate level class at Northwestern 
+                                on <a href="https://vaidehi8913.github.io/reliable-ml-with-unreliable-black-boxes-spring26/"><b>Reliable Machine 
+                                Learning with Unreliable Black Boxes</b></a>.  The course website
+                                is public if you are interested in following along!
+                            </p>
+
                             <p>I gave part 2 of the <b>Mini-Tutorial on Learning-Augmented 
                             Algorithms</b> at <a href="https://www.siam.org/conferences-events/siam-conferences/acda25/program/program-abstracts/">ACDA 2025</a>.  
                             You can find my slides here: <a href={ACDAslidesWTransitions}>with transitions</a>, <a href={ACDAslides}>and without</a>.</p>
