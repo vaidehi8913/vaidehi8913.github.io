@@ -34,7 +34,11 @@ const homes = [{locName: "Evanston, IL, US",
                {locName: "Palo Alto, CA, US",
                 locCoords: [-122.1430, 37.4419]}];
 
-const locations = [{time: "Feb '26", 
+const locations = [{time: "Jun '26", 
+                    desc: <text><a href="https://learningtheory.org/colt2026/program.html">COLT</a> (Conference on Learning Theory)</text>,
+                    locName: "San Diego, CA, US",
+                    locCoords: [-117.1611, 32.7157]},
+                    {time: "Feb '26", 
                     desc: <text>Georgia Tech ARC Seminar</text>,
                     locName: "Atlanta, GA, US",
                     locCoords: [-84.3885, 33.7501]},
