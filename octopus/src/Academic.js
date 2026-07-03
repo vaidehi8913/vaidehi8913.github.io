@@ -360,7 +360,7 @@ class Academic extends Component {
             <div> 
                 <b>Learning Confidence Ellipsoids and Applications to Robust Subspace Recovery</b> <br/> 
                 <i>with <a href="https://www.stat.uchicago.edu/~chaogao/">Chao Gao</a>, <a href="https://lirenshan.github.io/">Liren Shan</a>, <a href="https://users.cs.northwestern.edu/~aravindv/">Aravindan Vijayaraghavan</a>,</i><br/>
-                preprint. 
+                FOCS 2026. 
             </div>;
 
         var confidenceEllipsoidPaperDescription = 
