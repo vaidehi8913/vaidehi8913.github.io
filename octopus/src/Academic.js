@@ -336,23 +336,28 @@ class Academic extends Component {
         var bio = 
             <div>
                 <p>
+                    I am a METEOR postdoc in Computer Science at MIT, working with <a href="https://www.samuelbhopkins.com/">Sam Hopkins</a> and <a href="https://people.csail.mit.edu/moitra/">Ankur Moitra</a>.
+                </p>
+
+                {/* <p>
                     I am a fifth-year Ph.D. student in the Computer
                     Science <a href= "https://theory.cs.northwestern.edu/">Theory group</a> at Northwestern 
                     University, advised  
                     by <a href="http://users.eecs.northwestern.edu/~aravindv/">Aravindan Vijayaraghavan</a>.    
-                </p>
+                </p> */}
 
                 <PaperWrapper mainPaperInfo={bioMainInfo}
                                 paperDescription={bioDescription}
                                 plusToSide={true}/>
 
                 <p>
-                    Before Northwestern, I was 
+                    I was very lucky to do my Ph.D. at Northwestern University, under the guidance of <a href="http://users.eecs.northwestern.edu/~aravindv/">Aravindan Vijayaraghavan</a>.
+                    Before that, I was 
                     a <a href="https://us.fulbrightonline.org/countries/europe-and-eurasia/austria/255">Fulbright </a> 
                     visiting student at the University of Vienna in 
                     the <a href="https://taa.cs.univie.ac.at">Theory and Applications of Algorithms group</a>, 
                     and I earned my B.S. in Computer Science at Carnegie Mellon University. 
-                    I am grateful to have been supported by the <a href="https://www.tgs.northwestern.edu/funding/fellowships-and-grants/internal-fellowships-grants/presidential-fellowship-winners/fellowship-winners.html">Northwestern Presidential Fellowship</a>. 
+                    {/* I am grateful to have been supported by the <a href="https://www.tgs.northwestern.edu/funding/fellowships-and-grants/internal-fellowships-grants/presidential-fellowship-winners/fellowship-winners.html">Northwestern Presidential Fellowship</a>.  */}
                 </p>
             </div>
 
@@ -660,6 +665,7 @@ class Academic extends Component {
 
                         <div className="name-spacer"/>
                         <div className="email">
+                            vaidehi@mit.edu
                             vaidehi@u.northwestern.edu
                         </div>
 
@@ -669,7 +675,7 @@ class Academic extends Component {
                             <HoverButton imgMain={emailMainImg} 
                                      imgAlt={emailAltImg} 
                                      altText="email"
-                                     link="mailto:vaidehi@u.northwestern.edu"/>
+                                     link="mailto:vaidehi@mit.edu"/>
 
                             <HoverButton imgMain={googleScholarMainImg} 
                                      imgAlt={googleScholarAltImg} 
@@ -745,10 +751,9 @@ class Academic extends Component {
 
                             <font size="+2">Other</font>
 
-                            <p>I am co-designing and co-teaching a new graduate level class at Northwestern 
+                            <p>In Spring 2026, I co-designed and co-taught a new graduate level class at Northwestern 
                                 on <a href="https://vaidehi8913.github.io/reliable-ml-with-unreliable-black-boxes-spring26/"><b>Reliable Machine 
-                                Learning with Unreliable Black Boxes</b></a>.  The course website
-                                is public if you are interested in following along!
+                                Learning with Unreliable Black Boxes</b></a>.
                             </p>
 
                             <p>I gave part 2 of the <b>Mini-Tutorial on Learning-Augmented 

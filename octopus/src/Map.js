@@ -23,7 +23,9 @@ import 'react-tooltip/dist/react-tooltip.css'; // Optional, default styles are i
 const colorHash = new ColorHash({ lightness: [0.5, 0.5, 0.5], saturation: [0.7, 0.7, 0.7] });
 // usage: colorHash.hex(locName + time)
 
-const homes = [{locName: "Evanston, IL, US",
+const homes = [{locName: "Cambridge, MA, US",
+                locCoords: [-71.1057, 42.3666]},
+               {locName: "Evanston, IL, US",
                 locCoords: [-87.6872, 42.0568]},
                {locName: "Vienna, AT",
                 locCoords: [16.3713, 48.2081]},

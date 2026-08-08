@@ -92,7 +92,8 @@ ul {
 .email {
   font-family: monospace;
   font-size: 120%;
-  text-align: center
+  text-align: center;
+  line-height: 1.7
 }
 
 
