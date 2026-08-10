@@ -665,7 +665,7 @@ class Academic extends Component {
 
                         <div className="name-spacer"/>
                         <div className="email">
-                            vaidehi@mit.edu
+                            vaidehi@mit.edu <br/>
                             vaidehi@u.northwestern.edu
                         </div>
 
