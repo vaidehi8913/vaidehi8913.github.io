@@ -1,12 +1,13 @@
 {
   "files": {
     "main.css": "/static/css/main.cd00f2fa.css",
-    "main.js": "/static/js/main.449be826.js",
+    "main.js": "/static/js/main.11454a88.js",
     "static/media/slides-LS24.pdf": "/static/media/slides-LS24.770c4325c1646cbe2838.pdf",
     "static/media/slides-OSV22.pdf": "/static/media/slides-OSV22.067bb00bedd4116b8548.pdf",
     "static/media/slides-BESV24.pdf": "/static/media/slides-BESV24.fb5b1f0384d42d1daa81.pdf",
     "static/media/slides-SB24.pdf": "/static/media/slides-SB24.04b4b6d383ba8a36d21f.pdf",
     "static/media/icons.psd": "/static/media/icons.0b3236dde90044447601.psd",
+    "static/media/srinivas-dissertation.pdf": "/static/media/srinivas-dissertation.7eb637a7b0d8f86274e8.pdf",
     "static/media/poster-LS24.pdf": "/static/media/poster-LS24.d6992a6ed7bfaf554678.pdf",
     "static/media/poster-BESV24.pdf": "/static/media/poster-BESV24.7de25ac1653c39bd7f0a.pdf",
     "static/media/23.gif": "/static/media/23.8c7cd4bc29934cdf2e8d.gif",
@@ -71,10 +72,10 @@
     "static/media/house.svg": "/static/media/house.b9224ccefa8456816ae431ef8a9c1383.svg",
     "index.html": "/index.html",
     "main.cd00f2fa.css.map": "/static/css/main.cd00f2fa.css.map",
-    "main.449be826.js.map": "/static/js/main.449be826.js.map"
+    "main.11454a88.js.map": "/static/js/main.11454a88.js.map"
   },
   "entrypoints": [
     "static/css/main.cd00f2fa.css",
-    "static/js/main.449be826.js"
+    "static/js/main.11454a88.js"
   ]
 }
