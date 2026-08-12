@@ -24,6 +24,7 @@ import GSSVbposter from "./files/poster-GSSV25b.pdf";
 import FOCSScavHunt from "./files/focs24-scavenger-hunt.pdf";
 import Srislides from "./files/slides-Sri26.pdf";
 import GSSVcslides from "./files/slides-GSSV26.pdf";
+import dissertation from "./files/srinivas-dissertation.pdf";
 
 import arxivMainImg from "./img/arxiv-main.png";
 import arxivAltImg from "./img/arxiv-alt.png";
@@ -49,7 +50,6 @@ import cvMainImg from "./img/cv-main.png";
 import cvAltImg from "./img/cv-alt.png";
 import emailMainImg from "./img/email-main.png";
 import emailAltImg from "./img/email-alt.png";
-
 
 
 /*  
@@ -351,7 +351,7 @@ class Academic extends Component {
                                 plusToSide={true}/>
 
                 <p>
-                    I was very lucky to do my Ph.D. at Northwestern University, under the guidance of <a href="http://users.eecs.northwestern.edu/~aravindv/">Aravindan Vijayaraghavan</a>.
+                    I was very lucky to do my Ph.D. <a href={dissertation}>[thesis]</a> in the Northwestern University <a href="https://theory.cs.northwestern.edu/">CS theory group</a>, under the guidance of <a href="http://users.eecs.northwestern.edu/~aravindv/">Aravindan Vijayaraghavan</a>.
                     Before that, I was 
                     a <a href="https://us.fulbrightonline.org/countries/europe-and-eurasia/austria/255">Fulbright </a> 
                     visiting student at the University of Vienna in 
@@ -665,8 +665,8 @@ class Academic extends Component {
 
                         <div className="name-spacer"/>
                         <div className="email">
-                            vaidehi@mit.edu <br/>
-                            vaidehi@u.northwestern.edu
+                            vaidehi@mit.edu 
+                            {/* vaidehi@u.northwestern.edu */}
                         </div>
 
                         <div className="name-spacer"/>
