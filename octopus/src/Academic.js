@@ -351,7 +351,9 @@ class Academic extends Component {
                                 plusToSide={true}/>
 
                 <p>
-                    I was very lucky to do my Ph.D. <a href={dissertation}>[thesis]</a> in the Northwestern University <a href="https://theory.cs.northwestern.edu/">CS theory group</a>, under the guidance of <a href="http://users.eecs.northwestern.edu/~aravindv/">Aravindan Vijayaraghavan</a>.
+                    I was very lucky to do my <a href={dissertation}>Ph.D.</a> in 
+                    the <a href="https://theory.cs.northwestern.edu/">CS theory group</a> at 
+                    Northwestern University, under the guidance of <a href="http://users.eecs.northwestern.edu/~aravindv/">Aravindan Vijayaraghavan</a>.
                     Before that, I was 
                     a <a href="https://us.fulbrightonline.org/countries/europe-and-eurasia/austria/255">Fulbright </a> 
                     visiting student at the University of Vienna in 
@@ -750,6 +752,9 @@ class Academic extends Component {
                             <br/><br/>
 
                             <font size="+2">Other</font>
+                            <p>
+                                In Summer 2026 I completed my Ph.D.! He is my <a href={dissertation}>dissertation</a> on <i>Reliably Extracting Value from Unreliable Black-Box Models</i>.
+                            </p>
 
                             <p>In Spring 2026, I co-designed and co-taught a new graduate level class at Northwestern 
                                 on <a href="https://vaidehi8913.github.io/reliable-ml-with-unreliable-black-boxes-spring26/"><b>Reliable Machine 
